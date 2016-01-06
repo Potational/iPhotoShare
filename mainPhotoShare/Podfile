@@ -1,0 +1,6 @@
+platform :ios,"8.0"
+pod 'OpenCV','2.4.9'
+use_frameworks!
+pod 'Alamofire'
+pod "Former"
+pod 'Eureka', '~> 1.2'

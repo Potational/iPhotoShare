@@ -1,0 +1,19 @@
+PODS:
+  - Alamofire (3.1.3)
+  - Eureka (1.2.0)
+  - Former (1.1.0)
+  - OpenCV (2.4.9)
+
+DEPENDENCIES:
+  - Alamofire
+  - Eureka (~> 1.2)
+  - Former
+  - OpenCV (= 2.4.9)
+
+SPEC CHECKSUMS:
+  Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
+  Eureka: aa7059d2a30e1b206a581f0aabfcf903ece6beae
+  Former: 5b2ac5acdc8b059e1346d048c26a9d5dbd751c55
+  OpenCV: bb17904e55fc19b1f0f6c3e29bc04a7dd31eddb9
+
+COCOAPODS: 0.39.0
