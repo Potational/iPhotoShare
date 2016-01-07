@@ -14,6 +14,7 @@ class LoadSelectViewController: UIViewController {
         super.viewDidLoad()
         print("LoadSelectViewController")
      
+        title = "Join"
         // Do any additional setup after loading the view.
     }
 

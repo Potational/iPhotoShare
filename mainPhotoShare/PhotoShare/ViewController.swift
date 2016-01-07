@@ -17,9 +17,11 @@ class ViewController: UIViewController {
         let v = EventsTableViewController(nibName:"EventsTableViewController",bundle: nil)
         self.navigationController?.pushViewController(v, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "PhotoShare"
         nowViewController = self
         print(__FUNCTION__)
         
@@ -42,6 +44,36 @@ class ViewController: UIViewController {
     func tryLogin() {
       
         LOGIN_WITH_EMAIL()
+        
+    }
+    @IBAction func join(sender: UIButton) {
+        let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
+        a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
+            self.performSegueWithIdentifier("JoinQR", sender: nil)
+        }))
+        a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in
+//            self.performSegueWithIdentifier("JoinURL", sender: nil)
+            let urlAlert = UIAlertController(title: "URL入力", message: nil, preferredStyle: .Alert)
+            
+            urlAlert.addTextFieldWithConfigurationHandler({ (urlField) -> Void in
+                urlField.keyboardType = .URL
+                
+            })
+            urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
+                let url = urlAlert.textFields?[0].text
+                print(url)
+                self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
+                
+            }))
+            urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            
+            self.presentViewController(urlAlert, animated: true, completion: nil)
+            
+        }))
+        
+        a.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+        
+        presentViewController(a, animated: true, completion: nil)
         
     }
     

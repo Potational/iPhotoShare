@@ -20,6 +20,7 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "Download"
     }
     
     override func viewWillAppear(animated: Bool) {
