@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -18,26 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-AG-w1j">
-                                <rect key="frame" x="165" y="28" width="270" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-AG-w1j">
+                                <rect key="frame" x="145" y="28" width="311" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="RXO-Q7-9xo"/>
-                                    <constraint firstAttribute="height" constant="80" id="oOL-Hv-rpL"/>
+                                    <constraint firstAttribute="width" constant="311" id="lQn-ND-737"/>
                                 </constraints>
-                                <state key="normal" title="NEW">
+                                <state key="normal" image="NewButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="NewRoomCreate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mnl-Fw-paX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-rc-xZK">
-                                <rect key="frame" x="165" y="116" width="270" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="5H6-AF-NKU"/>
-                                    <constraint firstAttribute="width" constant="270" id="JcW-53-16b"/>
-                                </constraints>
-                                <state key="normal" title="JOIN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-rc-xZK">
+                                <rect key="frame" x="145" y="116" width="311" height="80"/>
+                                <state key="normal" image="JoinButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -45,13 +40,12 @@
                                     <segue destination="AMN-Xr-es7" kind="show" id="1wq-zP-1Yu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-M6-CZJ">
-                                <rect key="frame" x="165" y="204" width="270" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-M6-CZJ">
+                                <rect key="frame" x="136" y="204" width="328" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="DXO-zM-8Wb"/>
-                                    <constraint firstAttribute="height" constant="80" id="ObA-Vw-PGh"/>
+                                    <constraint firstAttribute="width" constant="328" id="Rit-Ye-YqN"/>
                                 </constraints>
-                                <state key="normal" title="SHARE">
+                                <state key="normal" image="ShareButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -69,14 +63,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.7967277930923724" green="1" blue="0.63055732834096023" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="9iK-uR-N4b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FmD-TH-Hxg"/>
-                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="top" secondItem="aG1-rc-xZK" secondAttribute="bottom" constant="8" id="NvX-3M-1qQ"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OVX-w9-tRz"/>
-                            <constraint firstItem="17V-AG-w1j" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="bm1-Ho-n30"/>
-                            <constraint firstItem="17V-AG-w1j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="he1-6G-l1T"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="top" secondItem="17V-AG-w1j" secondAttribute="bottom" constant="8" id="nPh-Sh-DL7"/>
-                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uV8-gc-HPH"/>
-                            <constraint firstItem="9iK-uR-N4b" firstAttribute="top" secondItem="uWf-M6-CZJ" secondAttribute="bottom" constant="75" id="uur-AH-isO"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="top" secondItem="aG1-rc-xZK" secondAttribute="bottom" constant="8" symbolic="YES" id="7Dc-lR-2fW"/>
+                            <constraint firstItem="9iK-uR-N4b" firstAttribute="top" secondItem="uWf-M6-CZJ" secondAttribute="bottom" constant="75" id="9No-fz-ABP"/>
+                            <constraint firstItem="17V-AG-w1j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9v3-cY-U2q"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="leading" secondItem="17V-AG-w1j" secondAttribute="leading" id="ArW-dE-vdw"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="uWf-M6-CZJ" secondAttribute="centerX" id="JQc-oj-YHh"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="centerX" secondItem="9iK-uR-N4b" secondAttribute="centerX" id="SU5-Q7-g5m"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="top" secondItem="17V-AG-w1j" secondAttribute="bottom" constant="8" symbolic="YES" id="bYz-rr-0la"/>
+                            <constraint firstItem="17V-AG-w1j" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="gaS-ih-D6q"/>
+                            <constraint firstItem="17V-AG-w1j" firstAttribute="trailing" secondItem="aG1-rc-xZK" secondAttribute="trailing" id="ppv-g1-lWU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -615,6 +610,11 @@
             <point key="canvasLocation" x="2929" y="-509"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="JoinButton" width="270" height="80"/>
+        <image name="NewButton" width="270" height="80"/>
+        <image name="ShareButton" width="270" height="80"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xkl-4E-WYC"/>
         <segue reference="2fm-9a-OJo"/>

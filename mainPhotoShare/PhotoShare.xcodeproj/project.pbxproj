@@ -486,6 +486,7 @@
 				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
+				64D6FDB81BC772010052DFB7 /* Main.storyboard */,
 				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
 				64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */,
 				64A2AF6E1C06CF710085319B /* Entity.swift */,
@@ -510,7 +511,6 @@
 				642DE3871BC4FCFE003D63EF /* URLViewController.swift */,
 				F064AB651BBBDCE700B04AA2 /* Images.xcassets */,
 				F064AB671BBBDCE700B04AA2 /* LaunchScreen.xib */,
-				64D6FDB81BC772010052DFB7 /* Main.storyboard */,
 				F064AB5C1BBBDCE700B04AA2 /* Supporting Files */,
 				640BA1011C0222EB00FCD376 /* PhotoShare-Bridging-Header.h */,
 				64A2AF6A1C06CED50085319B /* CoreDataModel.xcdatamodeld */,
@@ -599,7 +599,7 @@
 				TargetAttributes = {
 					F064AB581BBBDCE700B04AA2 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = XYS7P6DL6Y;
+						DevelopmentTeam = RGHN9JB5CQ;
 					};
 					F064AB6D1BBBDCE700B04AA2 = {
 						CreatedOnToolsVersion = 6.2;
