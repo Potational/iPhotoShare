@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "1332_JoinButtonx1.png",
+      "filename" : "Join5.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "1333_JoinButtonx2.png",
+      "filename" : "Join5-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "JoinButtonx3.png",
+      "filename" : "Join5-2.png",
       "scale" : "3x"
     }
   ],

@@ -18,10 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DeskTop" translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-rp-cmR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-AG-w1j">
-                                <rect key="frame" x="145" y="172" width="311" height="80"/>
+                                <rect key="frame" x="145" y="157" width="310" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="311" id="JnL-xf-luK"/>
+                                    <constraint firstAttribute="height" constant="90" id="fdj-Yy-XfC"/>
+                                    <constraint firstAttribute="width" constant="310" id="oU9-vv-k7S"/>
                                 </constraints>
                                 <state key="normal" image="NewButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,7 +35,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-rc-xZK">
-                                <rect key="frame" x="145" y="260" width="311" height="80"/>
+                                <rect key="frame" x="145" y="255" width="310" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="Lea-bO-P3C"/>
+                                    <constraint firstAttribute="width" constant="310" id="tyj-PJ-EXq"/>
+                                </constraints>
                                 <state key="normal" image="JoinButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -40,17 +48,11 @@
                                     <action selector="myResumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W98-LW-xcb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
-                                <rect key="frame" x="255" y="550" width="90" height="30"/>
-                                <state key="normal" title="イベント一覧"/>
-                                <connections>
-                                    <action selector="showEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glc-ys-g3Y"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-M6-CZJ">
-                                <rect key="frame" x="136" y="348" width="328" height="80"/>
+                                <rect key="frame" x="145" y="353" width="310" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="328" id="ePF-P5-daC"/>
+                                    <constraint firstAttribute="height" constant="90" id="Dwj-4k-lLZ"/>
+                                    <constraint firstAttribute="width" constant="310" id="TYZ-iF-QAO"/>
                                 </constraints>
                                 <state key="normal" image="ShareButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,18 +62,26 @@
                                     <segue destination="sFu-k5-PGz" kind="show" id="1hT-Mh-wnp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
+                                <rect key="frame" x="255" y="550" width="90" height="30"/>
+                                <state key="normal" title="イベント一覧"/>
+                                <connections>
+                                    <action selector="showEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glc-ys-g3Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7967277930923724" green="1" blue="0.63055732834096023" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="centerX" secondItem="9iK-uR-N4b" secondAttribute="centerX" id="4gl-3V-rby"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="uWf-M6-CZJ" secondAttribute="centerX" id="8E4-Nd-soV"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="top" secondItem="17V-AG-w1j" secondAttribute="bottom" constant="8" id="DGs-Vb-0B9"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KfN-zT-rC0"/>
-                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="top" secondItem="aG1-rc-xZK" secondAttribute="bottom" constant="8" id="U9b-lB-Fdp"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="leading" secondItem="17V-AG-w1j" secondAttribute="leading" id="XwU-rW-IYj"/>
-                            <constraint firstAttribute="bottom" secondItem="9iK-uR-N4b" secondAttribute="bottom" constant="20" symbolic="YES" id="at3-5R-Ihz"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="trailing" secondItem="17V-AG-w1j" secondAttribute="trailing" id="vTf-mP-nzg"/>
-                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yxE-V2-eLF"/>
+                            <constraint firstItem="Cp6-rp-cmR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="6tt-rs-uYZ"/>
+                            <constraint firstItem="17V-AG-w1j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AIx-m1-W5v"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cp6-rp-cmR" secondAttribute="bottom" id="CGy-wC-Rnv"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="top" secondItem="aG1-rc-xZK" secondAttribute="bottom" constant="8" id="IYx-J0-ea6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cp6-rp-cmR" secondAttribute="trailing" constant="-20" id="Keq-OY-Hj0"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VkP-D3-X2s"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="top" secondItem="17V-AG-w1j" secondAttribute="bottom" constant="8" id="hqR-72-meH"/>
+                            <constraint firstItem="Cp6-rp-cmR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="lKv-JQ-d2h"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mCh-dn-rOE"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uhd-eI-ctA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -618,9 +628,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="JoinButton" width="270" height="80"/>
-        <image name="NewButton" width="270" height="80"/>
-        <image name="ShareButton" width="270" height="80"/>
+        <image name="DeskTop" width="750" height="1334"/>
+        <image name="JoinButton" width="810" height="240"/>
+        <image name="NewButton" width="810" height="240"/>
+        <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0tJ-cM-dT9"/>
