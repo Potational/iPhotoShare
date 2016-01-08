@@ -18,11 +18,11 @@ class LoginViewController: FormViewController {
         form +++= Section()
             <<< EmailRow("email") {
                 $0.title = "Email"
-                $0.value = "syaorann200614567@gmail.com"
+                $0.value = ""
             }
             <<< PasswordRow("password"){
                 $0.title = "Password"
-                $0.value = "43215632"
+                $0.value = ""
             }
             <<< ButtonRow("submit") {
                 $0.title = "LOGIN"
