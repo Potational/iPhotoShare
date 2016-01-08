@@ -382,6 +382,7 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         
         let event_id = AppDelegate.noweventid ?? Defaults.last_event_id
         
+        print("event id : \(event_id)")
         GET_TOKEN(true){newtoken in
             
             mgr.upload(.POST, URL("/photo"),

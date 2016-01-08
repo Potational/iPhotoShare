@@ -87,10 +87,16 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         mySession.startRunning()
     }
     
+    var qrRead = false
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        qrRead = false
+    }
     // Meta情報を検出際に呼ばれるdelegate.
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
-        if metadataObjects.count > 0 {
+        if qrRead == false && (metadataObjects.count > 0) {
+            qrRead = true
             let qrData: AVMetadataMachineReadableCodeObject  = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 //            読み込んだデータの種類
             print("\(qrData.type)")
