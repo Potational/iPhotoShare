@@ -160,8 +160,11 @@ class RoomCreateViewController: FormViewController {
                 .responseJSON{ [weak self] res in
                     
                     //write event to locale
-                    self?.save_new_room_data(res.result.value!)
-                    
+//                    self?.save_new_room_data(res.result.value!)
+                    //
+                    print(res)
+                    Defaults.last_event_id = JSON(res.result.value ?? [])["id"].stringValue
+                    self?.goToCamera()
             }
             
         })
