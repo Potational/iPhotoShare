@@ -14,7 +14,9 @@ build/
  
 #!xcuserdata/
 #*.xcuserstate
-UserInterfaceState.xcuserstate
+#UserInterfaceState.xcuserstate
+
+xcuserdata/
  
 # Windows image thumbnail file
 Thumbs.db
