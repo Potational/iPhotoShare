@@ -53,6 +53,7 @@
 		64E6FBCD1BD0BCE000E64DE7 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBBF1BD0BCE000E64DE7 /* Upload.swift */; };
 		64E6FBCE1BD0BCE000E64DE7 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBC01BD0BCE000E64DE7 /* Validation.swift */; };
 		64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F8B4B01BF429E300DD1D7A /* OnFlash.png */; };
+		990645381C40281900DE8985 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 990645371C40281900DE8985 /* .gitignore */; };
 		993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482521C0FCF6E00387491 /* EventsTableViewController.swift */; };
 		993482551C0FCF6E00387491 /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993482531C0FCF6E00387491 /* EventsTableViewController.xib */; };
 		993482581C0FCFD600387491 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482561C0FCFD600387491 /* EventTableViewCell.swift */; };
@@ -188,6 +189,7 @@
 		64E6FBBF1BD0BCE000E64DE7 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		64E6FBC01BD0BCE000E64DE7 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		64F8B4B01BF429E300DD1D7A /* OnFlash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnFlash.png; sourceTree = "<group>"; };
+		990645371C40281900DE8985 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		993482521C0FCF6E00387491 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		993482531C0FCF6E00387491 /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
 		993482561C0FCFD600387491 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		F064AB501BBBDCE700B04AA2 = {
 			isa = PBXGroup;
 			children = (
+				990645371C40281900DE8985 /* .gitignore */,
 				99DDBA9D1C0FC7AF001DE952 /* Realm.framework */,
 				99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */,
 				F064AB5B1BBBDCE700B04AA2 /* PhotoShare */,
@@ -599,7 +602,7 @@
 				TargetAttributes = {
 					F064AB581BBBDCE700B04AA2 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = XYS7P6DL6Y;
+						DevelopmentTeam = RGHN9JB5CQ;
 					};
 					F064AB6D1BBBDCE700B04AA2 = {
 						CreatedOnToolsVersion = 6.2;
@@ -641,6 +644,7 @@
 				993482551C0FCF6E00387491 /* EventsTableViewController.xib in Resources */,
 				F064AB691BBBDCE700B04AA2 /* LaunchScreen.xib in Resources */,
 				64A2AF7A1C0821F10085319B /* 180x180.png in Resources */,
+				990645381C40281900DE8985 /* .gitignore in Resources */,
 				64A2AF791C0821F10085319B /* 120x120.png in Resources */,
 				64A2AF891C08313A0085319B /* iphone6 2x.png in Resources */,
 				64A2AF8A1C08313A0085319B /* iphone6 p 3x.png in Resources */,
