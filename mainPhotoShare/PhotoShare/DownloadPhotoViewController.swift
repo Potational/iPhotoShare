@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Accounts
 
 class DownloadPhotoViewController: UIViewController {
 
@@ -17,7 +18,63 @@ class DownloadPhotoViewController: UIViewController {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
         
+        //ロングプレスジェスチャー
+        let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
+        //ジェスチャーの追加
+        self.view.addGestureRecognizer(longPG)
         // Do any additional setup after loading the view.
+    }
+    
+    func doGesture(gesture:UIGestureRecognizer){
+        if let longPressGesture = gesture as? UILongPressGestureRecognizer{
+            longPress(longPressGesture)
+        }
+    }
+    
+    //ジェスチャー処理中身
+    private func longPress(gesture:UILongPressGestureRecognizer){
+        
+        if gesture.state != .Began{
+            return
+        }
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            }) { (finished) -> Void in
+                
+                
+                // 共有する項目
+                let shareImage =  self.downloadPhotoView.image
+                
+                
+                // 初期化処理
+                let activityVC = UIActivityViewController(activityItems: [shareImage!], applicationActivities: nil)
+                
+                // 使用しないアクティビティタイプ
+                let excludedActivityTypes = [
+                  UIActivityTypeMail,
+                    UIActivityTypeMessage,
+                    UIActivityTypePrint,
+                    UIActivityTypeCopyToPasteboard,
+                    UIActivityTypeAssignToContact,
+                    UIActivityTypeAddToReadingList,
+                    UIActivityTypePostToFlickr,
+                    UIActivityTypePostToVimeo,
+                    UIActivityTypePostToWeibo,
+                    UIActivityTypePostToTencentWeibo
+                ]
+                
+                activityVC.excludedActivityTypes = excludedActivityTypes
+                
+                // UIActivityViewControllerを表示
+                self.presentViewController(activityVC, animated: true, completion: nil)
+                
+                
+                
+                
+                
+                
+                
+        }
     }
 
     override func didReceiveMemoryWarning() {

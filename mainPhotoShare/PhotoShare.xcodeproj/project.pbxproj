@@ -12,6 +12,7 @@
 		325052471C2A984400360F4B /* DownloadDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325052461C2A984400360F4B /* DownloadDetailCollectionViewCell.swift */; };
 		32A11D351C2F1ED600DE097A /* DownloadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */; };
 		32D2775B1C1FD8A7000026C7 /* DownloadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D2775A1C1FD8A7000026C7 /* DownloadDetailViewController.swift */; };
+		64076A0E1C3F7FE9002994FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64076A0D1C3F7FE9002994FD /* Main.storyboard */; };
 		640BA0FE1C02193400FCD376 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640BA0FD1C02193400FCD376 /* CameraUtil.swift */; };
 		640BA1001C02225100FCD376 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */; };
 		640BA1031C0222EB00FCD376 /* Detector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 640BA1021C0222EB00FCD376 /* Detector.mm */; };
@@ -30,7 +31,6 @@
 		64A2AF881C08313A0085319B /* iphone5 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF841C08313A0085319B /* iphone5 2x.png */; };
 		64A2AF891C08313A0085319B /* iphone6 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF851C08313A0085319B /* iphone6 2x.png */; };
 		64A2AF8A1C08313A0085319B /* iphone6 p 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF861C08313A0085319B /* iphone6 p 3x.png */; };
-		64D6FDBA1BC772020052DFB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64D6FDB81BC772010052DFB7 /* Main.storyboard */; };
 		64D6FDBC1BC77F2E0052DFB7 /* LoadQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */; };
 		64D6FDBE1BC78EA50052DFB7 /* LoadUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */; };
 		64E6FBA41BCE34BC00E64DE7 /* SaveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBA31BCE34BC00E64DE7 /* SaveQRViewController.swift */; };
@@ -143,6 +143,7 @@
 		32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPhotoViewController.swift; sourceTree = "<group>"; };
 		32D2775A1C1FD8A7000026C7 /* DownloadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadDetailViewController.swift; sourceTree = "<group>"; };
 		5D74EE21E63C15274CF2E565 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		64076A0D1C3F7FE9002994FD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		640BA0FD1C02193400FCD376 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
 		640BA1011C0222EB00FCD376 /* PhotoShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoShare-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -163,7 +164,6 @@
 		64A2AF841C08313A0085319B /* iphone5 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5 2x.png"; sourceTree = "<group>"; };
 		64A2AF851C08313A0085319B /* iphone6 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6 2x.png"; sourceTree = "<group>"; };
 		64A2AF861C08313A0085319B /* iphone6 p 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6 p 3x.png"; sourceTree = "<group>"; };
-		64D6FDB91BC772020052DFB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadQRViewController.swift; sourceTree = "<group>"; };
 		64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadUrlViewController.swift; sourceTree = "<group>"; };
 		64E6FBA31BCE34BC00E64DE7 /* SaveQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveQRViewController.swift; sourceTree = "<group>"; };
@@ -486,9 +486,9 @@
 				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
-				64D6FDB81BC772010052DFB7 /* Main.storyboard */,
 				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
 				64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */,
+				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
 				64A2AF6E1C06CF710085319B /* Entity.swift */,
 				F0EF98AA1BBC1B7500850DBA /* CamController.swift */,
 				640BA1021C0222EB00FCD376 /* Detector.mm */,
@@ -635,8 +635,8 @@
 				64A2AF881C08313A0085319B /* iphone5 2x.png in Resources */,
 				640BA1001C02225100FCD376 /* haarcascade_frontalface_alt.xml in Resources */,
 				64A2AF871C08313A0085319B /* iphone4s.png in Resources */,
-				64D6FDBA1BC772020052DFB7 /* Main.storyboard in Resources */,
 				64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */,
+				64076A0E1C3F7FE9002994FD /* Main.storyboard in Resources */,
 				993482591C0FCFD600387491 /* EventTableViewCell.xib in Resources */,
 				993482551C0FCF6E00387491 /* EventsTableViewController.xib in Resources */,
 				F064AB691BBBDCE700B04AA2 /* LaunchScreen.xib in Resources */,
@@ -813,14 +813,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		64D6FDB81BC772010052DFB7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				64D6FDB91BC772020052DFB7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F064AB671BBBDCE700B04AA2 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
