@@ -131,8 +131,6 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         // セッションの作成.
         mySession = AVCaptureSession()
         
-        
-        
         // バックカメラからVideoInputを取得.
         let videoInput: AVCaptureInput!
         do {
