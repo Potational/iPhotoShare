@@ -58,7 +58,7 @@ public class TextView: UITextView {
 	}
 	
 	/// A property that accesses the layer.frame.origin.x property.
-	public var x: CGFloat {
+override	public var x: CGFloat {
 		get {
 			return layer.frame.origin.x
 		}
@@ -68,7 +68,7 @@ public class TextView: UITextView {
 	}
 	
 	/// A property that accesses the layer.frame.origin.y property.
-	public var y: CGFloat {
+override	public var y: CGFloat {
 		get {
 			return layer.frame.origin.y
 		}

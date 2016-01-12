@@ -118,7 +118,7 @@ public class CaptureView : MaterialView, UIGestureRecognizerDelegate {
 	/**
 	:name:	captureMode
 	*/
-	public lazy var captureMode: CaptureMode = .Video
+	public lazy var captureMode: CaptureMode = .Photo
 	
 	/**
 	:name:	tapToFocusEnabled

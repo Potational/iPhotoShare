@@ -386,7 +386,7 @@ public class CaptureSession : NSObject, AVCaptureFileOutputRecordingDelegate {
 	:name:	init
 	*/
 	public override init() {
-		sessionPreset = .PresetHigh
+		sessionPreset = .PresetPhoto
 		super.init()
 		prepareSession()
 	}

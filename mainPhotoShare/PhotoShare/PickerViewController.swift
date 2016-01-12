@@ -52,22 +52,16 @@ class PickerViewController: UIImagePickerController , UIImagePickerControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-    //
-    //        self.saveLocal(image)
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //
-    //    }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
-        saveLocal(img)
+        localSaveThenUpload(img)
         
     }
     
     
     //    写真の保存（ローカルストレージ）
-    func saveLocal(getUIImage: UIImage ){
+    func localSaveThenUpload(getUIImage: UIImage ){
         
         let imageSaveFullPath = localSave(getUIImage)
         

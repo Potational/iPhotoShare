@@ -108,7 +108,8 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
                 
                 
 //                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
-                self.performSegueWithIdentifier("qr-pvc", sender: nil)
+//                self.performSegueWithIdentifier("qr-pvc", sender: nil)
+                self.performSegueWithIdentifier("to_material_picker", sender: nil)
                 
                 let soundIdRing:SystemSoundID = 1000
                 
@@ -120,16 +121,24 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     }
     
     func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
-        
+        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
         url = url + "?mobile=1"
+        
+        print(__FUNCTION__,url)
+        //822a5ac9-1659-3013-8a14-54e69ddb
         mgr.request(.GET, url)
         .responseJSON { (res) -> Void in
-
-            print(res.result.value)
-            done?(res.result.value)
             
             let j = JSON(res.result.value ?? [])
-            Defaults.last_event_id = j["event","id"].stringValue
+            
+            if j["joined"].boolValue {//joined ok
+                Defaults.last_event_id = j["event","id"].stringValue
+                print(res.result.value)
+                done?(res.result.value)
+            }else{
+                self.alert(j["note"].stringValue, message: nil)
+            }
+            
         }
         .responseString { (res) -> Void in
             print(res)
