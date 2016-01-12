@@ -380,17 +380,21 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
 //        let senddata = NSMutableDictionary()
 //        let appd:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         
-        let event_id = AppDelegate.noweventid ?? Defaults.last_event_id
+        let event_id = Defaults.last_event_id ?? AppDelegate.noweventid
         
-        print("event id : \(event_id)")
+        print("event id : \(event_id!)")
         GET_TOKEN(true){newtoken in
             
-            mgr.upload(.POST, URL("/photo"),
+            mgr.upload(.POST, URL("photo"),
                 
                 multipartFormData: { multipartFormData in
                     multipartFormData.appendBodyPart(fileURL: dataURLPath, name: "userfile[]")
                     
+                    print(event_id!)
                     let eventid = event_id?.dataUsingEncoding(NSUTF8StringEncoding)
+                    
+                    print(eventid!)
+                    
                     multipartFormData.appendBodyPart(data: eventid!,name:"event_id")
                     
                     let gid = "8".dataUsingEncoding(NSUTF8StringEncoding)
@@ -402,6 +406,8 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
                     let token = newtoken.dataUsingEncoding(NSUTF8StringEncoding)
                     multipartFormData.appendBodyPart(data: token!,name:"_token")
                     
+
+                    
                 },encodingCompletion: { encodingResult in
                     switch encodingResult {
                     case .Success(let upload, _, _):
@@ -409,7 +415,7 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
                             debugPrint(response)
                         }
                     case .Failure(let encodingError):
-                        print(encodingError)
+                        debugPrint(encodingError)
                     }
             })
         }

@@ -200,7 +200,7 @@ func GET_TOKEN(refresh:Bool = false, complete: ((token:String) -> Void)? = nil) 
 
 
 
-let BASE_URL = "http://www.photoshare.space"
+let BASE_URL = "https://www.photoshare.space"
 var GLO_PARAMS : [String:String] = ["mobile":"1"]
 //    {
 //get{
