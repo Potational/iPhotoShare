@@ -81,11 +81,14 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             qrRead = true
             let qrData: AVMetadataMachineReadableCodeObject  = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 //            読み込んだデータの種類
-            print("\(qrData.type)")
+//            print("\(qrData.type)")
 //            読み込んだ文字データ
-            print("QR URL : \(qrData.stringValue)")
+
         
             let url = qrData.stringValue
+            
+            print("QR URL : \(url)")
+            
             joinLink(url) {
                 
                 result in

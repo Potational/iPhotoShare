@@ -34,7 +34,7 @@ class ViewController: UIViewController
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = color
         
-        tryLogin()
+        LOGIN_WITH_EMAIL()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -44,16 +44,15 @@ class ViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    func tryLogin() {
-        
-        LOGIN_WITH_EMAIL()
-        
-    }
     @IBAction func join(sender: UIButton) {
         let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
+        
+        //qr画面へ
         a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
+            //to LOADQR View Controller
             self.performSegueWithIdentifier("JoinQR", sender: nil)
         }))
+        //url入力popup show
         a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in
             //            self.performSegueWithIdentifier("JoinURL", sender: nil)
             let urlAlert = UIAlertController(title: "URL入力", message: nil, preferredStyle: .Alert)
@@ -62,6 +61,7 @@ class ViewController: UIViewController
                 urlField.keyboardType = .URL
                 
             })
+            
             urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
                 let url = urlAlert.textFields?[0].text
                 
