@@ -54,6 +54,7 @@
 		64E6FBCE1BD0BCE000E64DE7 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBC01BD0BCE000E64DE7 /* Validation.swift */; };
 		64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F8B4B01BF429E300DD1D7A /* OnFlash.png */; };
 		990645381C40281900DE8985 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 990645371C40281900DE8985 /* .gitignore */; };
+		993332D51C44D80800ADAA1D /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993332D41C44D80800ADAA1D /* PickerViewController.swift */; };
 		993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482521C0FCF6E00387491 /* EventsTableViewController.swift */; };
 		993482551C0FCF6E00387491 /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993482531C0FCF6E00387491 /* EventsTableViewController.xib */; };
 		993482581C0FCFD600387491 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482561C0FCFD600387491 /* EventTableViewCell.swift */; };
@@ -190,6 +191,7 @@
 		64E6FBC01BD0BCE000E64DE7 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		64F8B4B01BF429E300DD1D7A /* OnFlash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnFlash.png; sourceTree = "<group>"; };
 		990645371C40281900DE8985 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		993332D41C44D80800ADAA1D /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		993482521C0FCF6E00387491 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		993482531C0FCF6E00387491 /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
 		993482561C0FCFD600387491 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
 				64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */,
 				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
+				993332D41C44D80800ADAA1D /* PickerViewController.swift */,
 				64A2AF6E1C06CF710085319B /* Entity.swift */,
 				F0EF98AA1BBC1B7500850DBA /* CamController.swift */,
 				640BA1021C0222EB00FCD376 /* Detector.mm */,
@@ -794,6 +797,7 @@
 				99BCA1911C0F8214008B7A63 /* BlockTap.swift in Sources */,
 				99BCA19D1C0F8214008B7A63 /* UIButtonExtensions.swift in Sources */,
 				64E6FBCC1BD0BCE000E64DE7 /* Stream.swift in Sources */,
+				993332D51C44D80800ADAA1D /* PickerViewController.swift in Sources */,
 				640BA1031C0222EB00FCD376 /* Detector.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

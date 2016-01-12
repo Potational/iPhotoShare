@@ -10,8 +10,9 @@ import UIKit
 
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
+    @IBOutlet weak var bgImageView: UIImageView!
     
     @IBAction func showEvents(sender: AnyObject) {
         let v = EventsTableViewController(nibName:"EventsTableViewController",bundle: nil)
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
     }
     
     func tryLogin() {
-      
+        
         LOGIN_WITH_EMAIL()
         
     }
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
             self.performSegueWithIdentifier("JoinQR", sender: nil)
         }))
         a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in
-//            self.performSegueWithIdentifier("JoinURL", sender: nil)
+            //            self.performSegueWithIdentifier("JoinURL", sender: nil)
             let urlAlert = UIAlertController(title: "URL入力", message: nil, preferredStyle: .Alert)
             
             urlAlert.addTextFieldWithConfigurationHandler({ (urlField) -> Void in
@@ -83,6 +84,27 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(v, animated: true)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "Picker" {
+            print ("Picker")
+            let des = segue.destinationViewController as! PickerViewController
+            des.delegate  = self
+            
+        }
+    }
+    
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    
+        print(image)
+        
+        self.bgImageView.image = image
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     @IBAction func myResumeButton(sender: AnyObject) {
         
