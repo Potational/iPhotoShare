@@ -88,7 +88,7 @@ class EventsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-                Defaults.last_event_id = events[indexPath.row]["id"].string
+        //        Defaults.last_event_id = events[indexPath.row]["id"].string
         //        AppDelegate.noweventid = Defaults.last_event_id
         
         Event.new(events[indexPath.row].dictionaryObject!){
