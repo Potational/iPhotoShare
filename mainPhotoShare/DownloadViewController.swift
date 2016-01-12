@@ -19,8 +19,47 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let myBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "onClickMyButton:")
+        
+        // Barの右に配置するボタンを配列に格納する.
+        let myRightButtons: NSArray = [myBarButton]
+        
+        // NavigationBarを取得する.
+        self.navigationController?.navigationBar
+        
+        // NavigationBarの表示する.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        // Barの右側に複数配置する.
+        self.navigationItem.setRightBarButtonItems(myRightButtons as! [UIBarButtonItem], animated: true)
+        
+        
         // Do any additional setup after loading the view.
-        title = "Download"
+    }
+    
+    internal func onClickMyButton(sender: UIButton){
+        let alertController = UIAlertController(title: "SHARE", message: "方法選択", preferredStyle: .ActionSheet)
+        let firstAction = UIAlertAction(title: "QR CODE", style: .Default) {
+            action in print("Pushed First")
+        }
+        let secondAction = UIAlertAction(title: "URL", style: .Default) {
+            action in print("Pushed Second")
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel) {
+            action in print("Pushed CANCEL")
+        }
+        
+        alertController.addAction(firstAction)
+        alertController.addAction(secondAction)
+        alertController.addAction(cancelAction)
+        
+        //For ipad And Univarsal Device
+        alertController.popoverPresentationController?.sourceView = sender as UIView;
+        alertController.popoverPresentationController?.sourceRect = CGRect(x: (sender.frame.width/2), y: sender.frame.height, width: 0, height: 0)
+        alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

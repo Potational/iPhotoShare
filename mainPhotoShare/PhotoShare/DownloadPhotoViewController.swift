@@ -8,7 +8,10 @@
 
 import UIKit
 import Accounts
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 class DownloadPhotoViewController: UIViewController {
 
@@ -25,8 +28,16 @@ class DownloadPhotoViewController: UIViewController {
         self.view.addGestureRecognizer(longPG)
 
         
+        //ロングプレスジェスチャー
+        let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
+        //ジェスチャーの追加
+        self.view.addGestureRecognizer(longPG)
         // Do any additional setup after loading the view.
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> master
     func doGesture(gesture:UIGestureRecognizer){
         if let longPressGesture = gesture as? UILongPressGestureRecognizer{
             longPress(longPressGesture)
@@ -53,7 +64,11 @@ class DownloadPhotoViewController: UIViewController {
                 
                 // 使用しないアクティビティタイプ
                 let excludedActivityTypes = [
+<<<<<<< HEAD
                     UIActivityTypeMail,
+=======
+                  UIActivityTypeMail,
+>>>>>>> master
                     UIActivityTypeMessage,
                     UIActivityTypePrint,
                     UIActivityTypeCopyToPasteboard,

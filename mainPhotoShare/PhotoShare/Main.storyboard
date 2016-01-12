@@ -18,10 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-AG-w1j">
                                 <rect key="frame" x="145" y="172" width="311" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="311" id="JnL-xf-luK"/>
+=======
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home21" translatesAutoresizingMaskIntoConstraints="NO" id="his-Jg-TGk">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17V-AG-w1j">
+                                <rect key="frame" x="150" y="157" width="300" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="7xL-CM-ttF"/>
+                                    <constraint firstAttribute="width" constant="300" id="xIE-6H-gsa"/>
+>>>>>>> master
                                 </constraints>
                                 <state key="normal" image="NewButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,7 +42,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-rc-xZK">
+<<<<<<< HEAD
                                 <rect key="frame" x="145" y="260" width="311" height="80"/>
+=======
+                                <rect key="frame" x="150" y="255" width="300" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8nB-RA-a48"/>
+                                    <constraint firstAttribute="height" constant="90" id="bcs-pK-yHW"/>
+                                </constraints>
+>>>>>>> master
                                 <state key="normal" image="JoinButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -40,6 +59,7 @@
                                     <action selector="myResumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W98-LW-xcb"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
                                 <rect key="frame" x="255" y="550" width="90" height="30"/>
                                 <state key="normal" title="イベント一覧"/>
@@ -51,6 +71,13 @@
                                 <rect key="frame" x="136" y="348" width="328" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="328" id="ePF-P5-daC"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWf-M6-CZJ">
+                                <rect key="frame" x="150" y="353" width="300" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="5Dt-8R-YEm"/>
+                                    <constraint firstAttribute="width" constant="300" id="pLP-tx-sd5"/>
+>>>>>>> master
                                 </constraints>
                                 <state key="normal" image="ShareButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,6 +87,7 @@
                                     <segue destination="sFu-k5-PGz" kind="show" id="1hT-Mh-wnp"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                         </subviews>
                         <color key="backgroundColor" red="0.7967277930923724" green="1" blue="0.63055732834096023" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -72,6 +100,30 @@
                             <constraint firstAttribute="bottom" secondItem="9iK-uR-N4b" secondAttribute="bottom" constant="20" symbolic="YES" id="at3-5R-Ihz"/>
                             <constraint firstItem="aG1-rc-xZK" firstAttribute="trailing" secondItem="17V-AG-w1j" secondAttribute="trailing" id="vTf-mP-nzg"/>
                             <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yxE-V2-eLF"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
+                                <rect key="frame" x="255" y="550" width="90" height="30"/>
+                                <state key="normal" title="イベント一覧"/>
+                                <connections>
+                                    <action selector="showEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glc-ys-g3Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7967277930923724" green="1" blue="0.63055732834096023" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1dD-eU-tuK"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Pu-uH-h2L"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="his-Jg-TGk" secondAttribute="bottom" id="9Xh-xe-9aq"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Cur-Cv-q9K"/>
+                            <constraint firstItem="uWf-M6-CZJ" firstAttribute="top" secondItem="aG1-rc-xZK" secondAttribute="bottom" constant="8" id="E9j-uD-OMp"/>
+                            <constraint firstItem="his-Jg-TGk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Eh9-ku-PjI"/>
+                            <constraint firstItem="aG1-rc-xZK" firstAttribute="top" secondItem="17V-AG-w1j" secondAttribute="bottom" constant="8" id="RXD-57-fjj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="his-Jg-TGk" secondAttribute="trailing" constant="-20" id="SCr-7p-sRJ"/>
+                            <constraint firstItem="9iK-uR-N4b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y1m-ZI-yAQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9iK-uR-N4b" secondAttribute="bottom" constant="20" id="aBV-U8-A7g"/>
+                            <constraint firstItem="his-Jg-TGk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="jgk-l9-fN8"/>
+                            <constraint firstItem="17V-AG-w1j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pPD-Uq-0So"/>
+>>>>>>> master
                         </constraints>
                     </view>
                     <connections>
@@ -82,7 +134,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="574" y="934"/>
+=======
+            <point key="canvasLocation" x="583" y="944"/>
+>>>>>>> master
         </scene>
         <!--Load Select View Controller-->
         <scene sceneID="CCw-CD-g25">
@@ -134,7 +190,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQz-96-K95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1438" y="960"/>
+=======
+            <point key="canvasLocation" x="1358" y="1320"/>
+>>>>>>> master
         </scene>
         <!--Roomsettings-->
         <scene sceneID="Y0f-SC-AjO">
@@ -226,7 +286,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jE-mb-QLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1454" y="90"/>
+=======
+            <point key="canvasLocation" x="3030" y="86"/>
+>>>>>>> master
         </scene>
         <!--Cam Controller-->
         <scene sceneID="jMD-Mr-shw">
@@ -281,7 +345,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt7-yE-KeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2215" y="560"/>
+=======
+            <point key="canvasLocation" x="2215" y="476"/>
+>>>>>>> master
         </scene>
         <!--Save Select View Controller-->
         <scene sceneID="0SU-EL-79Q">
@@ -333,7 +401,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIx-U0-e2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1438" y="2246"/>
+=======
+            <point key="canvasLocation" x="1363" y="2314"/>
+>>>>>>> master
         </scene>
         <!--Load Url View Controller-->
         <scene sceneID="huf-6y-0JP">
@@ -355,7 +427,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acr-MD-ttM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2215" y="1202"/>
+=======
+            <point key="canvasLocation" x="2215" y="1320"/>
+>>>>>>> master
         </scene>
         <!--SaveQR View Controller-->
         <scene sceneID="XVi-tS-fDl">
@@ -376,7 +452,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwb-8F-VkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2215" y="1956"/>
+=======
+            <point key="canvasLocation" x="2140" y="2024"/>
+>>>>>>> master
         </scene>
         <!--Download View Controller-->
         <scene sceneID="FFc-d1-lwC">
@@ -398,7 +478,11 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pb-uy-Efi" id="15H-bw-HfM">
+<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+=======
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+>>>>>>> master
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-Rx-Gaa">
@@ -439,7 +523,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nne-pk-5a9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2929" y="2236"/>
+=======
+            <point key="canvasLocation" x="2854" y="2304"/>
+>>>>>>> master
         </scene>
         <!--Download Detail View Controller-->
         <scene sceneID="Ga1-hx-2yZ">
@@ -519,6 +607,10 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
                                 <rect key="frame" x="0.0" y="33" width="600" height="522"/>
+<<<<<<< HEAD
+=======
+                                <gestureRecognizers/>
+>>>>>>> master
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -556,7 +648,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-4P-T5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2215" y="2650"/>
+=======
+            <point key="canvasLocation" x="2140" y="2718"/>
+>>>>>>> master
         </scene>
         <!--View Controller-->
         <scene sceneID="EON-1l-1BK">
@@ -574,7 +670,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rg-Qj-kal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="3655" y="-285"/>
+=======
+            <point key="canvasLocation" x="1363" y="159"/>
+>>>>>>> master
         </scene>
         <!--URL View Controller-->
         <scene sceneID="ZZe-9s-FUZ">
@@ -592,7 +692,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amY-Fw-vKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="3655" y="-509"/>
+=======
+            <point key="canvasLocation" x="1363" y="-541"/>
+>>>>>>> master
         </scene>
         <!--Right View Controller-->
         <scene sceneID="XXG-ZH-M74">
@@ -614,6 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT2-E6-hZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2929" y="-509"/>
         </scene>
     </scenes>
@@ -627,5 +732,21 @@
         <segue reference="Lpm-Ey-Vox"/>
         <segue reference="elR-d0-vTk"/>
         <segue reference="Xkl-4E-WYC"/>
+=======
+            <point key="canvasLocation" x="417" y="-101"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Home21" width="520" height="520"/>
+        <image name="JoinButton" width="810" height="240"/>
+        <image name="NewButton" width="810" height="240"/>
+        <image name="ShareButton" width="810" height="240"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0tJ-cM-dT9"/>
+        <segue reference="elR-d0-vTk"/>
+        <segue reference="Lpm-Ey-Vox"/>
+        <segue reference="lqn-ZJ-yzB"/>
+>>>>>>> master
     </inferredMetricsTieBreakers>
 </document>
