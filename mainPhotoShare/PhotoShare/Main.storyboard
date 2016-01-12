@@ -104,6 +104,7 @@
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
                         <segue destination="Amk-6P-lVs" kind="show" identifier="JoinURL" id="Lpm-Ey-Vox"/>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="JoinURLDirect" id="0tJ-cM-dT9"/>
+                        <segue destination="2Vr-Pe-UsA" kind="show" identifier="vc-pv" id="es0-h1-hD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mL-jx-sPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352" y="1676"/>
+            <point key="canvasLocation" x="330" y="1674"/>
         </scene>
         <!--Load Select View Controller-->
         <scene sceneID="CCw-CD-g25">
@@ -321,6 +322,7 @@
                     <navigationItem key="navigationItem" id="aEK-T4-y4F"/>
                     <connections>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="toCamController" id="nSX-2t-7ta"/>
+                        <segue destination="2Vr-Pe-UsA" kind="show" identifier="qr-pvc" id="gFX-YZ-DJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt7-yE-KeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -669,9 +671,10 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0tJ-cM-dT9"/>
         <segue reference="elR-d0-vTk"/>
         <segue reference="Lpm-Ey-Vox"/>
+        <segue reference="gFX-YZ-DJw"/>
+        <segue reference="nSX-2t-7ta"/>
         <segue reference="lqn-ZJ-yzB"/>
     </inferredMetricsTieBreakers>
 </document>

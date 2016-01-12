@@ -104,7 +104,8 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
                 nvc.setNavigationBarHidden(false, animated: true)
                 
                 
-                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
+//                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
+                self.performSegueWithIdentifier("qr-pvc", sender: nil)
                 
                 let soundIdRing:SystemSoundID = 1000
                 

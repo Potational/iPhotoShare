@@ -10,7 +10,9 @@ import UIKit
 
 import Alamofire
 
-class ViewController: UIViewController ,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+class ViewController: UIViewController
+//,UIImagePickerControllerDelegate , UINavigationControllerDelegate
+{
     
     @IBOutlet weak var bgImageView: UIImageView!
     
@@ -62,8 +64,11 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate , UINavi
             })
             urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
                 let url = urlAlert.textFields?[0].text
+                
                 print(url)
                 self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
+                
+                
                 
             }))
             urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
@@ -86,24 +91,24 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate , UINavi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "Picker" {
-            print ("Picker")
-            let des = segue.destinationViewController as! PickerViewController
-            des.delegate  = self
-            
-        }
+//        
+//        if segue.identifier == "Picker" {
+//            print ("Picker")
+//            let des = segue.destinationViewController as! PickerViewController
+//            des.delegate  = self
+//            
+//        }
     }
     
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-    
-        print(image)
-        
-        self.bgImageView.image = image
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//    
+//        print(image)
+//        
+//        self.bgImageView.image = image
+//        
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
     
     
     @IBAction func myResumeButton(sender: AnyObject) {
