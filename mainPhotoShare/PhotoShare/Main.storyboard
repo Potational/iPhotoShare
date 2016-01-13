@@ -99,13 +99,13 @@
                     <connections>
                         <outlet property="bgImageView" destination="his-Jg-TGk" id="FRh-F8-E3H"/>
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
-                        <segue destination="Amk-6P-lVs" kind="show" identifier="JoinURL" id="Lpm-Ey-Vox"/>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="JoinURLDirect" id="0tJ-cM-dT9"/>
+                        <segue destination="vfh-Ru-MGL" kind="show" identifier="toQRCamera" id="G15-1q-b0P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347" y="100"/>
+            <point key="canvasLocation" x="179" y="-816"/>
         </scene>
         <!--Material Picker View Controller-->
         <scene sceneID="wOR-d3-GOq">
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0Y-0k-uYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-219" y="1100"/>
+            <point key="canvasLocation" x="249" y="852"/>
         </scene>
         <!--Cam Controller-->
         <scene sceneID="jMD-Mr-shw">
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRa-y4-XPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2187" y="824"/>
+            <point key="canvasLocation" x="1276" y="46"/>
         </scene>
         <!--LoadQR View Controller-->
         <scene sceneID="Dg7-G5-JAj">
@@ -179,29 +179,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt7-yE-KeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="-114"/>
+            <point key="canvasLocation" x="569" y="46"/>
         </scene>
-        <!--Load Url View Controller-->
-        <scene sceneID="huf-6y-0JP">
+        <!--Reader View Controller-->
+        <scene sceneID="8oB-fH-zHW">
             <objects>
-                <viewController id="Amk-6P-lVs" customClass="LoadUrlViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfh-Ru-MGL" customClass="QRReaderViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="THu-ig-rfu"/>
-                        <viewControllerLayoutGuide type="bottom" id="bYE-TF-Ybd"/>
+                        <viewControllerLayoutGuide type="top" id="iAr-gp-uGu"/>
+                        <viewControllerLayoutGuide type="bottom" id="AZ9-4T-jpp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oVs-X8-KFc">
+                    <view key="view" contentMode="scaleToFill" id="WXe-Dz-trb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="J3z-p2-Vh7"/>
                     <connections>
-                        <segue destination="ZOk-rm-aoj" kind="show" identifier="toCamController" id="cRc-vl-Mgl"/>
+                        <segue destination="SvU-w8-Eia" kind="presentation" identifier="toMaterialPicker" id="kWT-Gg-x74"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Acr-MD-ttM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dz0-Uu-8vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367" y="1100"/>
+            <point key="canvasLocation" x="-64" y="46"/>
         </scene>
         <!--SaveQR View Controller-->
         <scene sceneID="XVi-tS-fDl">
@@ -222,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwb-8F-VkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-224" y="1812"/>
+            <point key="canvasLocation" x="-1088" y="-836"/>
         </scene>
         <!--Download View Controller-->
         <scene sceneID="FFc-d1-lwC">
@@ -285,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nne-pk-5a9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="2092"/>
+            <point key="canvasLocation" x="-1308" y="84"/>
         </scene>
         <!--Download Detail View Controller-->
         <scene sceneID="Ga1-hx-2yZ">
@@ -349,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhA-fk-ZdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="2034"/>
+            <point key="canvasLocation" x="-1308" y="814"/>
         </scene>
         <!--Download Photo View Controller-->
         <scene sceneID="aYJ-ni-ejd">
@@ -382,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNj-2N-QtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="2034"/>
+            <point key="canvasLocation" x="-1308" y="1614"/>
         </scene>
         <!--Save Url View Controller-->
         <scene sceneID="MVD-mc-Dz8">
@@ -403,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-4P-T5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-224" y="2506"/>
+            <point key="canvasLocation" x="-1734" y="-846"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EON-1l-1BK">
@@ -421,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rg-Qj-kal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="-553"/>
+            <point key="canvasLocation" x="191" y="-1681"/>
         </scene>
         <!--URL View Controller-->
         <scene sceneID="ZZe-9s-FUZ">
@@ -439,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amY-Fw-vKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="-1253"/>
+            <point key="canvasLocation" x="191" y="-2381"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="XXG-ZH-M74">
@@ -461,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT2-E6-hZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="-813"/>
+            <point key="canvasLocation" x="-755" y="-1941"/>
         </scene>
     </scenes>
     <resources>
@@ -471,7 +470,8 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="48W-nq-8we"/>
         <segue reference="0tJ-cM-dT9"/>
+        <segue reference="48W-nq-8we"/>
+        <segue reference="kWT-Gg-x74"/>
     </inferredMetricsTieBreakers>
 </document>

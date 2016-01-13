@@ -100,6 +100,7 @@
 		99BCA1A51C0F8214008B7A63 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA1881C0F8214008B7A63 /* UITextViewExtensions.swift */; };
 		99BCA1A61C0F8214008B7A63 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA1891C0F8214008B7A63 /* UIViewControllerExtensions.swift */; };
 		99BCA1A71C0F8214008B7A63 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA18A1C0F8214008B7A63 /* UIViewExtensions.swift */; };
+		99C4DC191C463F5700C9196D /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4DC181C463F5700C9196D /* QRReaderViewController.swift */; };
 		99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; };
 		99DDBAA01C0FC7AF001DE952 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99DDBAA11C0FC7AF001DE952 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */; };
@@ -284,6 +285,7 @@
 		99BCA1881C0F8214008B7A63 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		99BCA1891C0F8214008B7A63 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		99BCA18A1C0F8214008B7A63 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		99C4DC181C463F5700C9196D /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		99DDBA9D1C0FC7AF001DE952 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		99EC84E91C455A8A005A053B /* CapturePreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
@@ -532,6 +534,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		99C4DC171C463F3200C9196D /* QRReader */ = {
+			isa = PBXGroup;
+			children = (
+				99C4DC181C463F5700C9196D /* QRReaderViewController.swift */,
+			);
+			name = QRReader;
+			sourceTree = "<group>";
+		};
 		99EC84E81C4559D8005A053B /* MaterialKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,6 +643,7 @@
 		F064AB5B1BBBDCE700B04AA2 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
+				99C4DC171C463F3200C9196D /* QRReader */,
 				99EC84E81C4559D8005A053B /* MaterialKit */,
 				99BCA14E1C0EF8AB008B7A63 /* Helpers */,
 				99BCA13E1C0EE069008B7A63 /* libs */,
@@ -961,6 +972,7 @@
 				99EC85471C455B45005A053B /* MaterialPickerViewController.swift in Sources */,
 				64E6FBCA1BD0BCE000E64DE7 /* Result.swift in Sources */,
 				99BCA1921C0F8214008B7A63 /* BlockWebView.swift in Sources */,
+				99C4DC191C463F5700C9196D /* QRReaderViewController.swift in Sources */,
 				642DE3881BC4FCFE003D63EF /* URLViewController.swift in Sources */,
 				64E6FBCD1BD0BCE000E64DE7 /* Upload.swift in Sources */,
 				99EC852D1C455A8A005A053B /* MaterialKit+UIImage+Network.swift in Sources */,

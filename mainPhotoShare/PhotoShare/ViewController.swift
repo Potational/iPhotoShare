@@ -50,7 +50,8 @@ class ViewController: UIViewController
         //qr画面へ
         a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
             //to LOADQR View Controller
-            self.performSegueWithIdentifier("JoinQR", sender: nil)
+//            self.performSegueWithIdentifier("JoinQR", sender: nil)
+            self.performSegueWithIdentifier("toQRCamera", sender: nil)
         }))
         //url入力popup show
         a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in

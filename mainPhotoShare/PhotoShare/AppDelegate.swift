@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static var noweventid : String?
 
-    var mainVC  : UIViewController?
     
     var cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
 
@@ -47,20 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        
-        self.mainVC = mainViewController
+        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
         let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
         
-        let event_list = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
-        
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-
-
         rightViewController.mainViewController = nvc
         
         nvc.setNavigationBarHidden(false, animated: true)
         
+        let event_list = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list,rightMenuViewController: rightViewController)
         
     
