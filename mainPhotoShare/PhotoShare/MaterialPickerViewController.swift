@@ -24,7 +24,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         super.viewDidLoad()
         prepareView()
         prepareCaptureButton()
-//        prepareCameraButton()
+        prepareCameraButton()
 //        prepareVideoButton()
         prepareCloseButton()
         prepareSwitchCamerasButton()
@@ -310,21 +310,29 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         navigationBarView.statusBarStyle = .LightContent
         
         // Title label.
-        let titleLabel: UILabel = UILabel()
-        titleLabel.hidden = true
-        titleLabel.textAlignment = .Center
-        titleLabel.textColor = MaterialColor.white
-        titleLabel.font = RobotoFont.regularWithSize(20)
-        navigationBarView.titleLabel = titleLabel
+//        let titleLabel: UILabel = UILabel()
+//        titleLabel.hidden = false
+//        titleLabel.text = Defaults.value("event_name") as? String
+//        titleLabel.textAlignment = .Center
+//        titleLabel.textColor = MaterialColor.red.accent1
+//        titleLabel.font = RobotoFont.regularWithSize(10)
+//        navigationBarView.titleLabel = titleLabel
         
         // Detail label.
-        let detailLabel: UILabel = UILabel()
-        detailLabel.hidden = true
-        detailLabel.text = "Recording"
-        detailLabel.textAlignment = .Center
-        detailLabel.textColor = MaterialColor.red.accent1
-        detailLabel.font = RobotoFont.regularWithSize(12)
-        navigationBarView.detailLabel = detailLabel
+//        let detailLabel: UILabel = UILabel()
+//        detailLabel.hidden = false
+//        detailLabel.text = Defaults.value("event_name") as? String
+//        detailLabel.textAlignment = .Center
+//        detailLabel.textColor = MaterialColor.red.accent1
+//        detailLabel.font = RobotoFont.regularWithSize(10)
+//        navigationBarView.detailLabel = detailLabel
+        
+//        let titleButton = FlatButton()
+//        titleButton.height = 48
+//        titleButton.setTitle(Defaults.value("event_name") as? String, forState: .Normal)
+//        titleButton.setTitleColor(MaterialColor.red.accent1, forState: .Normal)
+//        titleButton.titleLabel?.font = RobotoFont.regularWithSize(10)
+//        titleButton.titleLabel?.textAlignment = .Left
         
         navigationBarView.leftButtons = [closeButton]
         navigationBarView.rightButtons = [switchCamerasButton, flashButton]
@@ -348,7 +356,8 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         captureButton.borderWidth = .Border2
         captureButton.borderColor = MaterialColor.white
         captureButton.depth = .None
-        
+     
+//        captureButton.setTitle(Defaults.value("event_name") as? String, forState: .Normal)
         captureView.captureButton = captureButton
     }
     
@@ -356,13 +365,20 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
      :name:	prepareCameraButton
      */
     private func prepareCameraButton() {
-        let img4: UIImage? = UIImage(named: "ic_photo_camera_white_36pt")
+//        let img4: UIImage? = UIImage(named: "ic_photo_camera_white_36pt")
+        
         cameraButton.width = 72
         cameraButton.height = 72
-        cameraButton.pulseColor = nil
-        cameraButton.setImage(img4, forState: .Normal)
-        cameraButton.setImage(img4, forState: .Highlighted)
+//        cameraButton.pulseColor = nil
+//        cameraButton.setImage(img4, forState: .Normal)
+//        cameraButton.setImage(img4, forState: .Highlighted)
         
+        cameraButton.titleLabel?.numberOfLines = 0
+        cameraButton.titleLabel?.textAlignment = .Center
+        cameraButton.titleLabel?.font = RobotoFont.regularWithSize(10)
+        
+        cameraButton.setTitle(Defaults.value("event_name") as? String, forState: .Normal)
+        cameraButton.setTitleColor(MaterialColor.red.accent1, forState: .Normal)
         captureView.cameraButton = cameraButton
     }
     
@@ -373,7 +389,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         let img5: UIImage? = UIImage(named: "ic_videocam_white_36pt")
         videoButton.width = 72
         videoButton.height = 72
-        videoButton.pulseColor = nil
+//        videoButton.pulseColor = nil
         videoButton.setImage(img5, forState: .Normal)
         videoButton.setImage(img5, forState: .Highlighted)
         
@@ -385,7 +401,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
      */
     private func prepareCloseButton() {
         let img: UIImage? = UIImage(named: "ic_close_white")
-        closeButton.pulseColor = nil
+//        closeButton.pulseColor = nil
         closeButton.setImage(img, forState: .Normal)
         closeButton.setImage(img, forState: .Highlighted)
         closeButton.addTarget(self, action: "closeCamera", forControlEvents: .TouchUpInside)
@@ -400,7 +416,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
      */
     private func prepareSwitchCamerasButton() {
         let img: UIImage? = UIImage(named: "ic_camera_front_white")
-        switchCamerasButton.pulseColor = nil
+//        switchCamerasButton.pulseColor = nil
         switchCamerasButton.setImage(img, forState: .Normal)
         switchCamerasButton.setImage(img, forState: .Highlighted)
         

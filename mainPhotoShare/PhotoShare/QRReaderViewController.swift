@@ -24,7 +24,8 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         reading = true
-        
+        title = "QRCode"
+        qrCodeFrameView?.frame = CGRectZero
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,9 +143,9 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
             
             nvc.setNavigationBarHidden(false, animated: true)
             
-            
             //                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
             //                self.performSegueWithIdentifier("qr-pvc", sender: nil)
+            
             self.performSegueWithIdentifier("toMaterialPicker", sender: nil)
             
             //            let soundIdRing:SystemSoundID = 1000
