@@ -14,7 +14,7 @@ class DownloadPhotoViewController: UIViewController {
 
     @IBOutlet weak var downloadPhotoView: UIImageView!
     var photoLink : String = ""
-    
+    var selectPhotoId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
@@ -23,8 +23,20 @@ class DownloadPhotoViewController: UIViewController {
         let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
         //ジェスチャーの追加
         self.view.addGestureRecognizer(longPG)
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        
+        
+    
     }
+    
+        let arrNum = 6
+    
+    func getPhotoId(url:String) -> String{
+        let arr = url.componentsSeparatedByString("/")
+        print(arr[self.arrNum])
+        return arr[self.arrNum]
+    }
+    
     
     func doGesture(gesture:UIGestureRecognizer){
         if let longPressGesture = gesture as? UILongPressGestureRecognizer{
