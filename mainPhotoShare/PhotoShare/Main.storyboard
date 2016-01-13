@@ -69,7 +69,7 @@
                                     <action selector="showEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glc-ys-g3Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUV-Rk-a0w">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUV-Rk-a0w">
                                 <rect key="frame" x="145" y="550" width="76" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aab-iD-fwE"/>
@@ -474,7 +474,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pb-uy-Efi" id="15H-bw-HfM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-Rx-Gaa">
@@ -701,10 +701,10 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lqn-ZJ-yzB"/>
+        <segue reference="0tJ-cM-dT9"/>
+        <segue reference="es0-h1-hD9"/>
         <segue reference="Lpm-Ey-Vox"/>
         <segue reference="elR-d0-vTk"/>
-        <segue reference="nSX-2t-7ta"/>
-        <segue reference="gFX-YZ-DJw"/>
+        <segue reference="lqn-ZJ-yzB"/>
     </inferredMetricsTieBreakers>
 </document>
