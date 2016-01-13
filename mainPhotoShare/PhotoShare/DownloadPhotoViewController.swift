@@ -14,23 +14,46 @@ class DownloadPhotoViewController: UIViewController {
 
     @IBOutlet weak var downloadPhotoView: UIImageView!
     var photoLink : String = ""
+    var photonum : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
-        
+        print(photonum)
         //ロングプレスジェスチャー
         let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
         //ジェスチャーの追加
         self.view.addGestureRecognizer(longPG)
         // Do any additional setup after loading the view.
+        
+      // 右方向へのスワイプ
+        let gestureToRight = UISwipeGestureRecognizer(target: self, action: "goBack")
+        gestureToRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(gestureToRight)
+        
+        // 左方向へのスワイプ
+        let gestureToLeft = UISwipeGestureRecognizer(target: self, action: "goForward")
+        gestureToLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(gestureToLeft)
+
+        
     }
     
     func doGesture(gesture:UIGestureRecognizer){
         if let longPressGesture = gesture as? UILongPressGestureRecognizer{
             longPress(longPressGesture)
+            
         }
     }
+    
+    func goBack() {
+        print("goback")
+    }
+    
+    func goForward() {
+        print("goforward")
+    }
+    
     
     //ジェスチャー処理中身
     private func longPress(gesture:UILongPressGestureRecognizer){
@@ -86,5 +109,5 @@ class DownloadPhotoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

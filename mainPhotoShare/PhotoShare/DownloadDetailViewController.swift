@@ -15,6 +15,7 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
     var eventId : String! = ""
     var photoLinks : JSON = nil
     var selectedPhotoLink = ""
+    var selectedphotonum = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,7 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
             let DownloadPhotolView : DownloadPhotoViewController =  (segue.destinationViewController as? DownloadPhotoViewController)!
             print(self.selectedPhotoLink)
             DownloadPhotolView.photoLink = selectedPhotoLink
+
         }
     }
 
