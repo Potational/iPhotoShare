@@ -15,6 +15,17 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
     var eventId : String! = ""
     var photoLinks : JSON = nil
     var selectedPhotoLink = ""
+    var selectedPhotoId = ""
+    
+    //URLに表示されているURLからIDを取得
+    //原則取得するURLが変化しないものとして実装
+    let arrNum = 6
+    func getPicId(url:String) -> String{
+        let arr = url.componentsSeparatedByString("/")
+        print("画像番号")
+        print(arr[self.arrNum])
+        return arr[self.arrNum]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,16 +97,19 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
     //Cellが選択された際に呼び出される
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedPhotoLink = photoLinks[indexPath.row].stringValue
+        self.selectedPhotoId = getPicId(photoLinks[indexPath.row].stringValue)
         performSegueWithIdentifier("toDownloadPhoto",sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "toDownloadPhoto") {
             let DownloadPhotolView : DownloadPhotoViewController =  (segue.destinationViewController as? DownloadPhotoViewController)!
-            print(self.selectedPhotoLink)
-            DownloadPhotolView.photoLink = selectedPhotoLink
+            DownloadPhotolView.photoLink = self.selectedPhotoLink
+            //DownloadPhotolViewに変数追加
+            //DownloadPhotolView.photoID = self.selectedPhotoId
         }
     }
+
 
     /*
     // MARK: - Navigation
