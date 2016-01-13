@@ -62,7 +62,7 @@
                                     <segue destination="sFu-k5-PGz" kind="show" id="1hT-Mh-wnp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
                                 <rect key="frame" x="255" y="550" width="90" height="30"/>
                                 <state key="normal" title="イベント一覧"/>
                                 <connections>
