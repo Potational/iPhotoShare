@@ -367,7 +367,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
     private func prepareCameraButton() {
 //        let img4: UIImage? = UIImage(named: "ic_photo_camera_white_36pt")
         
-        cameraButton.width = 72
+        cameraButton.width = 100
         cameraButton.height = 72
 //        cameraButton.pulseColor = nil
 //        cameraButton.setImage(img4, forState: .Normal)

@@ -24,11 +24,21 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         reading = true
-        title = "QRCode"
         qrCodeFrameView?.frame = CGRectZero
+        
+//        navigationController?.navigationItem.rightBarButtonItem =  UIBarButtonItem(title: "URL", style: .Plain, target: self,action: "URLInput")
+//        navigationController?.navigationBar.hidden = false
+    }
+    
+    func URLInput() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "QRCode"
+        
+        
         
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
@@ -155,33 +165,33 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
     
-//    func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
-//        
-//        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
-//        
-//        url = url + "?mobile=1"
-//        
-//        print(__FUNCTION__,url)
-//        
-//        //822a5ac9-1659-3013-8a14-54e69ddb
-//        
-//        mgr.request(.GET, url)
-//            .responseJSON { (res) -> Void in
-//                
-//                let j = JSON(res.result.value ?? [])
-//                
-//                if j["joined"].boolValue {//joined ok
-//                    Defaults.last_event_id = j["event","id"].stringValue
-//                    print(res.result.value)
-//                    done?(res.result.value)
-//                }else{
-//                    self.alert(j["note"].stringValue, message: nil)
-//                }
-//                
-//            }
-//            .responseString { (res) -> Void in
-//                print(res)
-//                
-//        }
-//    }
+    //    func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
+    //
+    //        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
+    //
+    //        url = url + "?mobile=1"
+    //
+    //        print(__FUNCTION__,url)
+    //
+    //        //822a5ac9-1659-3013-8a14-54e69ddb
+    //
+    //        mgr.request(.GET, url)
+    //            .responseJSON { (res) -> Void in
+    //
+    //                let j = JSON(res.result.value ?? [])
+    //
+    //                if j["joined"].boolValue {//joined ok
+    //                    Defaults.last_event_id = j["event","id"].stringValue
+    //                    print(res.result.value)
+    //                    done?(res.result.value)
+    //                }else{
+    //                    self.alert(j["note"].stringValue, message: nil)
+    //                }
+    //
+    //            }
+    //            .responseString { (res) -> Void in
+    //                print(res)
+    //
+    //        }
+    //    }
 }

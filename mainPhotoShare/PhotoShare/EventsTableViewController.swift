@@ -88,22 +88,39 @@ class EventsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-                Defaults.last_event_id = events[indexPath.row]["id"].string
+        //                Defaults.last_event_id = events[indexPath.row]["id"].string
         //        AppDelegate.noweventid = Defaults.last_event_id
         
-        Event.new(events[indexPath.row].dictionaryObject!){
-            event in
-            
-            sel_event = event
-            print(event)
-            
-            sliceVC.closeLeftNonAnimation()
-            
+        
+        //        Event.new(events[indexPath.row].dictionaryObject!){
+        //            event in
+        //
+        //            sel_event = event
+        //            print(event)
+        //
+        //            sliceVC.closeLeftNonAnimation()
+        //
+        //            goToCamera()
+        //        }
+        
+        let event = events[indexPath.row]
+        
+        //        if !event["uuid"].stringValue.isEmpty {
+        //            // UUID ok
+        //            joinLink(event["uuid"].stringValue){
+        //                json in
+        //                goToCamera()
+        //            }
+        //
+        //
+        //        }else {
+        // no has UUID
+        joinLink(event){
+            json in
             goToCamera()
         }
         
-        
-        
+        //        }
     }
     
     /*
