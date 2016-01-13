@@ -204,6 +204,8 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         // UIボタンをViewに追加.
         self.view.addSubview(myButton)
         
+      
+        
         // Sliderを作成する.
         
         slider = UISlider(frame: CGRectMake(0, 0, self.view.frame.width * 0.9, 20))
@@ -366,21 +368,17 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         
         let data : NSData = UIImageJPEGRepresentation(getUIImage, 1.0)!
         
-        
         let dataPath  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!.stringByAppendingString("/\(dateformat(now)).jpeg")
+        
         let dataURLPath : NSURL = NSURL(fileURLWithPath: dataPath)
         
-        
-//        var filemanager : NSFileManager = NSFileManager()
-        
         data.writeToFile(dataPath, atomically: true)
-        
-//        let senddata = NSMutableDictionary()
-//        let appd:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+    
         
         let event_id = Defaults.last_event_id ?? AppDelegate.noweventid
         
         print("event id : \(event_id!)")
+        
         GET_TOKEN(true){newtoken in
             
             mgr.upload(.POST, URL("photo"),
@@ -388,10 +386,7 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
                 multipartFormData: { multipartFormData in
                     multipartFormData.appendBodyPart(fileURL: dataURLPath, name: "userfile[]")
                     
-                    print(event_id!)
                     let eventid = event_id?.dataUsingEncoding(NSUTF8StringEncoding)
-                    
-                    print(eventid!)
                     
                     multipartFormData.appendBodyPart(data: eventid!,name:"event_id")
                     
@@ -529,10 +524,15 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         //        Flame += 1
         
+        
+       
+        
+        
         dispatch_sync(dispatch_get_main_queue(), {
             // UIImageへ変換
             let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
             self.imageView.image = image
+
             
             // NSDictionary型のoptionを生成。顔認識の精度を追加する.
             let options : NSDictionary = NSDictionary(object: CIDetectorAccuracyLow, forKey: CIDetectorAccuracy)

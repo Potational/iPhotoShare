@@ -10,8 +10,11 @@ import UIKit
 
 import Alamofire
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+//,UIImagePickerControllerDelegate , UINavigationControllerDelegate
+{
     
+    @IBOutlet weak var bgImageView: UIImageView!
     
     @IBAction func showEvents(sender: AnyObject) {
         let v = EventsTableViewController(nibName:"EventsTableViewController",bundle: nil)
@@ -31,7 +34,7 @@ class ViewController: UIViewController {
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = color
         
-        tryLogin()
+        LOGIN_WITH_EMAIL()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -41,28 +44,31 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func tryLogin() {
-      
-        LOGIN_WITH_EMAIL()
-        
-    }
     @IBAction func join(sender: UIButton) {
         let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
+        
+        //qr画面へ
         a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
+            //to LOADQR View Controller
             self.performSegueWithIdentifier("JoinQR", sender: nil)
         }))
+        //url入力popup show
         a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in
-//            self.performSegueWithIdentifier("JoinURL", sender: nil)
+            //            self.performSegueWithIdentifier("JoinURL", sender: nil)
             let urlAlert = UIAlertController(title: "URL入力", message: nil, preferredStyle: .Alert)
             
             urlAlert.addTextFieldWithConfigurationHandler({ (urlField) -> Void in
                 urlField.keyboardType = .URL
                 
             })
+            
             urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
                 let url = urlAlert.textFields?[0].text
+                
                 print(url)
                 self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
+                
+                
                 
             }))
             urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
@@ -83,6 +89,27 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(v, animated: true)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if segue.identifier == "Picker" {
+//            print ("Picker")
+//            let des = segue.destinationViewController as! PickerViewController
+//            des.delegate  = self
+//            
+//        }
+    }
+    
+
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//    
+//        print(image)
+//        
+//        self.bgImageView.image = image
+//        
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+    
     
     @IBAction func myResumeButton(sender: AnyObject) {
         

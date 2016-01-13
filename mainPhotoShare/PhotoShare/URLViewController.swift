@@ -46,7 +46,7 @@ class URLViewController: UIViewController {
             myUrlTextView.frame = CGRectMake(0,0,300,60)
             myUrlTextView.layer.position = CGPoint(x:180, y:200)
             AppDelegate.noweventid = AppDelegate.noweventid?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            let urltext = "http://www.photoshare.space/events/join/\(AppDelegate.noweventid!)"
+            let urltext = "https://www.photoshare.space/events/join/\(AppDelegate.noweventid!)"
             print(urltext)
             myUrlTextView.text = urltext
             myUrlTextView.font = UIFont.systemFontOfSize(15)
