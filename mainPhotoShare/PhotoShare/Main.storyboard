@@ -104,7 +104,12 @@
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
                         <segue destination="Amk-6P-lVs" kind="show" identifier="JoinURL" id="Lpm-Ey-Vox"/>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="JoinURLDirect" id="0tJ-cM-dT9"/>
+<<<<<<< HEAD
                         <segue destination="2Vr-Pe-UsA" kind="show" identifier="vc-pv" id="es0-h1-hD9"/>
+=======
+                        <segue destination="vfh-Ru-MGL" kind="show" identifier="toQRCamera" id="G15-1q-b0P"/>
+                        <segue destination="SvU-w8-Eia" kind="presentation" identifier="directPhotoPicker" id="iJv-nN-nNV"/>
+>>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -424,14 +429,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="J3z-p2-Vh7"/>
+=======
+                    <toolbarItems>
+                        <barButtonItem title="URL" id="ET7-IT-vZM"/>
+                    </toolbarItems>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+>>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
                     <connections>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="toCamController" id="cRc-vl-Mgl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Acr-MD-ttM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2215" y="1320"/>
+=======
+            <point key="canvasLocation" x="-55" y="46"/>
+>>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
         </scene>
         <!--SaveQR View Controller-->
         <scene sceneID="XVi-tS-fDl">
@@ -701,10 +718,16 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="lqn-ZJ-yzB"/>
         <segue reference="Lpm-Ey-Vox"/>
         <segue reference="elR-d0-vTk"/>
         <segue reference="nSX-2t-7ta"/>
         <segue reference="gFX-YZ-DJw"/>
+=======
+        <segue reference="48W-nq-8we"/>
+        <segue reference="0tJ-cM-dT9"/>
+        <segue reference="iJv-nN-nNV"/>
+>>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
     </inferredMetricsTieBreakers>
 </document>

@@ -300,7 +300,7 @@ public class CaptureView : MaterialView, UIGestureRecognizerDelegate {
 		
 		if let v: UIButton = cameraButton {
 			v.frame.origin.y = bounds.height - contentInset.bottom - v.bounds.height
-			v.frame.origin.x = contentInset.left
+			v.frame.origin.x = 0//contentInset.left
 		}
 		if let v: UIButton = captureButton {
 			v.frame.origin.y = bounds.height - contentInset.bottom - v.bounds.height
