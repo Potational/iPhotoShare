@@ -15,6 +15,8 @@ class DownloadPhotoViewController: UIViewController {
     @IBOutlet weak var downloadPhotoView: UIImageView!
     var photoLink : String = ""
     var selectPhotoId = ""
+    var photoLiks:[String] = []
+    var index = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
@@ -26,23 +28,49 @@ class DownloadPhotoViewController: UIViewController {
         // Do any additional setup after loading the view
         
         
+        // 右方向へのスワイプ
+        let gestureToRight = UISwipeGestureRecognizer(target: self, action: "goBack")
+        gestureToRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(gestureToRight)
+        
+        // 左方向へのスワイプ
+        let gestureToLeft = UISwipeGestureRecognizer(target: self, action: "goForward")
+        gestureToLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(gestureToLeft)
+        
+      
+   
+//        今表示してるインデックス取得
+        index = photoLiks.indexOf(photoLink)!
+        print(index)
     
     }
     
-        let arrNum = 6
     
-    func getPhotoId(url:String) -> String{
-        let arr = url.componentsSeparatedByString("/")
-        print(arr[self.arrNum])
-        return arr[self.arrNum]
-    }
+    
+  
     
     
     func doGesture(gesture:UIGestureRecognizer){
         if let longPressGesture = gesture as? UILongPressGestureRecognizer{
             longPress(longPressGesture)
         }
+        
+       
     }
+    
+//    左右にスワイプ時の動作
+    func goBack(){
+        index += 1
+        
+        downloadPhotoView.downloadedFrom(link: photoLiks[index])
+    }
+    
+    func goForward(){
+       index -= 1
+        downloadPhotoView.downloadedFrom(link: photoLiks[index])
+    }
+//    スワイプここまで
     
     //ジェスチャー処理中身
     private func longPress(gesture:UILongPressGestureRecognizer){

@@ -16,6 +16,7 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
     var photoLinks : JSON = nil
     var selectedPhotoLink = ""
     var selectedPhotoId = ""
+    var photoLinksArr:[String] = []
     
     //URLに表示されているURLからIDを取得
     //原則取得するURLが変化しないものとして実装
@@ -107,6 +108,11 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
             DownloadPhotolView.photoLink = self.selectedPhotoLink
             //DownloadPhotolViewに変数追加
             //DownloadPhotolView.photoID = self.selectedPhotoId
+            for var i = 0; i < photoLinks.count; i++ {
+                self.photoLinksArr.append(photoLinks[i].stringValue)
+            }
+            DownloadPhotolView.photoLiks = self.photoLinksArr
+            print(self.photoLinksArr)
         }
     }
 
