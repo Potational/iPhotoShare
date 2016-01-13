@@ -64,6 +64,15 @@ class Defaults {
         }
     }
     
+    static var last_event : AnyObject? {
+        get{
+        return NSUserDefaults.standardUserDefaults().valueForKey("last_event")
+        }
+        set{
+            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "last_event")
+        }
+    }
+    
     static var last_event_id : String? {
         get {
         return NSUserDefaults.standardUserDefaults().stringForKey("event_id")

@@ -199,19 +199,8 @@ func GET_TOKEN(refresh:Bool = false, complete: ((token:String) -> Void)? = nil) 
     }
 }
 
-
-
 let BASE_URL = "https://www.photoshare.space"
 var GLO_PARAMS : [String:String] = ["mobile":"1"]
-//    {
-//get{
-//    var params = ["mobile":"1"]
-//    return params
-//}
-//set{
-//
-//}
-//}
 
 enum URL_TYPE : String {
     case LOGIN = "/auth/login"
@@ -236,8 +225,37 @@ func goToCamera(){
     //    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
     let v = MaterialPickerViewController()
     
-
     sliceVC.presentViewController(v, animated: true, completion: nil)
+}
+
+func joinLink(var url:String, done:((JSON )->Void)? = nil) {
+    url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
+    url = url + "?mobile=1"
+    
+    print(__FUNCTION__,url)
+    
+    mgr.request(.GET, url)
+        
+        .responseJSON { (res) -> Void in
+            
+            let j = JSON(res.result.value ?? [])
+            
+            print(j)
+            
+            if j["joined"].boolValue {//joined ok
+                Defaults.last_event_id = j["event","id"].stringValue
+                Defaults.last_event = j.object
+                done?(j)
+                
+            }else{
+                sliceVC.alert(j["note"].stringValue, message: nil)
+            }
+            
+        }
+        .responseString { (res) -> Void in
+            print(res)
+            
+    }
 }
 
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){
