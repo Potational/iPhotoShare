@@ -204,6 +204,8 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         // UIボタンをViewに追加.
         self.view.addSubview(myButton)
         
+      
+        
         // Sliderを作成する.
         
         slider = UISlider(frame: CGRectMake(0, 0, self.view.frame.width * 0.9, 20))
@@ -529,10 +531,15 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         //        Flame += 1
         
+        
+       
+        
+        
         dispatch_sync(dispatch_get_main_queue(), {
             // UIImageへ変換
             let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
             self.imageView.image = image
+
             
             // NSDictionary型のoptionを生成。顔認識の精度を追加する.
             let options : NSDictionary = NSDictionary(object: CIDetectorAccuracyLow, forKey: CIDetectorAccuracy)
