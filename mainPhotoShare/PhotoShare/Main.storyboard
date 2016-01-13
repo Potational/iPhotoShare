@@ -101,6 +101,7 @@
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="JoinURLDirect" id="0tJ-cM-dT9"/>
                         <segue destination="vfh-Ru-MGL" kind="show" identifier="toQRCamera" id="G15-1q-b0P"/>
+                        <segue destination="SvU-w8-Eia" kind="presentation" identifier="directPhotoPicker" id="iJv-nN-nNV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -194,13 +195,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="URL" id="ET7-IT-vZM"/>
+                    </toolbarItems>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="SvU-w8-Eia" kind="presentation" identifier="toMaterialPicker" id="kWT-Gg-x74"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dz0-Uu-8vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="46"/>
+            <point key="canvasLocation" x="-55" y="46"/>
         </scene>
         <!--SaveQR View Controller-->
         <scene sceneID="XVi-tS-fDl">
@@ -471,7 +477,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="48W-nq-8we"/>
-        <segue reference="kWT-Gg-x74"/>
-        <segue reference="nSX-2t-7ta"/>
+        <segue reference="0tJ-cM-dT9"/>
+        <segue reference="iJv-nN-nNV"/>
     </inferredMetricsTieBreakers>
 </document>
