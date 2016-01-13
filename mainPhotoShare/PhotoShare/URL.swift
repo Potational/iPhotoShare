@@ -99,6 +99,13 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
                 //ログイン成功のデータをロカルに保存
                 Defaults.login_data = all_data
                 
+                let user_json = JSON(res.result.value ?? [])
+                if let user_json = user_json.dictionary {
+                    for (k,val) in user_json {
+                        Defaults.setValue(val.rawValue, forKeyPath: "user_\(k)")
+                    }
+                    print("user_id",Defaults.value("user_id"))
+                }
                 done?(user: user)
         }
     }
@@ -228,9 +235,22 @@ func goToCamera(){
     sliceVC.presentViewController(v, animated: true, completion: nil)
 }
 
+func joinLink(var event : JSON,done:((JSON )->Void)? = nil) {
+    let url  = URL("events/join/?event_id=" + event["id"].stringValue)
+    joinLink(url) {
+        done_json in
+        done?(done_json)
+    }
+}
+
 func joinLink(var url:String, done:((JSON )->Void)? = nil) {
+    
+    if let uuid = NSUUID(UUIDString: url) {
+        url = URL("events/join/" + url)
+    }
+    
     url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
-    url = url + "?mobile=1"
+    url += "?mobile=1"
     
     print(__FUNCTION__,url)
     

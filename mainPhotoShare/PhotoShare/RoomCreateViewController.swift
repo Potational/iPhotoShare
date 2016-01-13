@@ -157,15 +157,29 @@ class RoomCreateViewController: FormViewController {
         build_data(data, done: { (all_data) -> Void in
             
             mgr.request(.POST, baseUrl(URL_TYPE.EVENT_CREATE),parameters: all_data)
-                .responseJSON{ [weak self] res in
+                .responseJSON{
+                    [weak self]
+                    event in
                     
                     //write event to locale
-//                    self?.save_new_room_data(res.result.value!)
+                    //                    self?.save_new_room_data(res.result.value!)
                     //
                     
-                    print(res)
-                    Defaults.last_event_id = JSON(res.result.value ?? [])["id"].stringValue
-                    self?.goToCamera()
+//                    print(event)
+                    //                    Defaults.last_event_id = JSON(event.result.value ?? [])["id"].stringValue
+                    
+                    joinLink(JSON(event.result.value ?? []))
+                        {
+                            _ in
+                            goToCamera()
+                    }
+                    
+                    self?.navigationController?.popViewControllerAnimated(true)
+                    
+
+                    
+                    
+                    //                    self?.goToCamera()
             }
             
         })
@@ -173,25 +187,25 @@ class RoomCreateViewController: FormViewController {
     }
     
     //    MARK: SAVE by Realm and GO TO CAMERA
-    func save_new_room_data(res : AnyObject ){
-        
-        Event.write(res){
-            event in
-            Defaults.last_event_id = String(event?.id)
-            self.goToCamera()
-        }
-        
-    }
+    //    func save_new_room_data(res : AnyObject ){
+    //
+    //        Event.write(res){
+    //            event in
+    //            Defaults.last_event_id = String(event?.id)
+    //            self.goToCamera()
+    //        }
+    //
+    //    }
     
     //    MARK: GO TO KAMERA
     
-    func goToCamera(){
-        
-        print(__FUNCTION__)
-        
-        let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
-        self.navigationController?.pushViewController(v, animated: true)
-    }
+    //    func goToCamera(){
+    //
+    //        print(__FUNCTION__)
+    //
+    //        let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
+    //        self.navigationController?.pushViewController(v, animated: true)
+    //    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
