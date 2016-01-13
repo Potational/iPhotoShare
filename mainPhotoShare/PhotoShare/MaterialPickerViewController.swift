@@ -103,9 +103,9 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         
         let data : NSData? = UIImageJPEGRepresentation(img, 0.5)
         
-        let documentsDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
+        let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
         
-        let saveFullPath = documentsDir.stringByAppendingString("/" + saveFileName)
+        let saveFullPath = docDir.stringByAppendingString("/" + saveFileName)
         
         let write_ok = data?.writeToFile(saveFullPath, atomically: true)
         if (write_ok != nil) && (write_ok != false) {

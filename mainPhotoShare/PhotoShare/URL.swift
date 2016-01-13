@@ -240,11 +240,20 @@ func joinLink(var url:String, done:((JSON )->Void)? = nil) {
             
             let j = JSON(res.result.value ?? [])
             
-            print(j)
-            
             if j["joined"].boolValue {//joined ok
+                
                 Defaults.last_event_id = j["event","id"].stringValue
-                Defaults.last_event = j.object
+                
+                if let event = j["event"].dictionary {
+                    for  (k , obj) in event {
+//                        print(k)
+                        Defaults.setValue(obj.stringValue, forKeyPath: k)
+                    }
+                    //                    print(Defaults.value("event_name"))
+                    //                    print(Defaults.value("deleted_at"))
+                }
+                //                docDirSave(json : j["event"])
+                
                 done?(j)
                 
             }else{
@@ -258,6 +267,20 @@ func joinLink(var url:String, done:((JSON )->Void)? = nil) {
     }
 }
 
+func docDirSave(fileName:String = "last_event", json: JSON) -> Bool {
+    
+    let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
+    
+    let path = docDir.stringByAppendingString("/" + fileName)
+    
+    let d = json.description.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    if let data = d {
+        return data.writeToFile(path, atomically: true)
+    }
+    
+    return false
+}
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){
 //
 //    GLO_PARAMS["_token"] = token ?? Defaults.token

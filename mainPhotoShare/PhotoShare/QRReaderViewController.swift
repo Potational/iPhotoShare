@@ -123,12 +123,11 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
     
     func loadURL(url:String){
         
-        print("QR URL : \(url)")
-        
-        
         joinLink(url) {
             
-            result in
+            json in
+            
+            print(json)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -155,33 +154,33 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
     
-    func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
-        
-        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
-        
-        url = url + "?mobile=1"
-        
-        print(__FUNCTION__,url)
-        
-        //822a5ac9-1659-3013-8a14-54e69ddb
-        
-        mgr.request(.GET, url)
-            .responseJSON { (res) -> Void in
-                
-                let j = JSON(res.result.value ?? [])
-                
-                if j["joined"].boolValue {//joined ok
-                    Defaults.last_event_id = j["event","id"].stringValue
-                    print(res.result.value)
-                    done?(res.result.value)
-                }else{
-                    self.alert(j["note"].stringValue, message: nil)
-                }
-                
-            }
-            .responseString { (res) -> Void in
-                print(res)
-                
-        }
-    }
+//    func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
+//        
+//        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
+//        
+//        url = url + "?mobile=1"
+//        
+//        print(__FUNCTION__,url)
+//        
+//        //822a5ac9-1659-3013-8a14-54e69ddb
+//        
+//        mgr.request(.GET, url)
+//            .responseJSON { (res) -> Void in
+//                
+//                let j = JSON(res.result.value ?? [])
+//                
+//                if j["joined"].boolValue {//joined ok
+//                    Defaults.last_event_id = j["event","id"].stringValue
+//                    print(res.result.value)
+//                    done?(res.result.value)
+//                }else{
+//                    self.alert(j["note"].stringValue, message: nil)
+//                }
+//                
+//            }
+//            .responseString { (res) -> Void in
+//                print(res)
+//                
+//        }
+//    }
 }

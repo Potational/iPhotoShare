@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 class Defaults {
+    
+    static func setValue(value:AnyObject?, forKeyPath: String){
+        return NSUserDefaults.standardUserDefaults().setValue(value, forKeyPath: forKeyPath)
+    }
+    
+    static func value(keyPath: String) -> AnyObject {
+        return NSUserDefaults.standardUserDefaults().valueForKeyPath(keyPath)!
+    }
     static var token : String? {
         get {
         return NSUserDefaults.standardUserDefaults().stringForKey("_token")

@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwb-8F-VkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1088" y="-836"/>
+            <point key="canvasLocation" x="-730" y="-770"/>
         </scene>
         <!--Download View Controller-->
         <scene sceneID="FFc-d1-lwC">
@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nne-pk-5a9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="84"/>
+            <point key="canvasLocation" x="-958" y="46"/>
         </scene>
         <!--Download Detail View Controller-->
         <scene sceneID="Ga1-hx-2yZ">
@@ -348,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhA-fk-ZdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="814"/>
+            <point key="canvasLocation" x="-958" y="776"/>
         </scene>
         <!--Download Photo View Controller-->
         <scene sceneID="aYJ-ni-ejd">
@@ -381,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNj-2N-QtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1308" y="1614"/>
+            <point key="canvasLocation" x="-958" y="1576"/>
         </scene>
         <!--Save Url View Controller-->
         <scene sceneID="MVD-mc-Dz8">
@@ -402,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-4P-T5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1734" y="-846"/>
+            <point key="canvasLocation" x="-1376" y="-780"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EON-1l-1BK">
@@ -470,8 +470,8 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0tJ-cM-dT9"/>
         <segue reference="48W-nq-8we"/>
         <segue reference="kWT-Gg-x74"/>
+        <segue reference="nSX-2t-7ta"/>
     </inferredMetricsTieBreakers>
 </document>
