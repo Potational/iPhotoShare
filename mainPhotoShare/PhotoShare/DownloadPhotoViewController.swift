@@ -8,6 +8,7 @@
 
 import UIKit
 import Accounts
+import AVFoundation
 
 class DownloadPhotoViewController: UIViewController {
 
@@ -64,15 +65,9 @@ class DownloadPhotoViewController: UIViewController {
                 ]
                 
                 activityVC.excludedActivityTypes = excludedActivityTypes
-                
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
                 // UIActivityViewControllerを表示
                 self.presentViewController(activityVC, animated: true, completion: nil)
-                
-                
-                
-                
-                
-                
                 
         }
     }

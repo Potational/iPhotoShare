@@ -7,6 +7,6 @@
 @interface Detector: NSObject
 
 - (id)init;
-- (UIImage *)recognizeFace:(UIImage *)image;
+- (UIImage *)makegrayImage:(UIImage *)image;
 
 @end
