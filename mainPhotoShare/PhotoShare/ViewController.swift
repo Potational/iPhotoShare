@@ -34,7 +34,13 @@ class ViewController: UIViewController
         // 背景の色を変えたい。
         self.navigationController?.navigationBar.barTintColor = color
         
-        LOGIN_WITH_EMAIL()
+        LOGIN_WITH_EMAIL(){
+            auth_user in
+            if let last_event_id = Defaults.last_event_id {
+                
+                self.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+            }
+        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -45,6 +51,12 @@ class ViewController: UIViewController
     }
     
     @IBAction func join(sender: UIButton) {
+        
+//        self.performSegueWithIdentifier("toQRCamera", sender: nil)
+        /*
+        create  alert for QRCODE or URL
+        */
+        
         let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
         
         //qr画面へ
