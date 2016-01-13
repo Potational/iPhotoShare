@@ -368,21 +368,17 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         
         let data : NSData = UIImageJPEGRepresentation(getUIImage, 1.0)!
         
-        
         let dataPath  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!.stringByAppendingString("/\(dateformat(now)).jpeg")
+        
         let dataURLPath : NSURL = NSURL(fileURLWithPath: dataPath)
         
-        
-//        var filemanager : NSFileManager = NSFileManager()
-        
         data.writeToFile(dataPath, atomically: true)
-        
-//        let senddata = NSMutableDictionary()
-//        let appd:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+    
         
         let event_id = Defaults.last_event_id ?? AppDelegate.noweventid
         
         print("event id : \(event_id!)")
+        
         GET_TOKEN(true){newtoken in
             
             mgr.upload(.POST, URL("photo"),
@@ -390,10 +386,7 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
                 multipartFormData: { multipartFormData in
                     multipartFormData.appendBodyPart(fileURL: dataURLPath, name: "userfile[]")
                     
-                    print(event_id!)
                     let eventid = event_id?.dataUsingEncoding(NSUTF8StringEncoding)
-                    
-                    print(eventid!)
                     
                     multipartFormData.appendBodyPart(data: eventid!,name:"event_id")
                     

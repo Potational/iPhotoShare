@@ -11,32 +11,9 @@ import AVFoundation
 
 class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//
-//    /*
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//    }
-//    */
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "QRCODE読み込み"
         // セッションの作成.
         let mySession: AVCaptureSession! = AVCaptureSession()
         
@@ -88,10 +65,15 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
     }
     
     var qrRead = false
+    
     override func viewWillAppear(animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         qrRead = false
     }
+    
+    
     // Meta情報を検出際に呼ばれるdelegate.
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
         
@@ -99,29 +81,67 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
             qrRead = true
             let qrData: AVMetadataMachineReadableCodeObject  = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 //            読み込んだデータの種類
-            print("\(qrData.type)")
+//            print("\(qrData.type)")
 //            読み込んだ文字データ
-            print("\(qrData.stringValue)")
+
         
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let url = qrData.stringValue
             
-            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("CamController")
-            let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+            print("QR URL : \(url)")
             
-            let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+            joinLink(url) {
+                
+                result in
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let mainViewController = storyboard.instantiateViewControllerWithIdentifier("CamController")
+                let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+                
+                let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+                
+                rightViewController.mainViewController = nvc
+                
+                
+                
+                nvc.setNavigationBarHidden(false, animated: true)
+                
+                
+//                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
+//                self.performSegueWithIdentifier("qr-pvc", sender: nil)
+                self.performSegueWithIdentifier("to_material_picker", sender: nil)
+                
+                let soundIdRing:SystemSoundID = 1000
+                
+                AudioServicesPlaySystemSound(soundIdRing)
+                
+            }
             
-            rightViewController.mainViewController = nvc
+        }
+    }
+    
+    func joinLink(var url:String, done:((AnyObject? )->Void)? = nil) {
+        url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
+        url = url + "?mobile=1"
+        
+        print(__FUNCTION__,url)
+        //822a5ac9-1659-3013-8a14-54e69ddb
+        mgr.request(.GET, url)
+        .responseJSON { (res) -> Void in
             
-           
+            let j = JSON(res.result.value ?? [])
             
-            nvc.setNavigationBarHidden(false, animated: true)
-//            let slideMenuController = SlideMenuController(mainViewController:nvc, rightMenuViewController: rightViewController)
-//            UIApplication.sharedApplication().keyWindow?.rootViewController = slideMenuController
-//            UIApplication.sharedApplication().keyWindow?.makeKeyAndVisible()
-            performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
+            if j["joined"].boolValue {//joined ok
+                Defaults.last_event_id = j["event","id"].stringValue
+                print(res.result.value)
+                done?(res.result.value)
+            }else{
+                self.alert(j["note"].stringValue, message: nil)
+            }
             
-            let soundIdRing:SystemSoundID = 1000
-            AudioServicesPlaySystemSound(soundIdRing)
+        }
+        .responseString { (res) -> Void in
+            print(res)
             
         }
     }

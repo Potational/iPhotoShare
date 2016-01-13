@@ -111,6 +111,7 @@ func build_data(var data : [String: AnyObject], done: ((all_data: [String: AnyOb
     GET_TOKEN(true) { (token) -> Void in
         data["_token"] = token
         data["mobile"] = "1"
+        data["remember"] = "1"
         done(all_data: data)
     }
     
