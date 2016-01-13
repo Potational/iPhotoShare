@@ -233,9 +233,11 @@ func goToCamera(){
     
     print(__FUNCTION__)
     
-    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
+//    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
+    let v = MaterialPickerViewController()
     
-    nowViewController?.navigationController?.pushViewController(v, animated: true)
+    
+    appDelegate.mainVC?.presentViewController(v, animated: true, completion: nil)
 }
 
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){

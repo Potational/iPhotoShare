@@ -114,7 +114,7 @@
         <!--Material Picker View Controller-->
         <scene sceneID="wOR-d3-GOq">
             <objects>
-                <viewController id="SvU-w8-Eia" customClass="MaterialPickerViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MaterialPickerViewController" id="SvU-w8-Eia" customClass="MaterialPickerViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dpm-94-iOZ"/>
                         <viewControllerLayoutGuide type="bottom" id="3ea-b0-637"/>
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0Y-0k-uYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-115" y="1234"/>
+            <point key="canvasLocation" x="-103" y="1152"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="dY5-zQ-cG6">
@@ -701,10 +701,10 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="48W-nq-8we"/>
+        <segue reference="7Be-GO-xNu"/>
+        <segue reference="Ncs-5u-A1S"/>
         <segue reference="es0-h1-hD9"/>
-        <segue reference="Lpm-Ey-Vox"/>
+        <segue reference="48W-nq-8we"/>
         <segue reference="0tJ-cM-dT9"/>
-        <segue reference="elR-d0-vTk"/>
     </inferredMetricsTieBreakers>
 </document>

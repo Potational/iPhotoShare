@@ -16,6 +16,8 @@ var mgr: Manager!
 
 var sliceVC : SlideMenuController!
 
+var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static var noweventid : String?
 
+    var mainVC  : UIViewController?
     
     var cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
 
@@ -44,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        
+        self.mainVC = mainViewController
+        
         let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
         
         let event_list = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
