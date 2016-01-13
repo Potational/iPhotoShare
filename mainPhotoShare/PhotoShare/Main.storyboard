@@ -59,7 +59,7 @@
                                 </state>
                                 <connections>
                                     <action selector="myResumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5z-lU-31k"/>
-                                    <segue destination="sFu-k5-PGz" kind="show" id="1hT-Mh-wnp"/>
+                                    <segue destination="dbk-DJ-Cqd" kind="show" identifier="toDownloadView" id="48W-nq-8we"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
@@ -701,10 +701,10 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0tJ-cM-dT9"/>
+        <segue reference="48W-nq-8we"/>
         <segue reference="es0-h1-hD9"/>
         <segue reference="Lpm-Ey-Vox"/>
+        <segue reference="0tJ-cM-dT9"/>
         <segue reference="elR-d0-vTk"/>
-        <segue reference="lqn-ZJ-yzB"/>
     </inferredMetricsTieBreakers>
 </document>
