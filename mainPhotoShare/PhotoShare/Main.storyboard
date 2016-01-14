@@ -59,7 +59,7 @@
                                 </state>
                                 <connections>
                                     <action selector="myResumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5z-lU-31k"/>
-                                    <segue destination="sFu-k5-PGz" kind="show" id="1hT-Mh-wnp"/>
+                                    <segue destination="dbk-DJ-Cqd" kind="show" identifier="toDownloadView" id="48W-nq-8we"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iK-uR-N4b">
@@ -69,16 +69,13 @@
                                     <action selector="showEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glc-ys-g3Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUV-Rk-a0w">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUV-Rk-a0w">
                                 <rect key="frame" x="145" y="550" width="76" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aab-iD-fwE"/>
                                     <constraint firstAttribute="width" constant="76" id="xst-oA-fjp"/>
                                 </constraints>
                                 <state key="normal" title="Test Picker"/>
-                                <connections>
-                                    <segue destination="2Vr-Pe-UsA" kind="show" identifier="Picker" id="6el-nt-tae"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7967277930923724" green="1" blue="0.63055732834096023" alpha="1" colorSpace="calibratedRGB"/>
@@ -102,24 +99,19 @@
                     <connections>
                         <outlet property="bgImageView" destination="his-Jg-TGk" id="FRh-F8-E3H"/>
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
-                        <segue destination="Amk-6P-lVs" kind="show" identifier="JoinURL" id="Lpm-Ey-Vox"/>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="JoinURLDirect" id="0tJ-cM-dT9"/>
-<<<<<<< HEAD
-                        <segue destination="2Vr-Pe-UsA" kind="show" identifier="vc-pv" id="es0-h1-hD9"/>
-=======
                         <segue destination="vfh-Ru-MGL" kind="show" identifier="toQRCamera" id="G15-1q-b0P"/>
                         <segue destination="SvU-w8-Eia" kind="presentation" identifier="directPhotoPicker" id="iJv-nN-nNV"/>
->>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495" y="424"/>
+            <point key="canvasLocation" x="179" y="-816"/>
         </scene>
         <!--Material Picker View Controller-->
         <scene sceneID="wOR-d3-GOq">
             <objects>
-                <viewController id="SvU-w8-Eia" customClass="MaterialPickerViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MaterialPickerViewController" id="SvU-w8-Eia" customClass="MaterialPickerViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dpm-94-iOZ"/>
                         <viewControllerLayoutGuide type="bottom" id="3ea-b0-637"/>
@@ -132,180 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0Y-0k-uYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-115" y="1234"/>
-        </scene>
-        <!--Picker View Controller-->
-        <scene sceneID="dY5-zQ-cG6">
-            <objects>
-                <viewController id="2Vr-Pe-UsA" customClass="PickerViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cgZ-qW-s6q"/>
-                        <viewControllerLayoutGuide type="bottom" id="MuX-nA-Cxv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6aT-bE-sLf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="CaptureButton" destination="XzQ-Id-0v8" id="4Dr-u2-z5S"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1mL-jx-sPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XzQ-Id-0v8">
-                    <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Capture"/>
-                    <connections>
-                        <action selector="capture:" destination="2Vr-Pe-UsA" eventType="touchUpInside" id="X35-lr-LaO"/>
-                    </connections>
-                </button>
-            </objects>
-            <point key="canvasLocation" x="330" y="1674"/>
-        </scene>
-        <!--Load Select View Controller-->
-        <scene sceneID="CCw-CD-g25">
-            <objects>
-                <viewController storyboardIdentifier="toLoadSelectViewController" id="AMN-Xr-es7" customClass="LoadSelectViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9Ga-36-Zux"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nhb-CM-HKS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j4M-Rm-zWG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGW-7q-d1j">
-                                <rect key="frame" x="165" y="94" width="270" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="jxQ-20-L5S"/>
-                                    <constraint firstAttribute="height" constant="80" id="x2I-IZ-qCg"/>
-                                </constraints>
-                                <state key="normal" title="QRで読み込む">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gw2-hz-t9y" kind="show" identifier="LoadQRViewController" id="7Be-GO-xNu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilh-SH-7rS">
-                                <rect key="frame" x="165" y="260" width="270" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="1zE-pP-mc7"/>
-                                    <constraint firstAttribute="width" constant="270" id="bP3-gr-bdX"/>
-                                </constraints>
-                                <state key="normal" title="URLで読み込む">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Amk-6P-lVs" kind="show" id="Ncs-5u-A1S"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.79672779309999997" green="1" blue="0.6305573283" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="PGW-7q-d1j" firstAttribute="centerX" secondItem="j4M-Rm-zWG" secondAttribute="centerX" id="MWp-ij-I7g"/>
-                            <constraint firstItem="ilh-SH-7rS" firstAttribute="centerX" secondItem="j4M-Rm-zWG" secondAttribute="centerX" id="ekJ-xW-Dye"/>
-                            <constraint firstItem="PGW-7q-d1j" firstAttribute="top" secondItem="9Ga-36-Zux" secondAttribute="bottom" constant="74" id="gY7-JQ-xx4"/>
-                            <constraint firstItem="ilh-SH-7rS" firstAttribute="top" secondItem="PGW-7q-d1j" secondAttribute="bottom" constant="86" id="kGm-FM-D0T"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DQz-96-K95" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1474" y="1484"/>
-        </scene>
-        <!--Roomsettings-->
-        <scene sceneID="Y0f-SC-AjO">
-            <objects>
-                <viewController id="2Cu-bR-3Na" customClass="roomsettings" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xb9-W6-bQU"/>
-                        <viewControllerLayoutGuide type="bottom" id="DdV-uu-cOc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NSu-nP-N4n">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="アルバム名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-au-a9N">
-                                <rect key="frame" x="16" y="20" width="106" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="共有時間の設定" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JV-Wj-Ttm">
-                                <rect key="frame" x="16" y="72" width="141" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VkZ-JQ-fmB">
-                                <rect key="frame" x="0.0" y="158" width="600" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="465310597.88357002">
-                                    <!--2015-09-30 12:56:37 +0000-->
-                                </date>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v5q-IE-XTt">
-                                <rect key="frame" x="0.0" y="357" width="600" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="465310597.88357002">
-                                    <!--2015-09-30 12:56:37 +0000-->
-                                </date>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gee-Ch-c9F">
-                                <rect key="frame" x="277" y="537" width="46" height="30"/>
-                                <state key="normal" title="完了">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitbutton:" destination="2Cu-bR-3Na" eventType="touchUpInside" id="J5i-ej-a7k"/>
-                                    <segue destination="ZOk-rm-aoj" kind="show" id="2fm-9a-OJo"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開始時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypu-D7-H3z">
-                                <rect key="frame" x="16" y="124" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="終了時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5D-Cq-d8n">
-                                <rect key="frame" x="20" y="328" width="70" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zBc-Zy-tNu">
-                                <rect key="frame" x="165" y="80" width="151" height="29"/>
-                                <segments>
-                                    <segment title="本日のみ"/>
-                                    <segment title="日時で指定"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changetab:" destination="2Cu-bR-3Na" eventType="valueChanged" id="7B8-1g-5sV"/>
-                                </connections>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2V-8S-cxb">
-                                <rect key="frame" x="130" y="27" width="450" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="eventChanged:" destination="2Cu-bR-3Na" eventType="editingDidEndOnExit" id="Mit-Rw-yHd"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="0.79672779309999997" green="1" blue="0.6305573283" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="alldaycfg" destination="zBc-Zy-tNu" id="0Xx-Yb-ptb"/>
-                        <outlet property="datepicker" destination="VkZ-JQ-fmB" id="7DQ-dy-Tf3"/>
-                        <outlet property="enddatepicker" destination="v5q-IE-XTt" id="w5p-zP-ABc"/>
-                        <outlet property="endtimelabel" destination="b5D-Cq-d8n" id="aRw-FK-XhI"/>
-                        <outlet property="eventTitle" destination="V2V-8S-cxb" id="chy-lt-NfZ"/>
-                        <outlet property="selectsetting" destination="zBc-Zy-tNu" id="OqD-LS-Re3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5jE-mb-QLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3030" y="86"/>
+            <point key="canvasLocation" x="249" y="852"/>
         </scene>
         <!--Cam Controller-->
         <scene sceneID="jMD-Mr-shw">
@@ -338,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRa-y4-XPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037" y="856"/>
+            <point key="canvasLocation" x="1276" y="46"/>
         </scene>
         <!--LoadQR View Controller-->
         <scene sceneID="Dg7-G5-JAj">
@@ -356,99 +175,38 @@
                     <navigationItem key="navigationItem" id="aEK-T4-y4F"/>
                     <connections>
                         <segue destination="ZOk-rm-aoj" kind="show" identifier="toCamController" id="nSX-2t-7ta"/>
-                        <segue destination="2Vr-Pe-UsA" kind="show" identifier="qr-pvc" id="gFX-YZ-DJw"/>
                         <segue destination="SvU-w8-Eia" kind="presentation" identifier="to_material_picker" id="NCF-GD-dcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nt7-yE-KeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="232"/>
+            <point key="canvasLocation" x="569" y="46"/>
         </scene>
-        <!--Save Select View Controller-->
-        <scene sceneID="0SU-EL-79Q">
+        <!--Reader View Controller-->
+        <scene sceneID="8oB-fH-zHW">
             <objects>
-                <viewController id="sFu-k5-PGz" customClass="SaveSelectViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vfh-Ru-MGL" customClass="QRReaderViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="t5P-L2-bqf"/>
-                        <viewControllerLayoutGuide type="bottom" id="Aa1-of-Hx9"/>
+                        <viewControllerLayoutGuide type="top" id="iAr-gp-uGu"/>
+                        <viewControllerLayoutGuide type="bottom" id="AZ9-4T-jpp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xWz-co-zHG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqB-ba-dgz">
-                                <rect key="frame" x="165" y="177" width="270" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="6eC-A8-xeT"/>
-                                    <constraint firstAttribute="width" constant="270" id="irL-tr-aCd"/>
-                                </constraints>
-                                <state key="normal" title="QRで読み込む">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="pdG-Pn-rWf" kind="show" id="Uyc-Ho-i1P"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmA-fi-5Ae">
-                                <rect key="frame" x="165" y="343" width="270" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="qfE-4U-l84"/>
-                                    <constraint firstAttribute="width" constant="270" id="xmT-sO-ruF"/>
-                                </constraints>
-                                <state key="normal" title="URLで読み込む">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xae-Id-q8P" kind="show" id="RO7-0I-zfe"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.79672779309999997" green="1" blue="0.6305573283" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="lmA-fi-5Ae" firstAttribute="centerX" secondItem="xWz-co-zHG" secondAttribute="centerX" id="5gs-fV-3B4"/>
-                            <constraint firstItem="bqB-ba-dgz" firstAttribute="centerX" secondItem="xWz-co-zHG" secondAttribute="centerX" id="8fm-Gg-KZO"/>
-                            <constraint firstItem="lmA-fi-5Ae" firstAttribute="top" secondItem="bqB-ba-dgz" secondAttribute="bottom" constant="86" id="CWA-YE-8W8"/>
-                            <constraint firstItem="bqB-ba-dgz" firstAttribute="top" secondItem="t5P-L2-bqf" secondAttribute="bottom" constant="157" id="jtN-Ng-r6h"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIx-U0-e2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1015" y="2354"/>
-        </scene>
-        <!--Load Url View Controller-->
-        <scene sceneID="huf-6y-0JP">
-            <objects>
-                <viewController id="Amk-6P-lVs" customClass="LoadUrlViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="THu-ig-rfu"/>
-                        <viewControllerLayoutGuide type="bottom" id="bYE-TF-Ybd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oVs-X8-KFc">
+                    <view key="view" contentMode="scaleToFill" id="WXe-Dz-trb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-<<<<<<< HEAD
-                    <navigationItem key="navigationItem" id="J3z-p2-Vh7"/>
-=======
                     <toolbarItems>
                         <barButtonItem title="URL" id="ET7-IT-vZM"/>
                     </toolbarItems>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
->>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
                     <connections>
-                        <segue destination="ZOk-rm-aoj" kind="show" identifier="toCamController" id="cRc-vl-Mgl"/>
+                        <segue destination="SvU-w8-Eia" kind="presentation" identifier="toMaterialPicker" id="kWT-Gg-x74"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Acr-MD-ttM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dz0-Uu-8vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="2215" y="1320"/>
-=======
             <point key="canvasLocation" x="-55" y="46"/>
->>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
         </scene>
         <!--SaveQR View Controller-->
         <scene sceneID="XVi-tS-fDl">
@@ -469,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kwb-8F-VkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="2024"/>
+            <point key="canvasLocation" x="-730" y="-770"/>
         </scene>
         <!--Download View Controller-->
         <scene sceneID="FFc-d1-lwC">
@@ -491,7 +249,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pb-uy-Efi" id="15H-bw-HfM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-Rx-Gaa">
@@ -532,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nne-pk-5a9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2854" y="2304"/>
+            <point key="canvasLocation" x="-958" y="46"/>
         </scene>
         <!--Download Detail View Controller-->
         <scene sceneID="Ga1-hx-2yZ">
@@ -596,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhA-fk-ZdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3644" y="2246"/>
+            <point key="canvasLocation" x="-958" y="776"/>
         </scene>
         <!--Download Photo View Controller-->
         <scene sceneID="aYJ-ni-ejd">
@@ -629,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNj-2N-QtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="2246"/>
+            <point key="canvasLocation" x="-958" y="1576"/>
         </scene>
         <!--Save Url View Controller-->
         <scene sceneID="MVD-mc-Dz8">
@@ -650,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaS-4P-T5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="2718"/>
+            <point key="canvasLocation" x="-1376" y="-780"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EON-1l-1BK">
@@ -668,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rg-Qj-kal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="-105"/>
+            <point key="canvasLocation" x="191" y="-1681"/>
         </scene>
         <!--URL View Controller-->
         <scene sceneID="ZZe-9s-FUZ">
@@ -686,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amY-Fw-vKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="-805"/>
+            <point key="canvasLocation" x="191" y="-2381"/>
         </scene>
         <!--Right View Controller-->
         <scene sceneID="XXG-ZH-M74">
@@ -708,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT2-E6-hZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="-365"/>
+            <point key="canvasLocation" x="-755" y="-1941"/>
         </scene>
     </scenes>
     <resources>
@@ -718,16 +476,8 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="lqn-ZJ-yzB"/>
-        <segue reference="Lpm-Ey-Vox"/>
-        <segue reference="elR-d0-vTk"/>
-        <segue reference="nSX-2t-7ta"/>
-        <segue reference="gFX-YZ-DJw"/>
-=======
         <segue reference="48W-nq-8we"/>
-        <segue reference="0tJ-cM-dT9"/>
-        <segue reference="iJv-nN-nNV"/>
->>>>>>> c24bf40... カメラの左下にイベント名追加、Main storyboardのいらない画面を削除
+        <segue reference="NCF-GD-dcS"/>
+        <segue reference="nSX-2t-7ta"/>
     </inferredMetricsTieBreakers>
 </document>

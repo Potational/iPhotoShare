@@ -17,6 +17,7 @@ class DownloadPhotoViewController: UIViewController {
     var selectPhotoId = ""
     var photoLiks:[String] = []
     var index = 0
+    var indexcount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
@@ -43,7 +44,9 @@ class DownloadPhotoViewController: UIViewController {
 //        今表示してるインデックス取得
         index = photoLiks.indexOf(photoLink)!
         print(index)
-    
+        
+        indexcount = photoLiks.count - 1
+        
     }
     
     
@@ -61,14 +64,38 @@ class DownloadPhotoViewController: UIViewController {
     
 //    左右にスワイプ時の動作
     func goBack(){
-        index += 1
+        print("goBack")
+        if index - 1 >= 0{
+            index -= 1
+            print(index)
+            downloadPhotoView.downloadedFrom(link: photoLiks[index])
+        }else{
+            let alertController = UIAlertController(title: "PhotoShare", message: "これが先頭の画像です。", preferredStyle: .Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        }
         
-        downloadPhotoView.downloadedFrom(link: photoLiks[index])
+        
     }
     
     func goForward(){
-       index -= 1
-        downloadPhotoView.downloadedFrom(link: photoLiks[index])
+        print("goForward")
+        if index + 1 <= indexcount {
+            index += 1
+            print(index)
+            downloadPhotoView.downloadedFrom(link: photoLiks[index])
+        }else{
+            let alertController = UIAlertController(title: "PhotoShare", message: "これが最後の画像です。", preferredStyle: .Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        }
+      
     }
 //    スワイプここまで
     
