@@ -11,7 +11,11 @@ import Accounts
 import AVFoundation
 
 class DownloadPhotoViewController: UIViewController {
-
+    
+    @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var imageview1: UIImageView!
+    @IBOutlet weak var imageview2: UIImageView!
+    @IBOutlet weak var imageview3: UIImageView!
     @IBOutlet weak var downloadPhotoView: UIImageView!
     var photoLink : String = ""
     var selectPhotoId = ""
@@ -21,6 +25,7 @@ class DownloadPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadPhotoView.downloadedFrom(link: self.photoLink)
+        
         
         //ロングプレスジェスチャー
         let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
@@ -46,8 +51,25 @@ class DownloadPhotoViewController: UIViewController {
         print(index)
         
         indexcount = photoLiks.count - 1
+        imageview1.downloadedFrom(link: photoLiks[index - 1])
+        imageview2.downloadedFrom(link: photoLiks[index])
+        imageview3.downloadedFrom(link: photoLiks[index + 1])
         
-    }
+        //UIScrollViewの1ページ分のサイズ + 表示位置
+        scrollview.frame = CGRectMake(0, 0, 240, 240)
+        
+        //全体のサイズ
+        scrollview.contentSize = CGSizeMake(240, 240*3)
+        
+        //UIImageViewのサイズと位置を決めます
+        imageview1.frame = CGRectMake(0, 0, 240, 240)
+        imageview2.frame = CGRectMake(240, 0, 240, 240)
+        imageview3.frame = CGRectMake(480, 0, 240, 240)
+        
+        // １ページ単位でスクロールさせる
+        scrollview.pagingEnabled = true
+        
+          }
     
     
     
@@ -97,6 +119,10 @@ class DownloadPhotoViewController: UIViewController {
         }
       
     }
+    
+
+   
+    
 //    スワイプここまで
     
     //ジェスチャー処理中身

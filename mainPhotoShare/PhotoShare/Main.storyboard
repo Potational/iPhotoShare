@@ -249,7 +249,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pb-uy-Efi" id="15H-bw-HfM">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrq-Rx-Gaa">
@@ -368,26 +368,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
-                                <rect key="frame" x="0.0" y="33" width="600" height="522"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
+                                <rect key="frame" x="25" y="282" width="550" height="273"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g4q-7c-4il">
+                                <rect key="frame" x="149" y="20" width="302" height="254"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VB3-lb-NAo">
+                                        <rect key="frame" x="8" y="8" width="302" height="254"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bav-pu-Zf0">
+                                        <rect key="frame" x="27" y="20" width="302" height="254"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-u3-FBu">
+                                        <rect key="frame" x="47" y="34" width="302" height="254"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gVv-OF-l4m" firstAttribute="leading" secondItem="NoJ-v4-MPm" secondAttribute="leadingMargin" constant="5" id="7Pi-WB-28H"/>
-                            <constraint firstItem="gVv-OF-l4m" firstAttribute="top" secondItem="Qd5-4L-VWa" secondAttribute="bottom" constant="13" id="LqN-iF-AKD"/>
+                            <constraint firstItem="gVv-OF-l4m" firstAttribute="top" secondItem="Qd5-4L-VWa" secondAttribute="bottom" constant="262" id="LqN-iF-AKD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gVv-OF-l4m" secondAttribute="trailing" constant="5" id="M3r-JK-7UE"/>
                             <constraint firstItem="pZH-rb-dfw" firstAttribute="top" secondItem="gVv-OF-l4m" secondAttribute="bottom" constant="45" id="M78-RG-SL4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="downloadPhotoView" destination="gVv-OF-l4m" id="Gdm-xm-h7p"/>
+                        <outlet property="imageview1" destination="VB3-lb-NAo" id="f6n-4X-JXo"/>
+                        <outlet property="imageview2" destination="Bav-pu-Zf0" id="KEf-PJ-szo"/>
+                        <outlet property="imageview3" destination="ahQ-u3-FBu" id="nKm-8p-6OB"/>
+                        <outlet property="scrollview" destination="g4q-7c-4il" id="nFh-u9-wp2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNj-2N-QtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-958" y="1576"/>
+            <point key="canvasLocation" x="-934" y="1567"/>
         </scene>
         <!--Save Url View Controller-->
         <scene sceneID="MVD-mc-Dz8">
