@@ -58,9 +58,11 @@ class ViewController: UIViewController
         */
         
         let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
+        a.popoverPresentationController?.sourceView = view
+        a.popoverPresentationController?.sourceRect = sender.frame
         
         //qr画面へ
-        a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
+        a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { [unowned self](act) -> Void in
             //to LOADQR View Controller
 //            self.performSegueWithIdentifier("JoinQR", sender: nil)
             self.performSegueWithIdentifier("toQRCamera", sender: nil)
@@ -75,7 +77,8 @@ class ViewController: UIViewController
                 
             })
             
-            urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
+            urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: {
+                [unowned self](action) -> Void in
                 let url = urlAlert.textFields?[0].text
                 
                 print(url)

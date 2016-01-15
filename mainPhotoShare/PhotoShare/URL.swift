@@ -73,8 +73,8 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
     }
     
     build_data(login_data) { (all_data) -> Void in
-        
-        mgr.request(.POST, URL("/auth/login"), parameters : all_data)
+        print("all_data",all_data)
+        mgr.request(.POST, URL("auth/login"), parameters : all_data)
             
             .responseString(completionHandler: { (res) -> Void in
                 
@@ -230,6 +230,7 @@ func goToCamera(){
     print(__FUNCTION__)
     
     //    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
+    
     let v = MaterialPickerViewController()
     
     sliceVC.presentViewController(v, animated: true, completion: nil)
@@ -245,8 +246,10 @@ func joinLink(var event : JSON,done:((JSON )->Void)? = nil) {
 
 func joinLink(var url:String, done:((JSON )->Void)? = nil) {
     
-    if let uuid = NSUUID(UUIDString: url) {
+    if NSUUID(UUIDString: url) != nil {//uuid check
+        
         url = URL("events/join/" + url)
+        
     }
     
     url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
@@ -265,18 +268,16 @@ func joinLink(var url:String, done:((JSON )->Void)? = nil) {
                 Defaults.last_event_id = j["event","id"].stringValue
                 
                 if let event = j["event"].dictionary {
+                    
                     for  (k , obj) in event {
-//                        print(k)
                         Defaults.setValue(obj.stringValue, forKeyPath: k)
                     }
-                    //                    print(Defaults.value("event_name"))
-                    //                    print(Defaults.value("deleted_at"))
                 }
-                //                docDirSave(json : j["event"])
+                
                 
                 done?(j)
                 
-            }else{
+            }else{//joined NG
                 sliceVC.alert(j["note"].stringValue, message: nil)
             }
             
@@ -300,6 +301,11 @@ func docDirSave(fileName:String = "last_event", json: JSON) -> Bool {
     }
     
     return false
+}
+func docDir(fileName: String) -> String {
+    let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
+    let path = docDir.stringByAppendingString("/" + fileName)
+    return path
 }
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){
 //

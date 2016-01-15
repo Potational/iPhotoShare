@@ -30,9 +30,9 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
 //        navigationController?.navigationBar.hidden = false
     }
     
-    func URLInput() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+//    func URLInput() {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

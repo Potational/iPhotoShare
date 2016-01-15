@@ -10,7 +10,7 @@ import UIKit
 
 let eventcell = "eventcell"
 
-class EventsTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController , UIViewControllerTransitioningDelegate {
     
     var events : JSON = nil
     
@@ -47,12 +47,15 @@ class EventsTableViewController: UITableViewController {
                     
                 }
                 
+                
                 self?.events = JSON(res.result.value ?? [])
+                
+                //                print(self?.events)
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     self?.tableView.reloadData()
                 })
         }
-        //        self.tableView.reloadData()
+        
     }
     
     
@@ -64,12 +67,10 @@ class EventsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return events.count
     }
     
@@ -78,94 +79,95 @@ class EventsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(eventcell, forIndexPath: indexPath) as! EventTableViewCell
         
-        cell.textLabel?.text = events[indexPath.row]["event_name"].string
+        let event = events[indexPath.row]
+        
+        cell.event_name.text = event["event_name"].string
+        
+        let imageUrl = URL("events/qr/") + event["id"].stringValue
         
         
-        // Configure the cell...
+        if event["uuid"].type == .Null  {//参加者はQRを出せない
+            cell.qrButton.hidden = true
+            cell.qrButton.setImage(nil, forState: .Normal)
+            
+            
+        }else{
+            ImageDownloader.downloadImage(urlImage: imageUrl) { (imageDownloaded) -> () in
+                cell.qrButton.hidden = false
+                cell.qrButton.setImage(imageDownloaded, forState: .Normal)
+                
+                cell.qrButton.addTapGesture(tapNumber: 1, action: {
+                    [weak self](ges) -> () in
+                    
+                    //                    let loc = ges.locationInView(self?.tableView)
+                    //                    self?.transition.startingPoint = loc
+                    self?.qrButton = cell.qrButton
+                    self?.event = event
+                    
+                    self?.qrZoom()
+                    })
+                //                cell.qrButton.addTarget(self, action: "qrZoom:", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+        }
         
         return cell
     }
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        //                Defaults.last_event_id = events[indexPath.row]["id"].string
-        //        AppDelegate.noweventid = Defaults.last_event_id
-        
-        
-        //        Event.new(events[indexPath.row].dictionaryObject!){
-        //            event in
-        //
-        //            sel_event = event
-        //            print(event)
-        //
-        //            sliceVC.closeLeftNonAnimation()
-        //
-        //            goToCamera()
-        //        }
         
         let event = events[indexPath.row]
         
-        //        if !event["uuid"].stringValue.isEmpty {
-        //            // UUID ok
-        //            joinLink(event["uuid"].stringValue){
-        //                json in
-        //                goToCamera()
-        //            }
-        //
-        //
-        //        }else {
-        // no has UUID
         joinLink(event){
             json in
             goToCamera()
         }
         
-        //        }
+        
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
+    
+    var qrButton : UIButton!
+    var event : JSON!
+    
+    func qrZoom()
+    {
+        
+        self.performSegueWithIdentifier("qrZoom", sender: nil)
+        
+        //        let qrVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("QRZoomViewController") as! QRZoomViewController
+        //        qrVC.qrImage = qrButton.imageView?.image
+        //        self.presentViewController(qrVC, animated: true, completion: nil)
     }
-    */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
+    let transition = BubbleTransition()
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "qrZoom" {
+            let qrVC = segue.destinationViewController as! QRZoomViewController
+            qrVC.qrImage = qrButton.imageView?.image
+            qrVC.event = self.event
+            
+            qrVC.transitioningDelegate = self
+            qrVC.modalPresentationStyle = .Custom
+        }
+        
     }
-    */
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        //        transition.startingPoint = self.qrButton.center
+        //                transition.bubbleColor = .blackColor()
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        //        transition.startingPoint = self.qrButton.center
+        //                transition.bubbleColor = .blackColor()
+        return transition
+    }
+    
     
 }

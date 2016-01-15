@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,9 +12,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tc-jX-6jD">
+                        <rect key="frame" x="277" y="1" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="O0z-gk-lz9"/>
+                            <constraint firstAttribute="height" constant="40" id="SsQ-om-v05"/>
+                        </constraints>
+                        <state key="normal" image="qr"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QZ-sa-iUj">
+                        <rect key="frame" x="8" y="0.0" width="254" height="43.5"/>
+                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
+                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="4Tc-jX-6jD" secondAttribute="trailing" constant="-5" id="BQt-ra-fQb"/>
+                    <constraint firstItem="5QZ-sa-iUj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="ZAl-CA-wBI"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5QZ-sa-iUj" secondAttribute="bottom" constant="-8" id="adk-cA-qHo"/>
+                    <constraint firstItem="4Tc-jX-6jD" firstAttribute="leading" secondItem="5QZ-sa-iUj" secondAttribute="trailing" constant="15" id="ech-23-cv3"/>
+                    <constraint firstItem="4Tc-jX-6jD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ixr-29-gpF"/>
+                    <constraint firstItem="5QZ-sa-iUj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tX2-Wx-SRp"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="event_name" destination="5QZ-sa-iUj" id="Ala-tb-Tmy"/>
+                <outlet property="qrButton" destination="4Tc-jX-6jD" id="3KX-yt-I6C"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="qr" width="145" height="145"/>
+    </resources>
 </document>

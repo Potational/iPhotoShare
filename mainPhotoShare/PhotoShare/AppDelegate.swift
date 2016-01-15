@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mgr = Manager(configuration: cfg)
     }
 
+    var mainVC : UIViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureManager()
         
@@ -46,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+//        self.mainVC = mainViewController
+        
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
         let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
@@ -54,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         nvc.setNavigationBarHidden(false, animated: true)
         
-        let event_list = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
+        let event_list = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController//EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list,rightMenuViewController: rightViewController)
         
     

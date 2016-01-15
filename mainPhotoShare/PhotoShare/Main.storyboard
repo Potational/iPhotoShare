@@ -126,6 +126,84 @@
             </objects>
             <point key="canvasLocation" x="249" y="852"/>
         </scene>
+        <!--Events Table View Controller-->
+        <scene sceneID="S9f-bG-V3f">
+            <objects>
+                <tableViewController storyboardIdentifier="EventsTableViewController" id="Khn-Te-GvX" customClass="EventsTableViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zfg-Cg-wHn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5WY-oG-7aI">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5WY-oG-7aI" id="QF5-0B-303">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Khn-Te-GvX" id="KaK-G8-ZXs"/>
+                            <outlet property="delegate" destination="Khn-Te-GvX" id="5IL-Gs-zFc"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="2Rs-Li-1eW" kind="show" identifier="qrZoom" id="MxH-P8-JSc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RnT-wb-jZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="-816"/>
+        </scene>
+        <!--Zoom View Controller-->
+        <scene sceneID="0HI-uk-Hmk">
+            <objects>
+                <viewController storyboardIdentifier="QRZoomViewController" id="2Rs-Li-1eW" customClass="QRZoomViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M0X-Fa-e5F"/>
+                        <viewControllerLayoutGuide type="bottom" id="DG5-NN-BfP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rb5-BA-WO4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cem-ET-smd">
+                                <rect key="frame" x="195" y="195" width="210" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="bXF-Ls-twh"/>
+                                    <constraint firstAttribute="width" constant="210" id="y4z-Km-qdR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="event_name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DD-7Q-nW1">
+                                <rect key="frame" x="195" y="138" width="210" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="210" id="1nz-EV-4Gv"/>
+                                    <constraint firstAttribute="height" constant="49" id="Chk-QN-g5j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cem-ET-smd" firstAttribute="top" secondItem="8DD-7Q-nW1" secondAttribute="bottom" constant="8" id="A3P-es-uhT"/>
+                            <constraint firstItem="Cem-ET-smd" firstAttribute="centerY" secondItem="rb5-BA-WO4" secondAttribute="centerY" id="lnJ-lF-9mH"/>
+                            <constraint firstItem="Cem-ET-smd" firstAttribute="centerX" secondItem="rb5-BA-WO4" secondAttribute="centerX" id="vHU-Yq-Lgp"/>
+                            <constraint firstItem="8DD-7Q-nW1" firstAttribute="centerX" secondItem="rb5-BA-WO4" secondAttribute="centerX" id="y3i-n2-MNO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="eventLabel" destination="8DD-7Q-nW1" id="Xix-Vb-Dea"/>
+                        <outlet property="qrImageView" destination="Cem-ET-smd" id="xam-km-x3k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZa-PT-5Ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="-816"/>
+        </scene>
         <!--Cam Controller-->
         <scene sceneID="jMD-Mr-shw">
             <objects>
@@ -198,8 +276,8 @@
                     <toolbarItems>
                         <barButtonItem title="URL" id="ET7-IT-vZM"/>
                     </toolbarItems>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="SvU-w8-Eia" kind="presentation" identifier="toMaterialPicker" id="kWT-Gg-x74"/>
                     </connections>
