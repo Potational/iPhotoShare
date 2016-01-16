@@ -105,6 +105,8 @@
 		99BCA1A61C0F8214008B7A63 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA1891C0F8214008B7A63 /* UIViewControllerExtensions.swift */; };
 		99BCA1A71C0F8214008B7A63 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA18A1C0F8214008B7A63 /* UIViewExtensions.swift */; };
 		99C4DC191C463F5700C9196D /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4DC181C463F5700C9196D /* QRReaderViewController.swift */; };
+		99D5ADCD1C494470000BA57F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D5ADCC1C494470000BA57F /* ImageIO.framework */; };
+		99D5ADCF1C494489000BA57F /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */; };
 		99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; };
 		99DDBAA01C0FC7AF001DE952 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99DDBAA11C0FC7AF001DE952 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */; };
@@ -156,6 +158,12 @@
 		99EC85441C455A8A005A053B /* TextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC85161C455A8A005A053B /* TextStorage.swift */; };
 		99EC85451C455A8A005A053B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC85171C455A8A005A053B /* TextView.swift */; };
 		99EC85471C455B45005A053B /* MaterialPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC85461C455B45005A053B /* MaterialPickerViewController.swift */; };
+		99F5592A1C48E80E00C4A3FE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559261C48E80E00C4A3FE /* Photo.swift */; };
+		99F5592B1C48E80E00C4A3FE /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559271C48E80E00C4A3FE /* PinterestLayout.swift */; };
+		99F5592C1C48E80E00C4A3FE /* RoundedCornersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559281C48E80E00C4A3FE /* RoundedCornersView.swift */; };
+		99F5592D1C48E80E00C4A3FE /* UIImage+Decompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559291C48E80E00C4A3FE /* UIImage+Decompression.swift */; };
+		99F5592F1C48E82900C4A3FE /* AnnotatedPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F5592E1C48E82900C4A3FE /* AnnotatedPhotoCell.swift */; };
+		99F559311C48E9F200C4A3FE /* PhotoStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559301C48E9F200C4A3FE /* PhotoStreamViewController.swift */; };
 		F00B0A301C117513008A66D4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00B0A2F1C117513008A66D4 /* Alamofire.framework */; };
 		F064AB5F1BBBDCE700B04AA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */; };
 		F064AB611BBBDCE700B04AA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064AB601BBBDCE700B04AA2 /* ViewController.swift */; };
@@ -294,6 +302,8 @@
 		99BCA1891C0F8214008B7A63 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		99BCA18A1C0F8214008B7A63 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		99C4DC181C463F5700C9196D /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
+		99D5ADCC1C494470000BA57F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		99DDBA9D1C0FC7AF001DE952 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		99EC84E91C455A8A005A053B /* CapturePreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
@@ -344,6 +354,12 @@
 		99EC85161C455A8A005A053B /* TextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStorage.swift; sourceTree = "<group>"; };
 		99EC85171C455A8A005A053B /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		99EC85461C455B45005A053B /* MaterialPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialPickerViewController.swift; sourceTree = "<group>"; };
+		99F559261C48E80E00C4A3FE /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		99F559271C48E80E00C4A3FE /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		99F559281C48E80E00C4A3FE /* RoundedCornersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCornersView.swift; sourceTree = "<group>"; };
+		99F559291C48E80E00C4A3FE /* UIImage+Decompression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Decompression.swift"; sourceTree = "<group>"; };
+		99F5592E1C48E82900C4A3FE /* AnnotatedPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotatedPhotoCell.swift; sourceTree = "<group>"; };
+		99F559301C48E9F200C4A3FE /* PhotoStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStreamViewController.swift; sourceTree = "<group>"; };
 		BB0F2F4D29C1B940A3C790C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DBF24FF6FFF990776F9D204F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00B0A2D1C11749B008A66D4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -366,6 +382,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D5ADCD1C494470000BA57F /* ImageIO.framework in Frameworks */,
 				F00B0A301C117513008A66D4 /* Alamofire.framework in Frameworks */,
 				99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */,
 				99DDBAA11C0FC7AF001DE952 /* RealmSwift.framework in Frameworks */,
@@ -509,6 +526,7 @@
 		99BCA16D1C0F8214008B7A63 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */,
 				9974AE161C478952007E2944 /* BubbleTransition.swift */,
 				9974AE141C477DCC007E2944 /* ImageDownloader.swift */,
 				9974AE121C475C41007E2944 /* UIImageView+Cache.swift */,
@@ -607,6 +625,19 @@
 			name = MaterialKit;
 			sourceTree = "<group>";
 		};
+		99F559251C48E7F700C4A3FE /* Pinterest */ = {
+			isa = PBXGroup;
+			children = (
+				99F559301C48E9F200C4A3FE /* PhotoStreamViewController.swift */,
+				99F5592E1C48E82900C4A3FE /* AnnotatedPhotoCell.swift */,
+				99F559261C48E80E00C4A3FE /* Photo.swift */,
+				99F559271C48E80E00C4A3FE /* PinterestLayout.swift */,
+				99F559281C48E80E00C4A3FE /* RoundedCornersView.swift */,
+				99F559291C48E80E00C4A3FE /* UIImage+Decompression.swift */,
+			);
+			name = Pinterest;
+			sourceTree = "<group>";
+		};
 		C179B78D585014336A6F65BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +650,7 @@
 		D4EC78C66F5F1249026B55DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99D5ADCC1C494470000BA57F /* ImageIO.framework */,
 				F00B0A2F1C117513008A66D4 /* Alamofire.framework */,
 				F00B0A2D1C11749B008A66D4 /* Alamofire.framework */,
 				646B73C81BBE3AFC004FB197 /* MobileCoreServices.framework */,
@@ -654,6 +686,7 @@
 		F064AB5B1BBBDCE700B04AA2 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
+				99F559251C48E7F700C4A3FE /* Pinterest */,
 				99C4DC171C463F3200C9196D /* QRReader */,
 				99EC84E81C4559D8005A053B /* MaterialKit */,
 				99BCA14E1C0EF8AB008B7A63 /* Helpers */,
@@ -938,6 +971,7 @@
 				99EC852A1C455A8A005A053B /* MaterialKit+UIFont.swift in Sources */,
 				99EC85351C455A8A005A053B /* MaterialRadius.swift in Sources */,
 				64E6FBCB1BD0BCE000E64DE7 /* ServerTrustPolicy.swift in Sources */,
+				99F5592B1C48E80E00C4A3FE /* PinterestLayout.swift in Sources */,
 				99BCA1981C0F8214008B7A63 /* IntExtentions.swift in Sources */,
 				99BCA1901C0F8214008B7A63 /* BlockSwipe.swift in Sources */,
 				99EC85411C455A8A005A053B /* RobotoFont.swift in Sources */,
@@ -950,6 +984,7 @@
 				32D2775B1C1FD8A7000026C7 /* DownloadDetailViewController.swift in Sources */,
 				99EC851F1C455A8A005A053B /* MaterialAnimation.swift in Sources */,
 				99BCA18F1C0F8214008B7A63 /* BlockPinch.swift in Sources */,
+				99F5592F1C48E82900C4A3FE /* AnnotatedPhotoCell.swift in Sources */,
 				99EC85451C455A8A005A053B /* TextView.swift in Sources */,
 				64E6FBC51BD0BCE000E64DE7 /* MultipartFormData.swift in Sources */,
 				64E6FBC21BD0BCE000E64DE7 /* Download.swift in Sources */,
@@ -966,6 +1001,7 @@
 				99EC852C1C455A8A005A053B /* MaterialKit+UIImage+Crop.swift in Sources */,
 				99EC85191C455A8A005A053B /* CaptureSession.swift in Sources */,
 				99EC85261C455A8A005A053B /* MaterialFont.swift in Sources */,
+				99F5592C1C48E80E00C4A3FE /* RoundedCornersView.swift in Sources */,
 				99BCA1511C0EF8AB008B7A63 /* String+FormerDemo.swift in Sources */,
 				99BCA1A01C0F8214008B7A63 /* UIDeviceExtensions.swift in Sources */,
 				99EC85321C455A8A005A053B /* MaterialLayer.swift in Sources */,
@@ -980,6 +1016,7 @@
 				9974AE151C477DCC007E2944 /* ImageDownloader.swift in Sources */,
 				99EC85341C455A8A005A053B /* MaterialPulseView.swift in Sources */,
 				99BCA1521C0EF8AB008B7A63 /* UIColor+FormerDemo.swift in Sources */,
+				99F5592A1C48E80E00C4A3FE /* Photo.swift in Sources */,
 				99BCA18B1C0F8214008B7A63 /* ArrayExtensions.swift in Sources */,
 				99EC85381C455A8A005A053B /* MaterialTextLayer.swift in Sources */,
 				322B16DB1C17C4B300B429A7 /* DownloadTableViewCell.swift in Sources */,
@@ -994,6 +1031,7 @@
 				32A11D351C2F1ED600DE097A /* DownloadPhotoViewController.swift in Sources */,
 				64E6FBAE1BD0B82C00E64DE7 /* SwiftyJSON.swift in Sources */,
 				99EC85361C455A8A005A053B /* MaterialShape.swift in Sources */,
+				99D5ADCF1C494489000BA57F /* UIImage+Gif.swift in Sources */,
 				646B73D11BC3934D004FB197 /* RightViewController.swift in Sources */,
 				99BCA1481C0EE280008B7A63 /* Defaults.swift in Sources */,
 				99BCA1A61C0F8214008B7A63 /* UIViewControllerExtensions.swift in Sources */,
@@ -1004,10 +1042,12 @@
 				9974AE171C478952007E2944 /* BubbleTransition.swift in Sources */,
 				64E6FBC11BD0BCE000E64DE7 /* Alamofire.swift in Sources */,
 				99EC85291C455A8A005A053B /* MaterialKit+String.swift in Sources */,
+				99F5592D1C48E80E00C4A3FE /* UIImage+Decompression.swift in Sources */,
 				64E6FBAA1BCE387F00E64DE7 /* DownloadViewController.swift in Sources */,
 				F0EF98AB1BBC1B7500850DBA /* CamController.swift in Sources */,
 				99EC852F1C455A8A005A053B /* MaterialKit+UIImage+Resize.swift in Sources */,
 				99EC85311C455A8A005A053B /* MaterialLabel.swift in Sources */,
+				99F559311C48E9F200C4A3FE /* PhotoStreamViewController.swift in Sources */,
 				99EC851A1C455A8A005A053B /* CaptureView.swift in Sources */,
 				99EC85391C455A8A005A053B /* MaterialTransitionAnimation.swift in Sources */,
 				99EC85421C455A8A005A053B /* Text.swift in Sources */,

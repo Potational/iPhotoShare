@@ -102,7 +102,7 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
                 let user_json = JSON(res.result.value ?? [])
                 if let user_json = user_json.dictionary {
                     for (k,val) in user_json {
-                        Defaults.setValue(val.rawValue, forKeyPath: "user_\(k)")
+                        Defaults.setValue(val.stringValue, forKeyPath: "user_\(k)")
                     }
                     print("user_id",Defaults.value("user_id"))
                 }

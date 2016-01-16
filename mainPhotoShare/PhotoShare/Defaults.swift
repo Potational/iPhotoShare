@@ -71,7 +71,6 @@ class Defaults {
     static var event_data  : AnyObject? {
         get {
         
-        //        return NSKeyedUnarchiver.unarchiveObjectWithData(def.dataForKey("event_data")!)
         return def.valueForKey("event_data")
         }
         set {

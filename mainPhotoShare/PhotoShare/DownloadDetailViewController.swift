@@ -10,12 +10,15 @@ import UIKit
 
 let DownloadDetailCell = "DownloadDetailCell"
 class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
-
+    
     @IBOutlet weak var DownloadDetailView: UICollectionView!
     var eventId : String! = ""
-    var photoLinks : JSON = nil
+    var photoLinks : JSON!
     var selectedPhotoLink = ""
     var selectedPhotoId = ""
+    var event : JSON!
+    
+    var allPhotos : JSON!
     
     //URLに表示されているURLからIDを取得
     //原則取得するURLが変化しないものとして実装
@@ -36,48 +39,56 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
         super.viewWillAppear(animated)
         reloadTableData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func reloadTableData(){
+        let req = mgr.request(.GET, URL("events/photos/\(event["id"])?mobile=1"))
         
-        let req = request(.GET, URL("/events/photos") + "/\(self.eventId)",parameters: GLO_PARAMS)
-        req.responseJSON { [weak self] (res) -> Void in
+        debugPrint(req)
+        
+        req.responseJSON {
+            [weak self]
+            (res) -> Void in
             
             if let err = res.result.error {
                 self?.alert(__FUNCTION__, message: err.description)
             }
             
-            print(JSON(res.result.value ?? []))
+            let json = JSON(res.result.value ?? [])
             
-            self!.photoLinks = JSON(res.result.value ?? [])["links"]
-            print(self?.photoLinks)
+            self?.allPhotos = json["photos","all"]
             
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+            self?.photoLinks = json["links"]
+            
+            if self?.photoLinks.count == 0{
+                self?.noPhotoAlert()
+            }else{
                 self?.DownloadDetailView.reloadData()
-                if self!.photoLinks.count == 0{
-                    self!.noPhotoAlert()
-                }
-            })
+            }
         }
     }
     
     func noPhotoAlert(){
-            let alert: UIAlertController = UIAlertController(title: "", message: "画像は投稿されていません。", preferredStyle: .Alert)
-            let okAction = UIAlertAction(title: "OK", style: .Default) { action in }
-            alert.addAction(okAction)
-            presentViewController(alert, animated: true, completion: nil)
+        let alert: UIAlertController = UIAlertController(title: "", message: "画像は投稿されていません。", preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Default) { action in }
+        alert.addAction(okAction)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
-
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:DownloadDetailCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(DownloadDetailCell, forIndexPath: indexPath) as! DownloadDetailCollectionViewCell
-        print(photoLinks[indexPath.row].stringValue)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(DownloadDetailCell, forIndexPath: indexPath) as! DownloadDetailCollectionViewCell
         let photoLink = photoLinks[indexPath.row].stringValue + "/?thumb=1"
-        cell.DownloadDetailImage.downloadedFrom(link: photoLink)
+        
+        //cache から撮るか　|| net からとってcacheする
+        ImageDownloader.downloadImage(urlImage: photoLink) { (imageDownloaded) -> () in
+            cell.DownloadDetailImage.image = imageDownloaded
+        }
         return cell
     }
     
@@ -109,16 +120,16 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
             //DownloadPhotolView.photoID = self.selectedPhotoId
         }
     }
-
-
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
