@@ -22,22 +22,20 @@ class PhotoStreamViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //        if let patternImage = UIImage(named: "Pattern") {
         //            self.view.backgroundColor = UIColor(patternImage: patternImage)
         //        }
         // Set the PinterestLayout delegate
+        
         if let layout = self.collectionView?.collectionViewLayout as? PinterestLayout {
-            print("using \(layout)")
-            layout.numberOfColumns = numberOfColumns
             layout.delegate = self
+            layout.numberOfColumns = numberOfColumns
         }
+        
         self.collectionView!.backgroundColor = UIColor.blackColor()
         self.collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
         
         loadPhotos()
-        
-        
         
     }
     
@@ -71,15 +69,11 @@ class PhotoStreamViewController: UICollectionViewController {
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        //        print(size)
-        //        print(__FUNCTION__)
-        
         
         if let layout = self.collectionView?.collectionViewLayout as? PinterestLayout {
             layout.cache = []
             layout.numberOfColumns = numberOfColumns
             layout.invalidateLayout()
-            //            self.collectionView?.reloadData()
         }
         
     }
@@ -89,12 +83,9 @@ class PhotoStreamViewController: UICollectionViewController {
         }
     }
     func isLandscape() -> Bool {
-        return UIDevice.currentDevice().orientation.isLandscape.boolValue
+        let isLanscape = UIDevice.currentDevice().orientation.isLandscape.boolValue
+        return isLanscape
     }
-}
-
-extension PhotoStreamViewController {
-    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
@@ -115,7 +106,7 @@ extension PhotoStreamViewController {
                 NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                     cell.captionLabel.text = p.title
                     cell.imageView.image = imageDownloaded
-                    print(imageDownloaded)
+                    //                    print(imageDownloaded)
                 })
             })
             
@@ -124,7 +115,30 @@ extension PhotoStreamViewController {
         return cell
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        //        print(indexPath)
+        if let photo = photos?[indexPath.item]{
+//            print (photo)
+            sel_photo = photo
+            performSegueWithIdentifier("toDownloadPhoto", sender: nil)
+        }
+        
+    }
+    
+    var sel_photo : JSON!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDownloadPhoto" {
+            let des = segue.destinationViewController as! DownloadPhotoViewController
+            des.photoLink = sel_photo["link"].stringValue
+        }
+    }
+
+    
 }
+
+//extension PhotoStreamViewController {
+//    
+//    }
 
 extension PhotoStreamViewController : PinterestLayoutDelegate {
     // 1. Returns the photo height

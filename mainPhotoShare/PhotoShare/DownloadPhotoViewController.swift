@@ -13,7 +13,7 @@ import AVFoundation
 class DownloadPhotoViewController: UIViewController {
 
     @IBOutlet weak var downloadPhotoView: UIImageView!
-    var photoLink : String = ""
+    var photoLink : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

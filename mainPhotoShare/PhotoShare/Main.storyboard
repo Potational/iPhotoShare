@@ -382,17 +382,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
-                                <rect key="frame" x="0.0" y="33" width="600" height="522"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gVv-OF-l4m" firstAttribute="leading" secondItem="NoJ-v4-MPm" secondAttribute="leadingMargin" constant="5" id="7Pi-WB-28H"/>
-                            <constraint firstItem="gVv-OF-l4m" firstAttribute="top" secondItem="Qd5-4L-VWa" secondAttribute="bottom" constant="13" id="LqN-iF-AKD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gVv-OF-l4m" secondAttribute="trailing" constant="5" id="M3r-JK-7UE"/>
-                            <constraint firstItem="pZH-rb-dfw" firstAttribute="top" secondItem="gVv-OF-l4m" secondAttribute="bottom" constant="45" id="M78-RG-SL4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gVv-OF-l4m" secondAttribute="trailing" constant="-20" id="07B-iq-yqh"/>
+                            <constraint firstItem="gVv-OF-l4m" firstAttribute="leading" secondItem="NoJ-v4-MPm" secondAttribute="leadingMargin" constant="-20" id="3ay-Ov-2Js"/>
+                            <constraint firstItem="gVv-OF-l4m" firstAttribute="top" secondItem="Qd5-4L-VWa" secondAttribute="bottom" id="UPW-BP-7Fe"/>
+                            <constraint firstItem="pZH-rb-dfw" firstAttribute="top" secondItem="gVv-OF-l4m" secondAttribute="bottom" id="uj6-4c-ML4"/>
                         </constraints>
                     </view>
                     <connections>
@@ -567,7 +567,7 @@
                         </connections>
                     </collectionView>
                     <connections>
-                        <segue destination="hzW-C4-wBl" kind="show" id="pAm-mO-7KF"/>
+                        <segue destination="hzW-C4-wBl" kind="show" identifier="toDownloadPhoto" id="pAm-mO-7KF"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7S-70-id6" userLabel="First Responder" sceneMemberID="firstResponder"/>
