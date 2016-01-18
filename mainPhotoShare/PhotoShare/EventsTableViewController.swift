@@ -13,6 +13,8 @@ let eventcell = "eventcell"
 class EventsTableViewController: UITableViewController , UIViewControllerTransitioningDelegate {
     
     var events : JSON = nil
+    var sel_event : JSON?
+    var needShowPhotos : Bool = false
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -44,7 +46,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
                     
                 }
                 self?.events = JSON(res.result.value ?? [])
-                print(self?.events)
+                //                print(self?.events)
                 //                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 self?.tableView.reloadData()
                 //                })
@@ -108,13 +110,16 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let event = events[indexPath.row]
-        
-        joinLink(event){
-            json in
-            goToCamera()
+        if needShowPhotos {
+            sel_event = events[indexPath.row]
+            performSegueWithIdentifier("toPhotoStream", sender: nil)
+        }else {
+            let event = events[indexPath.row]
+            joinLink(event){
+                json in
+                goToCamera()
+            }
         }
-        
         
     }
     
@@ -140,6 +145,13 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
             qrVC.transitioningDelegate = self
             qrVC.modalPresentationStyle = .Custom
         }
+        
+        if (segue.identifier == "toPhotoStream") {
+            let downloadDetailView =  (segue.destinationViewController as! PhotoStreamViewController)
+            downloadDetailView.event = sel_event
+            
+        }
+        
         
     }
     

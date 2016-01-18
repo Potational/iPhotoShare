@@ -115,7 +115,7 @@ class DownloadDetailViewController: UIViewController,UICollectionViewDataSource,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "toDownloadPhoto") {
             let DownloadPhotolView : DownloadPhotoViewController =  (segue.destinationViewController as? DownloadPhotoViewController)!
-            DownloadPhotolView.photoLink = self.selectedPhotoLink
+//            DownloadPhotolView.photoLink = self.selectedPhotoLink
             //DownloadPhotolViewに変数追加
             //DownloadPhotolView.photoID = self.selectedPhotoId
         }

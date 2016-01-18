@@ -107,6 +107,10 @@ class ViewController: UIViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEvents" {
+            let e = segue.destinationViewController as! EventsTableViewController
+            e.needShowPhotos = true
+        }
         //
         //        if segue.identifier == "Picker" {
         //            print ("Picker")

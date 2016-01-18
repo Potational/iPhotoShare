@@ -31,7 +31,13 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
-                self.image = image
+                UIView.transitionWithView(self, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                    self.image = image
+                    }, completion: { (ok) -> Void in
+                        self.image = image
+                })
+                
+                
             }
         }).resume()
     }

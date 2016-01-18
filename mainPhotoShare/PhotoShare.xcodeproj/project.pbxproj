@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A1A47193AE3DC61CB673262 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF24FF6FFF990776F9D204F /* Pods.framework */; };
 		322B16DB1C17C4B300B429A7 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B16DA1C17C4B300B429A7 /* DownloadTableViewCell.swift */; };
-		325052471C2A984400360F4B /* DownloadDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325052461C2A984400360F4B /* DownloadDetailCollectionViewCell.swift */; };
 		32A11D351C2F1ED600DE097A /* DownloadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */; };
-		32D2775B1C1FD8A7000026C7 /* DownloadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D2775A1C1FD8A7000026C7 /* DownloadDetailViewController.swift */; };
 		64076A0E1C3F7FE9002994FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64076A0D1C3F7FE9002994FD /* Main.storyboard */; };
 		640BA0FE1C02193400FCD376 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640BA0FD1C02193400FCD376 /* CameraUtil.swift */; };
 		640BA1001C02225100FCD376 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */; };
@@ -23,8 +21,6 @@
 		646B73CF1BC3905C004FB197 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B73CE1BC3905C004FB197 /* SlideMenuController.swift */; };
 		646B73D11BC3934D004FB197 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B73D01BC3934D004FB197 /* RightViewController.swift */; };
 		64A2AF6C1C06CED50085319B /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64A2AF6A1C06CED50085319B /* CoreDataModel.xcdatamodeld */; };
-		64A2AF6F1C06CF710085319B /* Entity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */; };
-		64A2AF701C06CF710085319B /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2AF6E1C06CF710085319B /* Entity.swift */; };
 		64A2AF791C0821F10085319B /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF771C0821F10085319B /* 120x120.png */; };
 		64A2AF7A1C0821F10085319B /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF781C0821F10085319B /* 180x180.png */; };
 		64A2AF871C08313A0085319B /* iphone4s.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF831C08313A0085319B /* iphone4s.png */; };
@@ -54,7 +50,8 @@
 		64E6FBCE1BD0BCE000E64DE7 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBC01BD0BCE000E64DE7 /* Validation.swift */; };
 		64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F8B4B01BF429E300DD1D7A /* OnFlash.png */; };
 		990645381C40281900DE8985 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 990645371C40281900DE8985 /* .gitignore */; };
-		993332D51C44D80800ADAA1D /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993332D41C44D80800ADAA1D /* PickerViewController.swift */; };
+		991053981C4C0A8F0008017F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991053971C4C0A8F0008017F /* AssetsLibrary.framework */; };
+		9910539A1C4C0D810008017F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991053991C4C0D810008017F /* Photos.framework */; };
 		993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482521C0FCF6E00387491 /* EventsTableViewController.swift */; };
 		993482551C0FCF6E00387491 /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993482531C0FCF6E00387491 /* EventsTableViewController.xib */; };
 		993482581C0FCFD600387491 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482561C0FCFD600387491 /* EventTableViewCell.swift */; };
@@ -63,7 +60,6 @@
 		9974AE151C477DCC007E2944 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974AE141C477DCC007E2944 /* ImageDownloader.swift */; };
 		9974AE171C478952007E2944 /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974AE161C478952007E2944 /* BubbleTransition.swift */; };
 		9974AE191C478B90007E2944 /* QRZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974AE181C478B90007E2944 /* QRZoomViewController.swift */; };
-		99880F421C1154CA00341EC2 /* TryRealmWriteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99880F411C1154CA00341EC2 /* TryRealmWriteEvent.swift */; };
 		99BCA1401C0EE0DF008B7A63 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA13F1C0EE0DF008B7A63 /* URL.swift */; };
 		99BCA1431C0EE1DA008B7A63 /* NewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BCA1411C0EE1DA008B7A63 /* NewRoomViewController.swift */; };
 		99BCA1441C0EE1DA008B7A63 /* NewRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BCA1421C0EE1DA008B7A63 /* NewRoomViewController.xib */; };
@@ -201,9 +197,7 @@
 
 /* Begin PBXFileReference section */
 		322B16DA1C17C4B300B429A7 /* DownloadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTableViewCell.swift; sourceTree = "<group>"; };
-		325052461C2A984400360F4B /* DownloadDetailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPhotoViewController.swift; sourceTree = "<group>"; };
-		32D2775A1C1FD8A7000026C7 /* DownloadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadDetailViewController.swift; sourceTree = "<group>"; };
 		5D74EE21E63C15274CF2E565 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		64076A0D1C3F7FE9002994FD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		640BA0FD1C02193400FCD376 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
@@ -218,8 +212,6 @@
 		646B73CE1BC3905C004FB197 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = "../../SlideMenuControllerSwift-master/Source/SlideMenuController.swift"; sourceTree = "<group>"; };
 		646B73D01BC3934D004FB197 /* RightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
 		64A2AF6B1C06CED50085319B /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
-		64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Entity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		64A2AF6E1C06CF710085319B /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		64A2AF771C0821F10085319B /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = ../120x120.png; sourceTree = "<group>"; };
 		64A2AF781C0821F10085319B /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = ../180x180.png; sourceTree = "<group>"; };
 		64A2AF831C08313A0085319B /* iphone4s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone4s.png; sourceTree = "<group>"; };
@@ -251,7 +243,8 @@
 		64E6FBC01BD0BCE000E64DE7 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		64F8B4B01BF429E300DD1D7A /* OnFlash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnFlash.png; sourceTree = "<group>"; };
 		990645371C40281900DE8985 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		993332D41C44D80800ADAA1D /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		991053971C4C0A8F0008017F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		991053991C4C0D810008017F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		993482521C0FCF6E00387491 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		993482531C0FCF6E00387491 /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
 		993482561C0FCFD600387491 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -260,7 +253,6 @@
 		9974AE141C477DCC007E2944 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		9974AE161C478952007E2944 /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		9974AE181C478B90007E2944 /* QRZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRZoomViewController.swift; sourceTree = "<group>"; };
-		99880F411C1154CA00341EC2 /* TryRealmWriteEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TryRealmWriteEvent.swift; sourceTree = "<group>"; };
 		99BCA13F1C0EE0DF008B7A63 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		99BCA1411C0EE1DA008B7A63 /* NewRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRoomViewController.swift; sourceTree = "<group>"; };
 		99BCA1421C0EE1DA008B7A63 /* NewRoomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewRoomViewController.xib; sourceTree = "<group>"; };
@@ -382,6 +374,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9910539A1C4C0D810008017F /* Photos.framework in Frameworks */,
+				991053981C4C0A8F0008017F /* AssetsLibrary.framework in Frameworks */,
 				99D5ADCD1C494470000BA57F /* ImageIO.framework in Frameworks */,
 				F00B0A301C117513008A66D4 /* Alamofire.framework in Frameworks */,
 				99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */,
@@ -432,6 +426,17 @@
 			name = SwiftForms;
 			sourceTree = "<group>";
 		};
+		9916C1C11C4CBBCC00BD6113 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				64E6FBA91BCE387F00E64DE7 /* DownloadViewController.swift */,
+				322B16DA1C17C4B300B429A7 /* DownloadTableViewCell.swift */,
+				99F559251C48E7F700C4A3FE /* Pinterest */,
+				32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */,
+			);
+			name = Share;
+			sourceTree = "<group>";
+		};
 		9934824E1C0FCEF700387491 /* EventList */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,7 +444,6 @@
 				993482531C0FCF6E00387491 /* EventsTableViewController.xib */,
 				993482561C0FCFD600387491 /* EventTableViewCell.swift */,
 				993482571C0FCFD600387491 /* EventTableViewCell.xib */,
-				99880F411C1154CA00341EC2 /* TryRealmWriteEvent.swift */,
 			);
 			name = EventList;
 			sourceTree = "<group>";
@@ -650,6 +654,8 @@
 		D4EC78C66F5F1249026B55DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				991053991C4C0D810008017F /* Photos.framework */,
+				991053971C4C0A8F0008017F /* AssetsLibrary.framework */,
 				99D5ADCC1C494470000BA57F /* ImageIO.framework */,
 				F00B0A2F1C117513008A66D4 /* Alamofire.framework */,
 				F00B0A2D1C11749B008A66D4 /* Alamofire.framework */,
@@ -686,7 +692,6 @@
 		F064AB5B1BBBDCE700B04AA2 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
-				99F559251C48E7F700C4A3FE /* Pinterest */,
 				99C4DC171C463F3200C9196D /* QRReader */,
 				99EC84E81C4559D8005A053B /* MaterialKit */,
 				99BCA14E1C0EF8AB008B7A63 /* Helpers */,
@@ -697,20 +702,13 @@
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
 				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
-				64A2AF6D1C06CF710085319B /* Entity+CoreDataProperties.swift */,
 				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
 				9974AE181C478B90007E2944 /* QRZoomViewController.swift */,
-				993332D41C44D80800ADAA1D /* PickerViewController.swift */,
 				99EC85461C455B45005A053B /* MaterialPickerViewController.swift */,
-				64A2AF6E1C06CF710085319B /* Entity.swift */,
 				F0EF98AA1BBC1B7500850DBA /* CamController.swift */,
 				640BA1021C0222EB00FCD376 /* Detector.mm */,
 				640BA0FD1C02193400FCD376 /* CameraUtil.swift */,
-				64E6FBA91BCE387F00E64DE7 /* DownloadViewController.swift */,
-				322B16DA1C17C4B300B429A7 /* DownloadTableViewCell.swift */,
-				32D2775A1C1FD8A7000026C7 /* DownloadDetailViewController.swift */,
-				325052461C2A984400360F4B /* DownloadDetailCollectionViewCell.swift */,
-				32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */,
+				9916C1C11C4CBBCC00BD6113 /* Share */,
 				64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */,
 				642DE3891BC50089003D63EF /* LoadSelectViewController.swift */,
 				64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */,
@@ -945,7 +943,6 @@
 				64D6FDBE1BC78EA50052DFB7 /* LoadUrlViewController.swift in Sources */,
 				64E6FBA81BCE381100E64DE7 /* SaveUrlViewController.swift in Sources */,
 				642DE38A1BC50089003D63EF /* LoadSelectViewController.swift in Sources */,
-				64A2AF6F1C06CF710085319B /* Entity+CoreDataProperties.swift in Sources */,
 				F064AB611BBBDCE700B04AA2 /* ViewController.swift in Sources */,
 				99BCA1991C0F8214008B7A63 /* NSDateExtensions.swift in Sources */,
 				99BCA1A51C0F8214008B7A63 /* UITextViewExtensions.swift in Sources */,
@@ -955,7 +952,6 @@
 				99BCA1951C0F8214008B7A63 /* CGRectExtensions.swift in Sources */,
 				99BCA1941C0F8214008B7A63 /* CGFloatExtensions.swift in Sources */,
 				64E6FBA61BCE369800E64DE7 /* SaveSelectViewController.swift in Sources */,
-				325052471C2A984400360F4B /* DownloadDetailCollectionViewCell.swift in Sources */,
 				99BCA18C1C0F8214008B7A63 /* BlockButton.swift in Sources */,
 				99BCA1431C0EE1DA008B7A63 /* NewRoomViewController.swift in Sources */,
 				99BCA1A11C0F8214008B7A63 /* UIFontExtensions.swift in Sources */,
@@ -981,7 +977,6 @@
 				99BCA1601C0F5109008B7A63 /* LoginViewController.swift in Sources */,
 				99BCA1A21C0F8214008B7A63 /* UIImageExtensions.swift in Sources */,
 				99EC851D1C455A8A005A053B /* FlatButton.swift in Sources */,
-				32D2775B1C1FD8A7000026C7 /* DownloadDetailViewController.swift in Sources */,
 				99EC851F1C455A8A005A053B /* MaterialAnimation.swift in Sources */,
 				99BCA18F1C0F8214008B7A63 /* BlockPinch.swift in Sources */,
 				99F5592F1C48E82900C4A3FE /* AnnotatedPhotoCell.swift in Sources */,
@@ -995,8 +990,6 @@
 				99EC85251C455A8A005A053B /* MaterialEdgeInsetPreset.swift in Sources */,
 				99BCA18D1C0F8214008B7A63 /* BlockLongPress.swift in Sources */,
 				99EC85371C455A8A005A053B /* MaterialTableViewCell.swift in Sources */,
-				99880F421C1154CA00341EC2 /* TryRealmWriteEvent.swift in Sources */,
-				64A2AF701C06CF710085319B /* Entity.swift in Sources */,
 				99BCA1961C0F8214008B7A63 /* DictionaryExtensions.swift in Sources */,
 				99EC852C1C455A8A005A053B /* MaterialKit+UIImage+Crop.swift in Sources */,
 				99EC85191C455A8A005A053B /* CaptureSession.swift in Sources */,
@@ -1061,7 +1054,6 @@
 				99EC85301C455A8A005A053B /* MaterialKit+UIImage+Size.swift in Sources */,
 				99BCA19D1C0F8214008B7A63 /* UIButtonExtensions.swift in Sources */,
 				64E6FBCC1BD0BCE000E64DE7 /* Stream.swift in Sources */,
-				993332D51C44D80800ADAA1D /* PickerViewController.swift in Sources */,
 				99EC851C1C455A8A005A053B /* FabButton.swift in Sources */,
 				640BA1031C0222EB00FCD376 /* Detector.mm in Sources */,
 				9974AE131C475C41007E2944 /* UIImageView+Cache.swift in Sources */,

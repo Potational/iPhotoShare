@@ -16,6 +16,7 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
     
     var events : JSON = nil
     var selectedEventId : String = ""
+    var sel_event : JSON?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,11 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
     //        super.viewWillAppear(animated)
     //
     //    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
     
+//        reloadTableData()
+//    }
     func reloadTableData(){
         
         mgr.request(.GET, URL("events"))
@@ -83,11 +88,12 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
                 self?.events = JSON(res.result.value ?? [])
                 print(self?.events)
                 
-                //                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                self?.downloadtableView.reloadData()
-                //                })
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self?.downloadtableView.reloadData()
+                })
+
         }
-        //        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,7 +118,7 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
         return cell
     }
     
-    var sel_event : JSON?
+    
     
     func tableView(table: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         sel_event = events[indexPath.row]
