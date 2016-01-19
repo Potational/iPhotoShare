@@ -50,6 +50,8 @@
 		64E6FBCE1BD0BCE000E64DE7 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBC01BD0BCE000E64DE7 /* Validation.swift */; };
 		64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F8B4B01BF429E300DD1D7A /* OnFlash.png */; };
 		990645381C40281900DE8985 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 990645371C40281900DE8985 /* .gitignore */; };
+		9908740F1C4E9A4C00578096 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9908740E1C4E9A4C00578096 /* Dates.swift */; };
+		990874111C4EAC6900578096 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990874101C4EAC6900578096 /* SwiftNotice.swift */; };
 		991053981C4C0A8F0008017F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991053971C4C0A8F0008017F /* AssetsLibrary.framework */; };
 		9910539A1C4C0D810008017F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991053991C4C0D810008017F /* Photos.framework */; };
 		993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993482521C0FCF6E00387491 /* EventsTableViewController.swift */; };
@@ -103,10 +105,6 @@
 		99C4DC191C463F5700C9196D /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C4DC181C463F5700C9196D /* QRReaderViewController.swift */; };
 		99D5ADCD1C494470000BA57F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D5ADCC1C494470000BA57F /* ImageIO.framework */; };
 		99D5ADCF1C494489000BA57F /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */; };
-		99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; };
-		99DDBAA01C0FC7AF001DE952 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9D1C0FC7AF001DE952 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		99DDBAA11C0FC7AF001DE952 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */; };
-		99DDBAA21C0FC7AF001DE952 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		99EC85181C455A8A005A053B /* CapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC84E91C455A8A005A053B /* CapturePreviewView.swift */; };
 		99EC85191C455A8A005A053B /* CaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC84EA1C455A8A005A053B /* CaptureSession.swift */; };
 		99EC851A1C455A8A005A053B /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC84EB1C455A8A005A053B /* CaptureView.swift */; };
@@ -187,8 +185,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				99DDBAA21C0FC7AF001DE952 /* RealmSwift.framework in Embed Frameworks */,
-				99DDBAA01C0FC7AF001DE952 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +239,8 @@
 		64E6FBC01BD0BCE000E64DE7 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		64F8B4B01BF429E300DD1D7A /* OnFlash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OnFlash.png; sourceTree = "<group>"; };
 		990645371C40281900DE8985 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9908740E1C4E9A4C00578096 /* Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		990874101C4EAC6900578096 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		991053971C4C0A8F0008017F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		991053991C4C0D810008017F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		993482521C0FCF6E00387491 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
@@ -296,8 +294,6 @@
 		99C4DC181C463F5700C9196D /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		99D5ADCC1C494470000BA57F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
-		99DDBA9D1C0FC7AF001DE952 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		99EC84E91C455A8A005A053B /* CapturePreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
 		99EC84EA1C455A8A005A053B /* CaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSession.swift; sourceTree = "<group>"; };
 		99EC84EB1C455A8A005A053B /* CaptureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
@@ -378,8 +374,6 @@
 				991053981C4C0A8F0008017F /* AssetsLibrary.framework in Frameworks */,
 				99D5ADCD1C494470000BA57F /* ImageIO.framework in Frameworks */,
 				F00B0A301C117513008A66D4 /* Alamofire.framework in Frameworks */,
-				99DDBA9F1C0FC7AF001DE952 /* Realm.framework in Frameworks */,
-				99DDBAA11C0FC7AF001DE952 /* RealmSwift.framework in Frameworks */,
 				646B73C91BBE3AFC004FB197 /* MobileCoreServices.framework in Frameworks */,
 				1A1A47193AE3DC61CB673262 /* Pods.framework in Frameworks */,
 			);
@@ -424,6 +418,22 @@
 				64E6FBC01BD0BCE000E64DE7 /* Validation.swift */,
 			);
 			name = SwiftForms;
+			sourceTree = "<group>";
+		};
+		9908740C1C4E5FD900578096 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				99EC85461C455B45005A053B /* MaterialPickerViewController.swift */,
+			);
+			name = Picker;
+			sourceTree = "<group>";
+		};
+		9908740D1C4E5FEB00578096 /* QRZoom */ = {
+			isa = PBXGroup;
+			children = (
+				9974AE181C478B90007E2944 /* QRZoomViewController.swift */,
+			);
+			name = QRZoom;
 			sourceTree = "<group>";
 		};
 		9916C1C11C4CBBCC00BD6113 /* Share */ = {
@@ -472,6 +482,8 @@
 				99BCA1451C0EE280008B7A63 /* alert.swift */,
 				99BCA1461C0EE280008B7A63 /* Defaults.swift */,
 				99BCA1531C0F2031008B7A63 /* Params.swift */,
+				9908740E1C4E9A4C00578096 /* Dates.swift */,
+				990874101C4EAC6900578096 /* SwiftNotice.swift */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -488,6 +500,7 @@
 		99BCA14B1C0EE465008B7A63 /* START */ = {
 			isa = PBXGroup;
 			children = (
+				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
 				F064AB601BBBDCE700B04AA2 /* ViewController.swift */,
 			);
 			name = START;
@@ -670,8 +683,6 @@
 			isa = PBXGroup;
 			children = (
 				990645371C40281900DE8985 /* .gitignore */,
-				99DDBA9D1C0FC7AF001DE952 /* Realm.framework */,
-				99DDBA9E1C0FC7AF001DE952 /* RealmSwift.framework */,
 				F064AB5B1BBBDCE700B04AA2 /* PhotoShare */,
 				F064AB711BBBDCE700B04AA2 /* PhotoShareTests */,
 				F064AB5A1BBBDCE700B04AA2 /* Products */,
@@ -692,24 +703,23 @@
 		F064AB5B1BBBDCE700B04AA2 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
-				99C4DC171C463F3200C9196D /* QRReader */,
 				99EC84E81C4559D8005A053B /* MaterialKit */,
 				99BCA14E1C0EF8AB008B7A63 /* Helpers */,
 				99BCA13E1C0EE069008B7A63 /* libs */,
 				99BCA13D1C0EE044008B7A63 /* images */,
+				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
 				99BCA14B1C0EE465008B7A63 /* START */,
 				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
-				F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */,
-				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
-				9974AE181C478B90007E2944 /* QRZoomViewController.swift */,
-				99EC85461C455B45005A053B /* MaterialPickerViewController.swift */,
+				99C4DC171C463F3200C9196D /* QRReader */,
+				9908740D1C4E5FEB00578096 /* QRZoom */,
+				9908740C1C4E5FD900578096 /* Picker */,
+				9916C1C11C4CBBCC00BD6113 /* Share */,
+				64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */,
 				F0EF98AA1BBC1B7500850DBA /* CamController.swift */,
 				640BA1021C0222EB00FCD376 /* Detector.mm */,
 				640BA0FD1C02193400FCD376 /* CameraUtil.swift */,
-				9916C1C11C4CBBCC00BD6113 /* Share */,
-				64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */,
 				642DE3891BC50089003D63EF /* LoadSelectViewController.swift */,
 				64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */,
 				640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */,
@@ -966,6 +976,7 @@
 				64E6FBC71BD0BCE000E64DE7 /* Request.swift in Sources */,
 				99EC852A1C455A8A005A053B /* MaterialKit+UIFont.swift in Sources */,
 				99EC85351C455A8A005A053B /* MaterialRadius.swift in Sources */,
+				990874111C4EAC6900578096 /* SwiftNotice.swift in Sources */,
 				64E6FBCB1BD0BCE000E64DE7 /* ServerTrustPolicy.swift in Sources */,
 				99F5592B1C48E80E00C4A3FE /* PinterestLayout.swift in Sources */,
 				99BCA1981C0F8214008B7A63 /* IntExtentions.swift in Sources */,
@@ -990,6 +1001,7 @@
 				99EC85251C455A8A005A053B /* MaterialEdgeInsetPreset.swift in Sources */,
 				99BCA18D1C0F8214008B7A63 /* BlockLongPress.swift in Sources */,
 				99EC85371C455A8A005A053B /* MaterialTableViewCell.swift in Sources */,
+				9908740F1C4E9A4C00578096 /* Dates.swift in Sources */,
 				99BCA1961C0F8214008B7A63 /* DictionaryExtensions.swift in Sources */,
 				99EC852C1C455A8A005A053B /* MaterialKit+UIImage+Crop.swift in Sources */,
 				99EC85191C455A8A005A053B /* CaptureSession.swift in Sources */,

@@ -15,44 +15,6 @@ import Alamofire
 
 import RealmSwift
 
-var sel_event : Event?
-
-// Event model
-
-class Event: Object {
-    dynamic var id : String?
-    dynamic var event_name : String?
-    dynamic var user_id : String?
-    dynamic var share_id : String?
-    dynamic var all_day : String?
-    dynamic var start_time : String?
-    dynamic var end_time : String?
-    dynamic var created_at : String?
-    
-    class func write(data: AnyObject, done: ((event : Event?)-> Void )? = nil){
-        let r = try! Realm()
-        
-        try! r.write(){
-            
-            let new_event = r.create(Event.self, value: data)
-            
-            Defaults.last_event_id = String(new_event.id)
-            
-            //            print(Defaults.last_event_id)
-            
-            sel_event = new_event
-            
-            done?(event: sel_event)
-        }
-    }
-    
-    class func new(data: AnyObject, done: ((event : Event?)-> Void )? = nil){
-        let event = Event(value: data)
-        done?(event: event)
-    }
-}
-
-
 
 class RoomCreateViewController: FormViewController {
     
@@ -62,7 +24,8 @@ class RoomCreateViewController: FormViewController {
         
         //        let bg = UIImageView(image: UIImage(named: "Home17"))
         //        bg.frame = CGRect(x: 0, y: 0, w: view.frame.size.width, h: view.frame.size.height)
-        let bg = UIColor.whiteColor()//UIColor(patternImage: UIImage(named: "pattern2")!)
+        let bg = UIColor.whiteColor()
+        //UIColor(patternImage: UIImage(named: "pattern2")!)
         tableView?.separatorStyle = .None
         tableView?.backgroundColor = bg
         
@@ -148,6 +111,7 @@ class RoomCreateViewController: FormViewController {
     }
     
     
+    
     //MARK: send to SERVER & CREATE
     func new_room_create(data: [String:AnyObject]){
         
@@ -155,16 +119,19 @@ class RoomCreateViewController: FormViewController {
             
             mgr.request(.POST, baseUrl(URL_TYPE.EVENT_CREATE),parameters: all_data)
                 .responseJSON{
-                    
-                    [weak self]
-                    
-                    event in
+                    [weak self] event in
                     
                     self?.navigationController?.popViewControllerAnimated(false)
                     
-                    joinLink(JSON(event.result.value ?? [])){
-                        _ in
-                        goToCamera()
+                    let event = JSON(event.result.value ?? [])
+                    
+                    if event != nil {
+                        joinLink(event){
+                            _ in
+                            
+                            write_last_event_json(event)
+                            goToCamera(event)
+                        }
                     }
                     
             }
@@ -179,6 +146,6 @@ class RoomCreateViewController: FormViewController {
     }
     
     
-
+    
     
 }

@@ -20,6 +20,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
     lazy var flashButton: FlatButton = FlatButton()
     lazy var captureButton: FabButton = FabButton()
     
+    var event: JSON!
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
@@ -254,6 +255,20 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
      */
     func captureViewDidPressCameraButton(captureView: CaptureView, button: UIButton) {
         captureButton.backgroundColor = MaterialColor.blue.darken1.colorWithAlphaComponent(0.3)
+        
+        performSegueWithIdentifier("toPhotoStream", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "toPhotoStream" {
+            
+            let photosView = (segue.destinationViewController as! UINavigationController).topViewController as! PhotoStreamViewController
+            
+            photosView.event = event
+            photosView.needDoneBarButtonItem = true
+//            print(des.event)
+        }
     }
     
     /**
@@ -377,8 +392,8 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         cameraButton.titleLabel?.textAlignment = .Center
         cameraButton.titleLabel?.font = RobotoFont.regularWithSize(10)
         
-        cameraButton.setTitle(Defaults.value("event_name") as? String, forState: .Normal)
-        cameraButton.setTitleColor(MaterialColor.red.accent1, forState: .Normal)
+        cameraButton.setTitle(event?["event_name"].string, forState: .Normal)
+        cameraButton.setTitleColor(MaterialColor.green.accent1, forState: .Normal)
         captureView.cameraButton = cameraButton
     }
     

@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 import Alamofire
 
-var nowViewController : UIViewController?
+//var nowViewController : UIViewController?
 
 var mgr: Manager!
 
@@ -53,18 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
-        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+//        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
         
-        rightViewController.mainViewController = nvc
+//        rightViewController.mainViewController = nvc
         
         nvc.setNavigationBarHidden(false, animated: true)
         
-        let event_list = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController//EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
-        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list,rightMenuViewController: rightViewController)
-        
+        let event_list = storyboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
+        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list)//,rightMenuViewController: rightViewController)
     
-        nowViewController = slideMenuController
-
         sliceVC = slideMenuController
 
         self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)

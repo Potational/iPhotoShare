@@ -13,12 +13,12 @@ import UIKit
 //        let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
 //        let result = UnsafeMutablePointer<CUnsignedChar>.alloc(Int(CC_MD5_DIGEST_LENGTH))
 //        var hash = NSMutableString()
-//        
+//
 //        CC_MD5(str!, CC_LONG(self.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)), result)
 //        for i in 0..<Int(CC_MD5_DIGEST_LENGTH) {
 //            hash.appendFormat("%02x", result[i])
 //        }
-//        
+//
 //        result.destroy()
 //        return String(format: hash)
 //    }
@@ -44,7 +44,7 @@ class ImageDownloader :NSObject, NSURLConnectionDelegate, NSURLConnectionDataDel
         guard self.dataImage != nil else {
             return
         }
-    
+        
         let image = UIImage(data: self.dataImage!)
         guard image != nil else {
             return
@@ -57,7 +57,11 @@ class ImageDownloader :NSObject, NSURLConnectionDelegate, NSURLConnectionDataDel
         }
         
         NSFileManager.defaultManager().createFileAtPath(self.pathImage!, contents: self.dataImage, attributes: nil)
-        self.blockCompletion?(imageDownloaded: imageDownloaded)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.blockCompletion?(imageDownloaded: imageDownloaded)
+        }
+        
     }
     
     private func resizeImage(inout imageDownloaded: UIImage, sizeImage: CGSize) {
@@ -86,8 +90,11 @@ class ImageDownloader :NSObject, NSURLConnectionDelegate, NSURLConnectionDataDel
         print(pathPhoto)
         
         if NSFileManager.defaultManager().fileExistsAtPath(pathPhoto) == true {
-            completionBlock(image: UIImage(data: NSFileManager.defaultManager().contentsAtPath(pathPhoto)!))
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                completionBlock(image: UIImage(data: NSFileManager.defaultManager().contentsAtPath(pathPhoto)!))
+            }
             return Void()
+            
         }
         
         let dImage = ImageDownloader()

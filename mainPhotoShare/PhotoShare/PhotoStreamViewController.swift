@@ -14,16 +14,15 @@ class PhotoStreamViewController: UICollectionViewController {
     //  var photos = Photo.allPhotos()
     var photos : JSON?
     var event: JSON!
-    
     var sel_photo : JSON!
     var sel_photo_idx : Int = 0
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
+    var needDoneBarButtonItem : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(__FUNCTION__)
         
         title = event?["event_name"].string
         
@@ -34,26 +33,24 @@ class PhotoStreamViewController: UICollectionViewController {
         self.collectionView!.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
         
         loadPhotos()
+        addDoneBarButtonItemIfNeeded()
     }
-    lazy var layout : PinterestLayout? = {
-        return self.collectionView?.collectionViewLayout as? PinterestLayout
-    }()
     
-    //    override func viewWillAppear(animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //
-    //        loadPhotos()
-    //    }
-    
-    @IBAction func reloadPhotos(sender: UIBarButtonItem) {
-        
-        loadPhotos()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
     }
+   
     func loadPhotos(then: (()->Void)? = nil) {
         
+        guard event != nil else {
+            return
+        }
         layout?.cache = []
         
-        let req = mgr.request(.GET, URL("events/photos/\(event["id"])?mobile=1"))
+        let req = mgr.request(.GET, URL("events/photos/\(event["id"].stringValue)?mobile=1"))
+        
+        self.pleaseWaitWithImages([loaderImage!], timeInterval: 0)
         
         req.responseJSON {
             [weak self]
@@ -67,36 +64,15 @@ class PhotoStreamViewController: UICollectionViewController {
             
             self?.photos = json["photos","all"]
             
-            self?.collectionView?.reloadData()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self?.collectionView?.reloadData()
+            })
             
+            self?.clearAllNotice()
             then?()
         }
     }
     
-    lazy var loader : UIImage? = {
-        return UIImage.gifWithName("panda_loading")
-    }()
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
-        //        if let layout = self.collectionView?.collectionViewLayout as? PinterestLayout {
-        layout?.cache = []
-        layout?.numberOfColumns = numberOfColumns
-        layout?.invalidateLayout()
-        //        }
-        
-    }
-    var numberOfColumns : Int {
-        get {
-            return isLandscape() ? 3 : 2
-        }
-    }
-    func isLandscape() -> Bool {
-        let isLanscape = UIDevice.currentDevice().orientation.isLandscape.boolValue
-        return isLanscape
-    }
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos?.count ?? 0
     }
@@ -110,23 +86,21 @@ class PhotoStreamViewController: UICollectionViewController {
         
         if let photo = photos?[indexPath.item] {
             
-            let p = Photo(photoJson: photo)
+//            let p = Photo(photoJson: photo)
             
-            ImageDownloader.downloadImage(urlImage: p.imgLink, completionBlock: { (imageDownloaded) -> () in
+            ImageDownloader.downloadImage(urlImage: photo["link_thumb"].stringValue, completionBlock: { (imageDownloaded) -> () in
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    cell.captionLabel.text = p.title
-                    
-                    UIView.transitionWithView(cell.imageView, duration: 0.3,
-                        options: UIViewAnimationOptions.TransitionCrossDissolve,
-                        animations: { () -> Void in
-                            cell.imageView.image = imageDownloaded
-                        }, completion: { (ok) -> Void in
-                            cell.imageView.image = imageDownloaded
-                    })
+                cell.captionLabel.text = photo["title"].string
+                
+                UIView.transitionWithView(cell.imageView, duration: 0.3,
+                    options: UIViewAnimationOptions.TransitionCrossDissolve,
+                    animations: { () -> Void in
+                        cell.imageView.image = imageDownloaded
+                    }, completion: { (ok) -> Void in
+                        cell.imageView.image = imageDownloaded
                 })
-                
             })
+            
             
         }
         
@@ -145,50 +119,74 @@ class PhotoStreamViewController: UICollectionViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDownloadPhoto" {
-            let des = segue.destinationViewController as! DownloadPhotoViewController
-            //            des.photoLink = sel_photo["link"].stringValue
-            des.photo = sel_photo
-            des.photos = photos
-            des.sel_photo_idx = sel_photo_idx
+            
+            let downloadView = segue.destinationViewController as! DownloadPhotoViewController
+            
+            downloadView.photo = sel_photo
+            downloadView.photos = photos
+            downloadView.sel_photo_idx = sel_photo_idx
         }
     }
+    func addDoneBarButtonItemIfNeeded(){
+        if needDoneBarButtonItem {
+            self.navigationItem.setLeftBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done:"), animated: true)
+        }
+    }
+    func done(button : UIBarButtonItem){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
+    lazy var layout : PinterestLayout? = {
+        return self.collectionView?.collectionViewLayout as? PinterestLayout
+    }()
+    
+    
+    @IBAction func reloadPhotos(sender: UIBarButtonItem) {
+        
+        loadPhotos()
+    }
+    
+    lazy var loader : UIImage? = {
+        return UIImage.gifWithName("panda_loading")
+    }()
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        layout?.cache = []
+        layout?.numberOfColumns = numberOfColumns
+        layout?.invalidateLayout()
+        
+    }
+    var numberOfColumns : Int {
+        get {
+            return isLandscape() ? 3 : 2
+        }
+    }
+    func isLandscape() -> Bool {
+        let isLanscape = UIDevice.currentDevice().orientation.isLandscape.boolValue
+        return isLanscape
+    }
+    
+//    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+//        return UIStatusBarStyle.LightContent
+//    }
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
     
 }
 
-//extension PhotoStreamViewController {
-//
-//    }
 
 extension PhotoStreamViewController : PinterestLayoutDelegate {
     // 1. Returns the photo height
     func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath , withWidth width:CGFloat) -> CGFloat {
-        
-        //        let photo = photos[indexPath.item]
-        //        let cell = collectionView.cellForItemAtIndexPath(indexPath) as? AnnotatedPhotoCell
-        //        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
-        //
-        //        if let photo = cell?.photo {
-        //            let rect  = AVMakeRectWithAspectRatioInsideRect(photo.image.size, boundingRect)
-        //            return rect.size.height
-        //        }
         return 100
     }
     
     // 2. Returns the annotation size based on the text
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
-        
-        //        let annotationPadding = CGFloat(4)
-        //        let annotationHeaderHeight = CGFloat(17)
-        //
-        //        //                let photo = photos[indexPath.item]
-        //        let cell = (collectionView.cellForItemAtIndexPath(indexPath) as? AnnotatedPhotoCell)
-        ////        if let photo = cell?.photo {
-        //            let font = UIFont(name: "AvenirNext-Regular", size: 10)!
-        //            let commentHeight = photo.heightForcreated_at(font, width: width)
-        //            let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
-        //            return height
-        ////        }
         return 20
     }
     

@@ -16,33 +16,69 @@ class ViewController: UIViewController
     
     @IBOutlet weak var bgImageView: UIImageView!
     
-    @IBAction func showEvents(sender: AnyObject) {
-        let v = EventsTableViewController(nibName:"EventsTableViewController",bundle: nil)
-        self.navigationController?.pushViewController(v, animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "PhotoShare"
-        nowViewController = self
-        //        print(__FUNCTION__)
         
         // 色を変数に用意しておく
-//        let color = UIColor(red: 183/255, green: 218/255, blue: 152/255, alpha: 1.0)
+        //        let color = UIColor(red: 183/255, green: 218/255, blue: 152/255, alpha: 1.0)
         
         // 背景の色を変えたい。
-//        self.navigationController?.navigationBar.barTintColor = color
+        //        self.navigationController?.navigationBar.barTintColor = color
         
+        self.pleaseWaitWithImages([loaderImage!], timeInterval: 0)
         LOGIN_WITH_EMAIL(){
-            auth_user in
-            if let _ = Defaults.last_event_id {
+            
+            [unowned self] auth_user in
+            
+            self.clearAllNotice()
+            self.checkLastEventAndGotoCamera()
+            
+            
+        }
+        
+    }
+    
+    func checkLastEventAndGotoCamera() {
+        
+        print(__FUNCTION__)
+        
+        let last = read_last_event_json()
+        
+        print(last)
+        
+        let start_time = date(last["start_time"].stringValue)
+        
+        if last["all_day"].intValue == 1 {
+            //all_day
+            
+            print("start_time",start_time)
+            print("today",NSDate())
+            
+            if  start_time != nil && NSDate.areDatesSameDay(NSDate(), dateTwo: start_time!) {
                 
                 self.performSegueWithIdentifier("directPhotoPicker", sender: nil)
             }
+            
+        }else{
+            //時間指定
+            let end_time = date(last["end_time"].stringValue)
+            
+            if start_time != nil && end_time != nil && (start_time!.compare(end_time!) == .OrderedAscending) {
+                self.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+            }
         }
+    }
+    
+    func date(dateString: String) -> NSDate? {
+        let df = NSDateFormatter()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        df.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let date = df.dateFromString(dateString)
+//        print(date)
+        return date
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,6 +147,11 @@ class ViewController: UIViewController
             let e = segue.destinationViewController as! EventsTableViewController
             e.needShowPhotos = true
         }
+        
+        if segue.identifier == "directPhotoPicker" {
+            let p = segue.destinationViewController as! MaterialPickerViewController
+            p.event = read_last_event_json()
+        }
         //
         //        if segue.identifier == "Picker" {
         //            print ("Picker")
@@ -118,22 +159,6 @@ class ViewController: UIViewController
         //            des.delegate  = self
         //
         //        }
-    }
-    
-    
-    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-    //
-    //        print(image)
-    //
-    //        self.bgImageView.image = image
-    //
-    //        self.dismissViewControllerAnimated(true, completion: nil)
-    //    }
-    
-    
-    @IBAction func myResumeButton(sender: AnyObject) {
-        
-        
     }
 }
 

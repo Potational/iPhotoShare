@@ -9,7 +9,6 @@
 import UIKit
 import Accounts
 import AVFoundation
-import AssetsLibrary
 import Photos
 
 class DownloadPhotoViewController: UIViewController {
@@ -27,10 +26,9 @@ class DownloadPhotoViewController: UIViewController {
         super.viewDidLoad()
         
         title = photo["title"].string
-        downloadPhotoView.image = loader
         
+        downloadPhotoView.contentMode = .ScaleAspectFit
         reloadCountItemLabel()
-        //        downloadPhotoView.downloadedFrom(link: photo["link"].stringValue)
         
         //ロングプレスジェスチャー
         let longPG = UILongPressGestureRecognizer(target: self, action: "doGesture:")
@@ -39,7 +37,168 @@ class DownloadPhotoViewController: UIViewController {
         // Do any additional setup after loading the view.
         // add swipe left right
         addSwipeImageView()
+        
+        //        if nil != photos {
+        //            cacheAllPhotos()
+        //        }
     }
+    
+    @IBAction func next(sender: UIBarButtonItem) {
+        reloadCountItemLabel(true)
+    }
+    @IBAction func prev(sender: UIBarButtonItem) {
+        reloadCountItemLabel(false)
+    }
+    
+    func reloadCountItemLabel(next:Bool? = nil) {
+        
+        downloadPhotoView.image = loader
+        
+        if next != nil {
+            if next == true {
+                //next
+                
+                sel_photo_idx += 1
+                if sel_photo_idx > (photos.count - 1) {
+                    sel_photo_idx = 0
+                }
+            }else{
+                //prev
+                
+                sel_photo_idx -= 1
+                if sel_photo_idx < 0 {
+                    sel_photo_idx = photos.count - 1
+                }
+            }
+        }
+        if sel_photo_idx > (photos.count - 1) {
+            sel_photo_idx = 0
+        }
+        
+        photo = photos[sel_photo_idx]
+        
+        loadPhoto(photo)
+        cacheNextPhotos(2, fromIndex: sel_photo_idx)
+        
+        title = photo["title"].string
+        
+        byat.text = "by \(photo["user","name"].stringValue) at \(photo["created_at"].stringValue)"
+        
+        countItem.title = "\(sel_photo_idx + 1) / \(photos.count)"
+        
+    }
+    func loadPhoto(photo: JSON){
+        
+        ImageDownloader.downloadImage(urlImage: photo["link"].stringValue) {
+            [weak self] (imageDownloaded) -> () in
+            
+            if let imgView = self?.downloadPhotoView {
+                UIView.transitionWithView(imgView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+                    imgView.image = imageDownloaded
+                    }, completion: { (ok) -> Void in
+                })
+                
+            }
+            
+        }
+        
+    }
+    func cacheNextPhotos(numberOfCache : Int = 1, fromIndex : Int = 0 ){
+        for i in 1...numberOfCache {
+            if let photo = photos?[i + fromIndex]{
+                ImageDownloader.downloadImage(urlImage: photo["link"].stringValue , completionBlock: { (imageDownloaded) -> () in
+                    print(__FUNCTION__, photo["link"].stringValue,imageDownloaded)
+                })
+            }
+        }
+    }
+    
+    func cacheAllPhotos() {
+        for photo in photos.arrayValue {
+            ImageDownloader.downloadImage(urlImage: photo["link"].stringValue , completionBlock: { (imageDownloaded) -> () in
+                print(__FUNCTION__, photo["link"].stringValue,imageDownloaded)
+            })
+        }
+    }
+    
+    @IBAction func save(sender: UIBarButtonItem) {
+        if let img = downloadPhotoView.image {
+            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+                
+                PHAssetChangeRequest.creationRequestForAssetFromImage(img)
+                
+                },completionHandler: {
+                    [weak self]success, error in
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self?.save_ok()
+                    })
+                    print("added image to album")
+                    print(error)
+                    
+                })
+            
+        }
+    }
+    
+    func save_ok() {
+        let al = UIAlertController(title: "保存完了しました。", message: nil, preferredStyle: .Alert)
+        al.addAction(UIAlertAction(title: "確認", style: .Default, handler: nil))
+        self.presentViewController(al, animated: true, completion: nil)
+        
+    }
+    
+    lazy var loader : UIImage? = {
+        return UIImage.gifWithName("panda_loading")
+    }()
+    
+    @IBAction func other_actions(sender: UIBarButtonItem) {
+        
+        let actions  = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        if UI_USER_INTERFACE_IDIOM() == .Pad {
+            actions.popoverPresentationController?.sourceView = view
+            actions.popoverPresentationController?.barButtonItem = sender
+            
+        }
+        
+        let delAction = UIAlertAction(title: "削除", style: .Destructive, handler: { (act) -> Void in
+            print(act)
+            let reqUrl = URL("photos/delete/\(self.photo["id"].stringValue)")
+            GET_TOKEN(true){
+                newtoken in
+                mgr.request(.POST, reqUrl, parameters:["_token":newtoken,"mobile":1])
+                    .responseJSON(completionHandler: { (res) -> Void in
+                        if let err = res.result.error {
+                            print(err)
+                            return
+                        }
+                        
+                        let j = JSON(res.result.value ?? [])
+                        if j["deleted"].bool == true {
+                            self.photos = j["photos"]
+                            self.reloadCountItemLabel()
+                        }else{
+                            let a = UIAlertController(title: "削除できません。", message: nil, preferredStyle: .Alert)
+                            let okAction = UIAlertAction(title: "了解", style: .Default, handler: nil)
+                            a.addAction(okAction)
+                            self.presentViewController(a, animated: true, completion: nil)
+                        }
+                        
+                        
+                    })
+                    .responseString(completionHandler: { (res) -> Void in
+                    })
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        actions.addAction(delAction)
+        actions.addAction(cancelAction)
+        
+        presentViewController(actions, animated: true, completion: nil)
+    }
+    
     
     func addSwipeImageView() {
         
@@ -111,120 +270,6 @@ class DownloadPhotoViewController: UIViewController {
                 self.presentViewController(activityVC, animated: true, completion: nil)
                 
         }
-    }
-    
-    @IBAction func next(sender: UIBarButtonItem) {
-        reloadCountItemLabel(true)
-    }
-    @IBAction func prev(sender: UIBarButtonItem) {
-        reloadCountItemLabel(false)
-    }
-    
-    func reloadCountItemLabel(next:Bool? = nil) {
-        if next != nil {
-            if next == true {
-                //next
-                
-                sel_photo_idx += 1
-                if sel_photo_idx > (photos.count - 1) {
-                    sel_photo_idx = 0
-                }
-            }else{
-                //prev
-                
-                sel_photo_idx -= 1
-                if sel_photo_idx < 0 {
-                    sel_photo_idx = photos.count - 1
-                }
-            }
-        }
-        if sel_photo_idx > (photos.count - 1) {
-            sel_photo_idx = 0
-        }
-        photo = photos[sel_photo_idx]
-        downloadPhotoView.image = loader
-        downloadPhotoView.downloadedFrom(link: photo["link"].stringValue)
-        title = photo["title"].string
-        //        print(photo)
-        byat.text = "by \(photo["user","name"].stringValue) at \(photo["created_at"].stringValue)"
-        countItem.title = "\(sel_photo_idx + 1) / \(photos.count)"
-    }
-    @IBAction func save(sender: UIBarButtonItem) {
-        if let img = downloadPhotoView.image {
-            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                
-                PHAssetChangeRequest.creationRequestForAssetFromImage(img)
-                
-                },completionHandler: {
-                    [weak self]success, error in
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self?.save_ok()
-                    })
-                    print("added image to album")
-                    print(error)
-                    
-                })
-            
-        }
-    }
-    
-    func save_ok() {
-        let al = UIAlertController(title: "保存完了", message: nil, preferredStyle: .Alert)
-        al.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(al, animated: true, completion: nil)
-        
-    }
-    
-    lazy var loader : UIImage? = {
-        return UIImage.gifWithName("panda_loading")
-    }()
-    
-    @IBAction func other_actions(sender: UIBarButtonItem) {
-        
-        let actions  = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        if UI_USER_INTERFACE_IDIOM() == .Pad {
-            actions.popoverPresentationController?.sourceView = view
-            actions.popoverPresentationController?.barButtonItem = sender
-            //            actions.popoverPresentationController?.sourceRect = sender.accessibilityFrame
-        }
-        
-        let delAction = UIAlertAction(title: "削除", style: .Destructive, handler: { (act) -> Void in
-            print(act)
-            let reqUrl = URL("photos/delete/\(self.photo["id"].stringValue)")
-            GET_TOKEN(true){
-                newtoken in
-                mgr.request(.POST, reqUrl, parameters:["_token":newtoken,"mobile":1])
-                    .responseJSON(completionHandler: { (res) -> Void in
-                        if let err = res.result.error {
-                            print(err)
-                            return
-                        }
-                        
-                        let j = JSON(res.result.value ?? [])
-                        if j["deleted"].bool == true {
-                            self.photos = j["photos"]
-                            self.reloadCountItemLabel()
-                        }else{
-                            let a = UIAlertController(title: "削除できません。", message: nil, preferredStyle: .Alert)
-                            let okAction = UIAlertAction(title: "了解", style: .Default, handler: nil)
-                            a.addAction(okAction)
-                            self.presentViewController(a, animated: true, completion: nil)
-                        }
-                        
-                        
-                    })
-                    .responseString(completionHandler: { (res) -> Void in
-                    })
-            }
-        })
-        
-        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
-        
-        actions.addAction(delAction)
-        actions.addAction(cancelAction)
-        
-        presentViewController(actions, animated: true, completion: nil)
     }
     
     

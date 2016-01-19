@@ -44,19 +44,7 @@ class Photo {
         let imgLink = photoJson["link_thumb"].stringValue
         self.init(imgLink:imgLink, title: title, created_at: created_at)
     }
-    //    convenience init(dictionary: NSDictionary) {
-    //        let title = dictionary["title"] as? String
-    //        let created_at = dictionary["created_at"] as? String
-    //        let photoLink = dictionary["link_thumb"] as! String
     
-    //    ImageDownloader.downloadImage(urlImage: photoLink) { (imageDownloaded) -> () in
-    //        let image = imageDownloaded?.decompressedImage
-    //        self.init(title: title!, created_at: created_at!, image: image!)
-    //    }
-    
-    //    let image = UIImage(named: photo!)?.decompressedImage
-    //        self.init(title: title!, created_at: created_at!, image: image)
-    //    }
     
     func heightForcreated_at(font: UIFont, width: CGFloat) -> CGFloat {
         let rect = NSString(string: created_at).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)

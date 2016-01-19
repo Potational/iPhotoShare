@@ -26,6 +26,8 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: eventcell)
+        
+        reloadTableData(true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -34,26 +36,68 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         reloadTableData()
     }
     
-    func reloadTableData(){
+    func reloadTableData(refresh : Bool = false){
         
-        mgr.request(.GET, URL("events"))
-            .responseJSON {
-                [weak self] (res) -> Void in
-                
-                if let err = res.result.error {
-                    self?.alert(err.description, message: nil)
-                    return
+        func refreshEvents(){
+            mgr.request(.GET, URL("events"))
+                .responseJSON {
+                    [weak self] (res) -> Void in
                     
-                }
-                self?.events = JSON(res.result.value ?? [])
-                //                print(self?.events)
-                //                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                self?.tableView.reloadData()
-                //                })
+                    if let err = res.result.error {
+                        self?.alert(err.description, message: nil)
+                        return
+                        
+                    }
+                    self?.events = JSON(res.result.value ?? [])
+                    
+                    if let events = self?.events {
+                        
+                        self?.writeEventsToLocal(events)
+                        write_last_event_json(events[0])
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self?.tableView.reloadData()
+                        })
+                    }
+                    
+            }
         }
+        if refresh {
+            refreshEvents()
+        }
+        
+        readLocalEvents()
+        if events == nil {
+            refreshEvents()
+        }
+        
+        tableView.reloadData()
+        
         
     }
     
+    @IBAction func refreshEvents(sender: UIBarButtonItem) {
+        reloadTableData(true)
+    }
+    func readLocalEvents() {
+        
+        let eventsArray = NSData(contentsOfFile: docDir("events.json"))
+        
+        //        print(eventsArray)
+        if let e = eventsArray {
+            events = JSON(data: e)
+            //            print(__FUNCTION__,events)
+        }
+        
+    }
+    func writeEventsToLocal(events : JSON?) {
+        if let e = events {
+            let eventsData = e.description.dataUsingEncoding(NSUTF8StringEncoding)
+            let writeEventsJSON = eventsData?.writeToFile(docDir("events.json"), atomically: false)
+            print("writeEventsJSON",writeEventsJSON)
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,24 +127,24 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         cell.by.text = event["members"].string
         //QR image
         let imageUrl = URL("events/qr/") + event["id"].stringValue
-        if event["uuid"].type == .Null  {//参加者はQRを出せない
-            cell.qrButton.hidden = true
-            cell.qrButton.setImage(nil, forState: .Normal)
+        //        if event["uuid"].type == .Null  {//参加者はQRを出せない
+        cell.qrButton.hidden = true
+        cell.qrButton.setImage(nil, forState: .Normal)
+        
+        //        }else{
+        ImageDownloader.downloadImage(urlImage: imageUrl) { (imageDownloaded) -> () in
+            cell.qrButton.hidden = false
+            cell.qrButton.setImage(imageDownloaded, forState: .Normal)
             
-        }else{
-            ImageDownloader.downloadImage(urlImage: imageUrl) { (imageDownloaded) -> () in
-                cell.qrButton.hidden = false
-                cell.qrButton.setImage(imageDownloaded, forState: .Normal)
+            cell.qrButton.addTapGesture(tapNumber: 1, action: {
+                [weak self](ges) -> () in
+                self?.qrButton = cell.qrButton
+                self?.event = event
                 
-                cell.qrButton.addTapGesture(tapNumber: 1, action: {
-                    [weak self](ges) -> () in
-                    self?.qrButton = cell.qrButton
-                    self?.event = event
-                    
-                    self?.qrZoom()
-                    
-                    })
-            }
+                self?.qrZoom()
+                
+                })
+            //            }
         }
         
         return cell
@@ -117,7 +161,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
             let event = events[indexPath.row]
             joinLink(event){
                 json in
-                goToCamera()
+                goToCamera(event)
             }
         }
         
@@ -145,8 +189,8 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
             qrVC.transitioningDelegate = self
             qrVC.modalPresentationStyle = .Custom
         }
-        
-        if (segue.identifier == "toPhotoStream") {
+            
+        else if (segue.identifier == "toPhotoStream") {
             let downloadDetailView =  (segue.destinationViewController as! PhotoStreamViewController)
             downloadDetailView.event = sel_event
             

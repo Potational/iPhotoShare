@@ -46,7 +46,7 @@ func LOGIN(var LOGIN_NAME: String! = nil,var token: String! = nil, complete:((re
                     }else{
                         let alert = UIAlertController(title: "ログインできません", message: nil, preferredStyle: .Alert)
                         alert.addAction(UIAlertAction(title: "了解", style: .Default, handler: nil))
-                        nowViewController!.presentViewController(alert, animated: false, completion: nil)
+                        sliceVC!.presentViewController(alert, animated: false, completion: nil)
                     }
             }
         }
@@ -127,10 +127,10 @@ func build_data(var data : [String: AnyObject], done: ((all_data: [String: AnyOb
 func showLoginViewController(){
     
     print(__FUNCTION__)
-    print(    nowViewController?.navigationController)
+    //    print(    nowViewController?.navigationController)
     let v = LoginViewController()
     
-    nowViewController?.presentViewController(v, animated: true, completion: nil)
+    sliceVC?.presentViewController(v, animated: true, completion: nil)
 }
 
 func REGISTER_LOGIN_NAME(var token:String! = nil, complete: ((user: AnyObject?)->Void)? = nil) {
@@ -225,15 +225,18 @@ func baseUrl(append: URL_TYPE? = nil) -> String {
 }
 
 
-func goToCamera(){
+func goToCamera(event: JSON = nil){
     
     print(__FUNCTION__)
     
     //    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
     
-    let v = MaterialPickerViewController()
+    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MaterialPickerViewController") as! MaterialPickerViewController //MaterialPickerViewController()
+        v.event = event
+        sliceVC.presentViewController(v, animated: true, completion: nil)
+    }
     
-    sliceVC.presentViewController(v, animated: true, completion: nil)
 }
 
 func joinLink(var event : JSON,done:((JSON )->Void)? = nil) {
@@ -245,6 +248,8 @@ func joinLink(var event : JSON,done:((JSON )->Void)? = nil) {
 }
 
 func joinLink(var url:String, done:((JSON )->Void)? = nil) {
+    
+    SwiftNotice.wait([loaderImage!], timeInterval: 0)
     
     if NSUUID(UUIDString: url) != nil {//uuid check
         
@@ -281,6 +286,7 @@ func joinLink(var url:String, done:((JSON )->Void)? = nil) {
                 sliceVC.alert(j["note"].stringValue, message: nil)
             }
             
+            SwiftNotice.clear()
         }
         .responseString { (res) -> Void in
             print(res)
@@ -307,6 +313,24 @@ func docDir(fileName: String) -> String {
     let path = docDir.stringByAppendingString("/" + fileName)
     return path
 }
+
+func write_last_event_json(event: JSON){
+    let data = event.description.dataUsingEncoding(NSUTF8StringEncoding)
+    let ok = data?.writeToFile(docDir("last_event_json"), atomically: true)
+    print(__FUNCTION__, ok)
+}
+func read_last_event_json() -> JSON {
+    print(__FUNCTION__)
+    let jData = NSData(contentsOfFile: docDir("last_event_json"))
+    if let j = jData {
+        return JSON(data: j)
+    }
+    return nil
+}
+var loaderImage : UIImage? = {
+    return UIImage.gifWithName("panda_102"/*"panda_loading"*/)
+}()
+
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){
 //
 //    GLO_PARAMS["_token"] = token ?? Defaults.token
