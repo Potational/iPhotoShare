@@ -388,15 +388,15 @@
                         <viewControllerLayoutGuide type="bottom" id="pZH-rb-dfw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NoJ-v4-MPm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-OF-l4m">
-                                <rect key="frame" x="0.0" y="49" width="600" height="507"/>
+                                <rect key="frame" x="0.0" y="49" width="600" height="463"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-U5-Lu9">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="c3Y-eb-ut3"/>
                                 </constraints>
@@ -407,17 +407,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bJs-tX-ou9"/>
-                                    <barButtonItem systemItem="fastForward" id="qdH-KK-ntr">
+                                    <barButtonItem systemItem="rewind" id="HQx-pj-WAe">
                                         <connections>
-                                            <action selector="next:" destination="hzW-C4-wBl" id="aRo-I9-qT1"/>
+                                            <action selector="prev:" destination="hzW-C4-wBl" id="or7-iU-D9y"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7Jm-9Z-1gE"/>
                                     <barButtonItem title="count" id="74T-vI-MMk"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7Oh-ZZ-gFA"/>
-                                    <barButtonItem systemItem="rewind" id="HQx-pj-WAe">
+                                    <barButtonItem systemItem="fastForward" id="qdH-KK-ntr">
                                         <connections>
-                                            <action selector="prev:" destination="hzW-C4-wBl" id="or7-iU-D9y"/>
+                                            <action selector="next:" destination="hzW-C4-wBl" id="aRo-I9-qT1"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="m7i-1k-YmM"/>
@@ -452,6 +452,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="bXl-U5-Lu9" secondAttribute="trailing" constant="-20" id="vfN-hb-LFX"/>
                         </constraints>
                     </view>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="byat" destination="jFP-0q-4IO" id="d3x-Hd-jlh"/>
                         <outlet property="countItem" destination="74T-vI-MMk" id="peH-yB-IB8"/>
@@ -460,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNj-2N-QtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964" y="1527"/>
+            <point key="canvasLocation" x="-958" y="1539"/>
         </scene>
         <!--Save Url View Controller-->
         <scene sceneID="MVD-mc-Dz8">

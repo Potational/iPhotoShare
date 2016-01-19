@@ -27,6 +27,7 @@ class DownloadPhotoViewController: UIViewController {
         super.viewDidLoad()
         
         title = photo["title"].string
+        downloadPhotoView.image = loader
         
         reloadCountItemLabel()
         //        downloadPhotoView.downloadedFrom(link: photo["link"].stringValue)
@@ -141,6 +142,7 @@ class DownloadPhotoViewController: UIViewController {
             sel_photo_idx = 0
         }
         photo = photos[sel_photo_idx]
+        downloadPhotoView.image = loader
         downloadPhotoView.downloadedFrom(link: photo["link"].stringValue)
         title = photo["title"].string
         //        print(photo)
@@ -172,6 +174,10 @@ class DownloadPhotoViewController: UIViewController {
         self.presentViewController(al, animated: true, completion: nil)
         
     }
+    
+    lazy var loader : UIImage? = {
+        return UIImage.gifWithName("panda_loading")
+    }()
     
     @IBAction func other_actions(sender: UIBarButtonItem) {
         

@@ -74,7 +74,7 @@ class PhotoStreamViewController: UICollectionViewController {
     }
     
     lazy var loader : UIImage? = {
-        return UIImage.gifWithName("loader1")
+        return UIImage.gifWithName("panda_loading")
     }()
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -105,7 +105,7 @@ class PhotoStreamViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("AnnotatedPhotoCell", forIndexPath: indexPath) as! AnnotatedPhotoCell
         
-        cell.imageView.image = nil
+        cell.imageView.image = loader
         cell.captionLabel.text = nil
         
         if let photo = photos?[indexPath.item] {
