@@ -10,66 +10,92 @@ import Foundation
 import UIKit
 
 class Defaults {
+    
+    static var def  = NSUserDefaults.standardUserDefaults()
+    static func setValue(value:AnyObject?, forKeyPath: String){
+        def.setValue(value, forKeyPath: forKeyPath)
+        def.synchronize()
+    }
+    
+    static func value(keyPath: String) -> AnyObject? {
+        return def.valueForKeyPath(keyPath)
+    }
     static var token : String? {
         get {
-        return NSUserDefaults.standardUserDefaults().stringForKey("_token")
+        return def.stringForKey("_token")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: "_token")
+            def.setValue(newValue, forKeyPath: "_token")
+            def.synchronize()
         }
     }
     static var user : AnyObject? {
         get {
-        return NSUserDefaults.standardUserDefaults().objectForKey("user")
+        return def.objectForKey("user")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: "user")
+            def.setValue(newValue, forKeyPath: "user")
+            def.synchronize()
         }
     }
     
     static var email : String? {
         get {
-        return NSUserDefaults.standardUserDefaults().stringForKey("email")
+        return def.stringForKey("email")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: "email")
+            def.setValue(newValue, forKeyPath: "email")
+            def.synchronize()
         }
     }
     
     static var password : String? {
         get {
-        return NSUserDefaults.standardUserDefaults().stringForKey("password")
+        return def.stringForKey("password")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKeyPath: "password")
+            def.setValue(newValue, forKeyPath: "password")
+            def.synchronize()
         }
     }
     
     static var login_data : [String: AnyObject]?{
         get {
-        return NSUserDefaults.standardUserDefaults().dictionaryForKey("login_data") as? [String:String]
+        return def.dictionaryForKey("login_data") as? [String:String]
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "login_data")
+            def.setValue(newValue, forKey: "login_data")
+            def.synchronize()
         }
     }
     static var event_data  : AnyObject? {
         get {
         
-        //        return NSKeyedUnarchiver.unarchiveObjectWithData(NSUserDefaults.standardUserDefaults().dataForKey("event_data")!)
-        return NSUserDefaults.standardUserDefaults().valueForKey("event_data")
+        return def.valueForKey("event_data")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "event_data")
+            def.setValue(newValue, forKey: "event_data")
+            def.synchronize()
+        }
+    }
+    
+    static var last_event : AnyObject? {
+        get{
+        return def.valueForKey("last_event")
+        }
+        set{
+            def.setValue(newValue, forKey: "last_event")
+            def.synchronize()
         }
     }
     
     static var last_event_id : String? {
         get {
-        return NSUserDefaults.standardUserDefaults().stringForKey("event_id")
+        return def.stringForKey("event_id")
         }
         set {
-            NSUserDefaults.standardUserDefaults().setValue(newValue, forKey: "event_id")
+            def.setValue(newValue, forKey: "event_id")
+            def.synchronize()
         }
     }
 }

@@ -48,9 +48,6 @@ class Event: Object {
     
     class func new(data: AnyObject, done: ((event : Event?)-> Void )? = nil){
         let event = Event(value: data)
-        //        let r = try! Realm()
-        //        let event = r.create(Event.self, value: data)
-        //        sel_event = event
         done?(event: event)
     }
 }
@@ -157,40 +154,23 @@ class RoomCreateViewController: FormViewController {
         build_data(data, done: { (all_data) -> Void in
             
             mgr.request(.POST, baseUrl(URL_TYPE.EVENT_CREATE),parameters: all_data)
-                .responseJSON{ [weak self] res in
+                .responseJSON{
                     
-                    //write event to locale
-//                    self?.save_new_room_data(res.result.value!)
-                    //
+                    [weak self]
                     
-                    print(res)
-                    Defaults.last_event_id = JSON(res.result.value ?? [])["id"].stringValue
-                    self?.goToCamera()
+                    event in
+                    
+                    self?.navigationController?.popViewControllerAnimated(false)
+                    
+                    joinLink(JSON(event.result.value ?? [])){
+                        _ in
+                        goToCamera()
+                    }
+                    
             }
             
         })
         
-    }
-    
-    //    MARK: SAVE by Realm and GO TO CAMERA
-    func save_new_room_data(res : AnyObject ){
-        
-        Event.write(res){
-            event in
-            Defaults.last_event_id = String(event?.id)
-            self.goToCamera()
-        }
-        
-    }
-    
-    //    MARK: GO TO KAMERA
-    
-    func goToCamera(){
-        
-        print(__FUNCTION__)
-        
-        let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
-        self.navigationController?.pushViewController(v, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -199,14 +179,6 @@ class RoomCreateViewController: FormViewController {
     }
     
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+
     
 }

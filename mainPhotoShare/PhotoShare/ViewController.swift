@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController
-//,UIImagePickerControllerDelegate , UINavigationControllerDelegate
+    //,UIImagePickerControllerDelegate , UINavigationControllerDelegate
 {
     
     @IBOutlet weak var bgImageView: UIImageView!
@@ -26,15 +26,21 @@ class ViewController: UIViewController
         
         title = "PhotoShare"
         nowViewController = self
-        print(__FUNCTION__)
+        //        print(__FUNCTION__)
         
         // 色を変数に用意しておく
-        let color = UIColor(red: 183/255, green: 218/255, blue: 152/255, alpha: 1.0)
+//        let color = UIColor(red: 183/255, green: 218/255, blue: 152/255, alpha: 1.0)
         
         // 背景の色を変えたい。
-        self.navigationController?.navigationBar.barTintColor = color
+//        self.navigationController?.navigationBar.barTintColor = color
         
-        LOGIN_WITH_EMAIL()
+        LOGIN_WITH_EMAIL(){
+            auth_user in
+            if let _ = Defaults.last_event_id {
+                
+                self.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+            }
+        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -45,13 +51,22 @@ class ViewController: UIViewController
     }
     
     @IBAction func join(sender: UIButton) {
+        
+        //        self.performSegueWithIdentifier("toQRCamera", sender: nil)
+        /*
+        create  alert for QRCODE or URL
+        */
+        
         let a = UIAlertController(title: "JOIN", message: "方法選択", preferredStyle: .ActionSheet)
+        a.popoverPresentationController?.sourceView = view
+        a.popoverPresentationController?.sourceRect = sender.frame
         
         //qr画面へ
-        a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { (act) -> Void in
+        a.addAction(UIAlertAction(title: "QR CODE", style: .Default, handler: { [unowned self](act) -> Void in
             //to LOADQR View Controller
-            self.performSegueWithIdentifier("JoinQR", sender: nil)
-        }))
+            //            self.performSegueWithIdentifier("JoinQR", sender: nil)
+            self.performSegueWithIdentifier("toQRCamera", sender: nil)
+            }))
         //url入力popup show
         a.addAction(UIAlertAction(title: "URL", style: .Default, handler: { (act) -> Void in
             //            self.performSegueWithIdentifier("JoinURL", sender: nil)
@@ -62,7 +77,8 @@ class ViewController: UIViewController
                 
             })
             
-            urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: { (action) -> Void in
+            urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: {
+                [unowned self](action) -> Void in
                 let url = urlAlert.textFields?[0].text
                 
                 print(url)
@@ -70,7 +86,7 @@ class ViewController: UIViewController
                 
                 
                 
-            }))
+                }))
             urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             
             self.presentViewController(urlAlert, animated: true, completion: nil)
@@ -91,24 +107,28 @@ class ViewController: UIViewController
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        if segue.identifier == "Picker" {
-//            print ("Picker")
-//            let des = segue.destinationViewController as! PickerViewController
-//            des.delegate  = self
-//            
-//        }
+        if segue.identifier == "showEvents" {
+            let e = segue.destinationViewController as! EventsTableViewController
+            e.needShowPhotos = true
+        }
+        //
+        //        if segue.identifier == "Picker" {
+        //            print ("Picker")
+        //            let des = segue.destinationViewController as! PickerViewController
+        //            des.delegate  = self
+        //
+        //        }
     }
     
-
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-//    
-//        print(image)
-//        
-//        self.bgImageView.image = image
-//        
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
+    
+    //    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    //
+    //        print(image)
+    //
+    //        self.bgImageView.image = image
+    //
+    //        self.dismissViewControllerAnimated(true, completion: nil)
+    //    }
     
     
     @IBAction func myResumeButton(sender: AnyObject) {

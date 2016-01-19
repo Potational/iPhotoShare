@@ -10,9 +10,11 @@ import UIKit
 
 let eventcell = "eventcell"
 
-class EventsTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController , UIViewControllerTransitioningDelegate {
     
     var events : JSON = nil
+    var sel_event : JSON?
+    var needShowPhotos : Bool = false
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -23,36 +25,33 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: eventcell)
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         super.viewWillAppear(animated)
-        
         reloadTableData()
-        
     }
     
     func reloadTableData(){
         
-        mgr.request(.GET, URL("/events"))
-            .responseJSON {[weak self] (res) -> Void in
+        mgr.request(.GET, URL("events"))
+            .responseJSON {
+                [weak self] (res) -> Void in
                 
                 if let err = res.result.error {
                     self?.alert(err.description, message: nil)
                     return
                     
                 }
-                
                 self?.events = JSON(res.result.value ?? [])
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    self?.tableView.reloadData()
-                })
+                //                print(self?.events)
+                //                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self?.tableView.reloadData()
+                //                })
         }
-        //        self.tableView.reloadData()
+        
     }
     
     
@@ -64,12 +63,10 @@ class EventsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return events.count
     }
     
@@ -78,77 +75,101 @@ class EventsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(eventcell, forIndexPath: indexPath) as! EventTableViewCell
         
-        cell.textLabel?.text = events[indexPath.row]["event_name"].string
+        let event = events[indexPath.row]
         
-        
-        // Configure the cell...
+        //event_name
+        cell.event_name.text = event["event_name"].string
+        //参加者
+        cell.by.text = event["members"].string
+        //QR image
+        let imageUrl = URL("events/qr/") + event["id"].stringValue
+        if event["uuid"].type == .Null  {//参加者はQRを出せない
+            cell.qrButton.hidden = true
+            cell.qrButton.setImage(nil, forState: .Normal)
+            
+        }else{
+            ImageDownloader.downloadImage(urlImage: imageUrl) { (imageDownloaded) -> () in
+                cell.qrButton.hidden = false
+                cell.qrButton.setImage(imageDownloaded, forState: .Normal)
+                
+                cell.qrButton.addTapGesture(tapNumber: 1, action: {
+                    [weak self](ges) -> () in
+                    self?.qrButton = cell.qrButton
+                    self?.event = event
+                    
+                    self?.qrZoom()
+                    
+                    })
+            }
+        }
         
         return cell
     }
-    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-                Defaults.last_event_id = events[indexPath.row]["id"].string
-        //        AppDelegate.noweventid = Defaults.last_event_id
+        if needShowPhotos {
+            sel_event = events[indexPath.row]
+            performSegueWithIdentifier("toPhotoStream", sender: nil)
+        }else {
+            let event = events[indexPath.row]
+            joinLink(event){
+                json in
+                goToCamera()
+            }
+        }
         
-        Event.new(events[indexPath.row].dictionaryObject!){
-            event in
+    }
+    
+    
+    var qrButton : UIButton!
+    var event : JSON!
+    
+    func qrZoom()
+    {
+        self.performSegueWithIdentifier("qrZoom", sender: nil)
+    }
+    
+    let transition = BubbleTransition()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "qrZoom" {
             
-            sel_event = event
-            print(event)
+            let qrVC = segue.destinationViewController as! QRZoomViewController
+            qrVC.qrImage = qrButton.imageView?.image
+            qrVC.event = self.event
             
-            sliceVC.closeLeftNonAnimation()
+            qrVC.transitioningDelegate = self
+            qrVC.modalPresentationStyle = .Custom
+        }
+        
+        if (segue.identifier == "toPhotoStream") {
+            let downloadDetailView =  (segue.destinationViewController as! PhotoStreamViewController)
+            downloadDetailView.event = sel_event
             
-            goToCamera()
         }
         
         
-        
     }
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
+    // MARK: UIViewControllerTransitioningDelegate
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Present
+        //        transition.startingPoint = self.qrButton.center
+        //                transition.bubbleColor = .blackColor()
+        return transition
     }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .Dismiss
+        //        transition.startingPoint = self.qrButton.center
+        //                transition.bubbleColor = .blackColor()
+        return transition
     }
-    */
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  PhotoShare
@@ -15,6 +16,8 @@ var nowViewController : UIViewController?
 var mgr: Manager!
 
 var sliceVC : SlideMenuController!
+
+var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
 @UIApplicationMain
 
@@ -35,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mgr = Manager(configuration: cfg)
     }
 
+    var mainVC : UIViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         configureManager()
         
@@ -44,17 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
-        
-        let event_list = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
+//        self.mainVC = mainViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-
-
+        
+        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+        
         rightViewController.mainViewController = nvc
         
         nvc.setNavigationBarHidden(false, animated: true)
         
+        let event_list = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController//EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
         let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list,rightMenuViewController: rightViewController)
         
     

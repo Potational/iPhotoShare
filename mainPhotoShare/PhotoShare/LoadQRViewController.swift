@@ -87,7 +87,6 @@ class LoadQRViewController: UIViewController,AVCaptureMetadataOutputObjectsDeleg
         
             let url = qrData.stringValue
             
-            print("QR URL : \(url)")
             
             joinLink(url) {
                 

@@ -73,8 +73,8 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
     }
     
     build_data(login_data) { (all_data) -> Void in
-        
-        mgr.request(.POST, URL("/auth/login"), parameters : all_data)
+        print("all_data",all_data)
+        mgr.request(.POST, URL("auth/login"), parameters : all_data)
             
             .responseString(completionHandler: { (res) -> Void in
                 
@@ -99,6 +99,13 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
                 //ログイン成功のデータをロカルに保存
                 Defaults.login_data = all_data
                 
+                let user_json = JSON(res.result.value ?? [])
+                if let user_json = user_json.dictionary {
+                    for (k,val) in user_json {
+                        Defaults.setValue(val.stringValue, forKeyPath: "user_\(k)")
+                    }
+                    print("user_id",Defaults.value("user_id"))
+                }
                 done?(user: user)
         }
     }
@@ -199,19 +206,8 @@ func GET_TOKEN(refresh:Bool = false, complete: ((token:String) -> Void)? = nil) 
     }
 }
 
-
-
 let BASE_URL = "https://www.photoshare.space"
 var GLO_PARAMS : [String:String] = ["mobile":"1"]
-//    {
-//get{
-//    var params = ["mobile":"1"]
-//    return params
-//}
-//set{
-//
-//}
-//}
 
 enum URL_TYPE : String {
     case LOGIN = "/auth/login"
@@ -233,11 +229,84 @@ func goToCamera(){
     
     print(__FUNCTION__)
     
-    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
+    //    let v = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CamController") as! CamController
     
-    nowViewController?.navigationController?.pushViewController(v, animated: true)
+    let v = MaterialPickerViewController()
+    
+    sliceVC.presentViewController(v, animated: true, completion: nil)
 }
 
+func joinLink(var event : JSON,done:((JSON )->Void)? = nil) {
+    let url  = URL("events/join/?event_id=" + event["id"].stringValue)
+    joinLink(url) {
+        done_json in
+        done?(done_json)
+    }
+}
+
+func joinLink(var url:String, done:((JSON )->Void)? = nil) {
+    
+    if NSUUID(UUIDString: url) != nil {//uuid check
+        
+        url = URL("events/join/" + url)
+        
+    }
+    
+    url = url.stringByReplacingOccurrencesOfString("https://photoshare.space", withString: "https://www.photoshare.space")
+    url += "?mobile=1"
+    
+    print(__FUNCTION__,url)
+    
+    mgr.request(.GET, url)
+        
+        .responseJSON { (res) -> Void in
+            
+            let j = JSON(res.result.value ?? [])
+            
+            if j["joined"].boolValue {//joined ok
+                
+                Defaults.last_event_id = j["event","id"].stringValue
+                
+                if let event = j["event"].dictionary {
+                    
+                    for  (k , obj) in event {
+                        Defaults.setValue(obj.stringValue, forKeyPath: k)
+                    }
+                }
+                
+                
+                done?(j)
+                
+            }else{//joined NG
+                sliceVC.alert(j["note"].stringValue, message: nil)
+            }
+            
+        }
+        .responseString { (res) -> Void in
+            print(res)
+            
+    }
+}
+
+func docDirSave(fileName:String = "last_event", json: JSON) -> Bool {
+    
+    let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
+    
+    let path = docDir.stringByAppendingString("/" + fileName)
+    
+    let d = json.description.dataUsingEncoding(NSUTF8StringEncoding)
+    
+    if let data = d {
+        return data.writeToFile(path, atomically: true)
+    }
+    
+    return false
+}
+func docDir(fileName: String) -> String {
+    let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
+    let path = docDir.stringByAppendingString("/" + fileName)
+    return path
+}
 //func LOGIN(email:String? = nil, password: String? = nil, token :String? = nil,done: (()->Void)?){
 //
 //    GLO_PARAMS["_token"] = token ?? Defaults.token
