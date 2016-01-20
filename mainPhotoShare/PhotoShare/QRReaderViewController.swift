@@ -132,13 +132,16 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
     
+    var event: JSON!
     func loadURL(url:String){
         
         joinLink(url) {
             
-            json in
+            [weak self] json in
             
-            print(json)
+            self?.event = json["event"]
+            
+            print(self?.event)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
@@ -156,12 +159,23 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
             //                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
             //                self.performSegueWithIdentifier("qr-pvc", sender: nil)
             
-            self.performSegueWithIdentifier("toMaterialPicker", sender: nil)
+            self?.performSegueWithIdentifier("toMaterialPicker", sender: nil)
             
             //            let soundIdRing:SystemSoundID = 1000
             //
             //            AudioServicesPlaySystemSound(soundIdRing)
             
+        }
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toMaterialPicker" {
+            
+            guard event != nil else{
+                 return
+            }
+            
+            let picker = segue.destinationViewController as! MaterialPickerViewController
+            picker.event = event
         }
     }
     

@@ -158,6 +158,7 @@
 		99F5592D1C48E80E00C4A3FE /* UIImage+Decompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559291C48E80E00C4A3FE /* UIImage+Decompression.swift */; };
 		99F5592F1C48E82900C4A3FE /* AnnotatedPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F5592E1C48E82900C4A3FE /* AnnotatedPhotoCell.swift */; };
 		99F559311C48E9F200C4A3FE /* PhotoStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F559301C48E9F200C4A3FE /* PhotoStreamViewController.swift */; };
+		99F7CC741C4F71D700626027 /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7CC731C4F71D700626027 /* RegistViewController.swift */; };
 		F00B0A301C117513008A66D4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00B0A2F1C117513008A66D4 /* Alamofire.framework */; };
 		F064AB5F1BBBDCE700B04AA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064AB5E1BBBDCE700B04AA2 /* AppDelegate.swift */; };
 		F064AB611BBBDCE700B04AA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064AB601BBBDCE700B04AA2 /* ViewController.swift */; };
@@ -348,6 +349,7 @@
 		99F559291C48E80E00C4A3FE /* UIImage+Decompression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Decompression.swift"; sourceTree = "<group>"; };
 		99F5592E1C48E82900C4A3FE /* AnnotatedPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotatedPhotoCell.swift; sourceTree = "<group>"; };
 		99F559301C48E9F200C4A3FE /* PhotoStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStreamViewController.swift; sourceTree = "<group>"; };
+		99F7CC731C4F71D700626027 /* RegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
 		BB0F2F4D29C1B940A3C790C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DBF24FF6FFF990776F9D204F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F00B0A2D1C11749B008A66D4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
@@ -655,6 +657,14 @@
 			name = Pinterest;
 			sourceTree = "<group>";
 		};
+		99F7CC721C4F691300626027 /* REGIST */ = {
+			isa = PBXGroup;
+			children = (
+				99F7CC731C4F71D700626027 /* RegistViewController.swift */,
+			);
+			name = REGIST;
+			sourceTree = "<group>";
+		};
 		C179B78D585014336A6F65BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,13 +713,14 @@
 		F064AB5B1BBBDCE700B04AA2 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
+				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
+				99F7CC721C4F691300626027 /* REGIST */,
 				99EC84E81C4559D8005A053B /* MaterialKit */,
 				99BCA14E1C0EF8AB008B7A63 /* Helpers */,
 				99BCA13E1C0EE069008B7A63 /* libs */,
 				99BCA13D1C0EE044008B7A63 /* images */,
 				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
 				99BCA14B1C0EE465008B7A63 /* START */,
-				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
 				99C4DC171C463F3200C9196D /* QRReader */,
@@ -970,6 +981,7 @@
 				99BCA1971C0F8214008B7A63 /* EZSwiftExtensions.swift in Sources */,
 				99EC85281C455A8A005A053B /* MaterialKeyframeAnimation.swift in Sources */,
 				993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */,
+				99F7CC741C4F71D700626027 /* RegistViewController.swift in Sources */,
 				640BA0FE1C02193400FCD376 /* CameraUtil.swift in Sources */,
 				642DE3861BC4C239003D63EF /* QRViewController.swift in Sources */,
 				99BCA1401C0EE0DF008B7A63 /* URL.swift in Sources */,

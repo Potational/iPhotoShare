@@ -37,10 +37,7 @@ class DownloadPhotoViewController: UIViewController {
         // Do any additional setup after loading the view.
         // add swipe left right
         addSwipeImageView()
-        
-        //        if nil != photos {
-        //            cacheAllPhotos()
-        //        }
+    
     }
     
     @IBAction func next(sender: UIBarButtonItem) {
@@ -141,9 +138,11 @@ class DownloadPhotoViewController: UIViewController {
     }
     
     func save_ok() {
-        let al = UIAlertController(title: "保存完了しました。", message: nil, preferredStyle: .Alert)
-        al.addAction(UIAlertAction(title: "確認", style: .Default, handler: nil))
-        self.presentViewController(al, animated: true, completion: nil)
+        
+        self.noticeSuccess("保存しました。", autoClear: true, autoClearTime: 1)
+//        let al = UIAlertController(title: "保存完了しました。", message: nil, preferredStyle: .Alert)
+//        al.addAction(UIAlertAction(title: "確認", style: .Default, handler: nil))
+//        self.presentViewController(al, animated: true, completion: nil)
         
     }
     

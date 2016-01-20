@@ -57,6 +57,8 @@ func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((us
     
     print( Defaults.login_data)
     
+    SwiftNotice.clear()
+    
     guard var login_data = Defaults.login_data else {
         
         showLoginViewController()
@@ -127,7 +129,7 @@ func build_data(var data : [String: AnyObject], done: ((all_data: [String: AnyOb
 func showLoginViewController(){
     
     print(__FUNCTION__)
-    //    print(    nowViewController?.navigationController)
+
     let v = LoginViewController()
     
     sliceVC?.presentViewController(v, animated: true, completion: nil)

@@ -29,6 +29,7 @@ class ViewController: UIViewController
         //        self.navigationController?.navigationBar.barTintColor = color
         
         self.pleaseWaitWithImages([loaderImage!], timeInterval: 0)
+        
         LOGIN_WITH_EMAIL(){
             
             [unowned self] auth_user in
@@ -77,7 +78,7 @@ class ViewController: UIViewController
         
         df.dateFormat = "YYYY-MM-dd HH:mm:ss"
         let date = df.dateFromString(dateString)
-//        print(date)
+        //        print(date)
         return date
     }
     
@@ -114,13 +115,19 @@ class ViewController: UIViewController
             })
             
             urlAlert.addAction(UIAlertAction(title: "接続", style: .Default, handler: {
-                [unowned self](action) -> Void in
+                (action) -> Void in
                 let url = urlAlert.textFields?[0].text
                 
                 print(url)
-                self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
-                
-                
+                if url != nil && !url!.isEmpty {
+                    joinLink(url!)
+                        {
+                            json in
+                            print(json)
+                            goToCamera(json["event"])
+                    }
+                }
+                //                self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
                 
                 }))
             urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))

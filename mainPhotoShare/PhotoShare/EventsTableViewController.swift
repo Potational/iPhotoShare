@@ -83,10 +83,8 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         
         let eventsArray = NSData(contentsOfFile: docDir("events.json"))
         
-        //        print(eventsArray)
         if let e = eventsArray {
             events = JSON(data: e)
-            //            print(__FUNCTION__,events)
         }
         
     }

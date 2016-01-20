@@ -16,6 +16,7 @@ class QRZoomViewController: UIViewController {
     
     var event : JSON!
     
+    @IBOutlet weak var urlField: UITextField!
     @IBOutlet weak var eventLabel: UILabel!
     
     override func viewDidLoad() {
@@ -30,9 +31,22 @@ class QRZoomViewController: UIViewController {
         })
         
         eventLabel.text = event?["event_name"].string
+        urlField.text = event?["uuid"].string ?? event?["shared_id"].string
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
         
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    @IBAction func copyID(sender: UIButton) {
+        let pasteBoard = UIPasteboard.generalPasteboard()
+        pasteBoard.string = urlField.text
+        self.noticeSuccess("コピーしました。", autoClear: true, autoClearTime: 1)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
