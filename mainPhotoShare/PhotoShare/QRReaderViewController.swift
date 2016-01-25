@@ -143,18 +143,18 @@ class QRReaderViewController :UIViewController, AVCaptureMetadataOutputObjectsDe
             
             print(self?.event)
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("CamController")
-            let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+//            let mainViewController = storyboard.instantiateViewControllerWithIdentifier("CamController")
+//            let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
             
-            let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+//            let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
             
-            rightViewController.mainViewController = nvc
+//            rightViewController.mainViewController = nvc
             
             
             
-            nvc.setNavigationBarHidden(false, animated: true)
+//            nvc.setNavigationBarHidden(false, animated: true)
             
             //                self.performSegueWithIdentifier("toCamController",sender: nil)//カメラ画面へ
             //                self.performSegueWithIdentifier("qr-pvc", sender: nil)

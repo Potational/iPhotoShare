@@ -14,6 +14,8 @@ class EventTableViewCell: UITableViewCell {
     @IBOutlet weak var qrButton: UIButton!
     @IBOutlet weak var by: UILabel!
     
+    @IBOutlet weak var times: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

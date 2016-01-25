@@ -375,7 +375,7 @@ class CamController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDeleg
         data.writeToFile(dataPath, atomically: true)
     
         
-        let event_id = Defaults.last_event_id ?? AppDelegate.noweventid
+        let event_id = Defaults.last_event_id //?? AppDelegate.noweventid
         
         print("event id : \(event_id!)")
         

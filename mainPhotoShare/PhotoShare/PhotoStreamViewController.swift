@@ -57,7 +57,8 @@ class PhotoStreamViewController: UICollectionViewController {
             (res) -> Void in
             
             if let err = res.result.error {
-                self?.alert(__FUNCTION__, message: err.description)
+                self?.alertError(err)
+                return
             }
             
             let json = JSON(res.result.value ?? [])

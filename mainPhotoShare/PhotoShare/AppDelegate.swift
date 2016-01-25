@@ -11,13 +11,11 @@ import UIKit
 import CoreData
 import Alamofire
 
-//var nowViewController : UIViewController?
-
 var mgr: Manager!
-
+var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 var sliceVC : SlideMenuController!
 
-var appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+let appDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
 
 @UIApplicationMain
 
@@ -25,8 +23,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    static var noweventid : String?
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        configureManager()
+        
+        configRootVC()
+        
+        return true
+    }
+    func configRootVC() {
+        if isLoggedIn() {
+            let nvc = mainStoryboard.instantiateInitialViewController()!
+            sliceVC = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftEventsTable ,rightMenuViewController: settingVC)
+            self.window?.rootViewController = sliceVC
+            
+        }else{
+            self.window?.rootViewController = loginView
+        }
+        self.window?.makeKeyAndVisible()
+    }
     
+    func logout(){
+        mgr.request(.GET, URL("/auth/logout"))
+    }
+    
+    let leftEventsTable = {
+        mainStoryboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
+    }()
+    let settingVC = {
+        mainStoryboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
+    }()
     
     var cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
     
@@ -36,37 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         cfg.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
         
         mgr = Manager(configuration: cfg)
-    }
-    
-    var mainVC : UIViewController?
-    
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        configureManager()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        
-        nvc.setNavigationBarHidden(false, animated: true)
-        
-        let event_list = storyboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
-        
-        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: event_list)//,rightMenuViewController: rightViewController)
-        
-        sliceVC = slideMenuController
-    
-        self.window?.rootViewController = slideMenuController
-        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-        self.window?.makeKeyAndVisible()
-        
-        return true
-    }
-    
-    func logout(){
-        mgr.request(.GET, URL("/auth/logout"))
     }
     
     

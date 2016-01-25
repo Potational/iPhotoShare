@@ -33,6 +33,10 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
         prepareCaptureView()
         prepareNavigationBarView()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        cameraButton.setTitle(event?["event_name"].string, forState: .Normal)
+    }
     /**
      :name:	captureStillImageAsynchronously
      */
@@ -50,7 +54,7 @@ class MaterialPickerViewController: UIViewController , CaptureViewDelegate, Capt
             return
         }
         
-        let event_id = Defaults.last_event_id ?? AppDelegate.noweventid
+        let event_id = Defaults.last_event_id //?? AppDelegate.noweventid
         
         print("event id : \(event_id!)")
         

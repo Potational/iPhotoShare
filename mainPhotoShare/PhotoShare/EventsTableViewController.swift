@@ -44,7 +44,8 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
                     [weak self] (res) -> Void in
                     
                     if let err = res.result.error {
-                        self?.alert(err.description, message: nil)
+                        
+                        self?.alertError(err)
                         return
                         
                     }
@@ -52,7 +53,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
                     
                     if let events = self?.events {
                         
-                        self?.writeEventsToLocal(events)
+                        writeEventsToLocal(events)
                         write_last_event_json(events[0])
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -62,16 +63,10 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
                     
             }
         }
-        if refresh {
-            refreshEvents()
-        }
         
         readLocalEvents()
-        if events == nil {
-            refreshEvents()
-        }
-        
         tableView.reloadData()
+        refreshEvents()
         
         
     }
@@ -79,23 +74,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
     @IBAction func refreshEvents(sender: UIBarButtonItem) {
         reloadTableData(true)
     }
-    func readLocalEvents() {
-        
-        let eventsArray = NSData(contentsOfFile: docDir("events.json"))
-        
-        if let e = eventsArray {
-            events = JSON(data: e)
-        }
-        
-    }
-    func writeEventsToLocal(events : JSON?) {
-        if let e = events {
-            let eventsData = e.description.dataUsingEncoding(NSUTF8StringEncoding)
-            let writeEventsJSON = eventsData?.writeToFile(docDir("events.json"), atomically: false)
-            print("writeEventsJSON",writeEventsJSON)
-        }
-        
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,10 +98,22 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         
         let event = events[indexPath.row]
         
+        print(event)
         //event_name
         cell.event_name.text = event["event_name"].string
         //参加者
         cell.by.text = event["members"].string
+        //times
+        if event["platform"].stringValue == "web" {
+             cell.times.text = event["or_time"].stringValue + " (web)"
+        }else{
+            if event["all_day"].intValue == 1 {
+                cell.times.text = event["start_time"].stringValue + " all-day"
+            }else{
+                cell.times.text = event["start_time"].stringValue + " ~ " + event["end_time"].stringValue
+            }
+        }
+        
         //QR image
         let imageUrl = URL("events/qr/") + event["id"].stringValue
         //        if event["uuid"].type == .Null  {//参加者はQRを出せない
@@ -148,7 +139,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         return cell
     }
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 78
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

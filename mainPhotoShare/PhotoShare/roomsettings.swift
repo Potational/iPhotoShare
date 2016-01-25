@@ -26,9 +26,6 @@ class roomsettings: UIViewController  {
         // Do any additional setup after loading the view.
         endtimelabel.hidden = true
         enddatepicker.hidden = true
-        
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,42 +62,42 @@ class roomsettings: UIViewController  {
     
 //    parameter : mobile
     
-    @IBAction func submitbutton(sender: AnyObject) {
-        let data = NSMutableDictionary()
-        LOGIN() { user in
-            GET_TOKEN(true){newtoken in data
-                data.setValue(newtoken, forKey: "_token")
-                data.setValue(self.alldaycfg.selectedSegmentIndex, forKey: "all_day")
-                data.setValue(self.eventTitle.text, forKey: "event_name")
-                if self.alldaycfg.selectedSegmentIndex == 0 {
-                   data.setValue(self.dateformat(self.datepicker.date ), forKey: "start_time")
-                }else{
-                data.setValue(self.dateformat(self.datepicker.date ), forKey: "start_time")
-                data.setValue(self.dateformat(self.enddatepicker.date ), forKey: "end_time")
-                }
-                data.setValue(1, forKey: "mobile")
-                print(data)
-                let req = mgr.request(.POST, URL("events/create"), parameters:data as? [String : AnyObject])
-                req.responseJSON(completionHandler: { (res) -> Void in
-                    if let val = res.result.value {
-                        let json = JSON(val)
-                        print(json)
-                        
-                        let appd:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-                        AppDelegate.noweventid = json["id"].stringValue
-//                        print(appd.noweventid)
-                        
-                    } })
-                    .responseString{string in
-                        
-                        print(string)
-                }
-            }
-            
-        }
-        
-        
-    }
+//    @IBAction func submitbutton(sender: AnyObject) {
+//        let data = NSMutableDictionary()
+//        LOGIN() { user in
+//            GET_TOKEN(true){newtoken in data
+//                data.setValue(newtoken, forKey: "_token")
+//                data.setValue(self.alldaycfg.selectedSegmentIndex, forKey: "all_day")
+//                data.setValue(self.eventTitle.text, forKey: "event_name")
+//                if self.alldaycfg.selectedSegmentIndex == 0 {
+//                   data.setValue(self.dateformat(self.datepicker.date ), forKey: "start_time")
+//                }else{
+//                data.setValue(self.dateformat(self.datepicker.date ), forKey: "start_time")
+//                data.setValue(self.dateformat(self.enddatepicker.date ), forKey: "end_time")
+//                }
+//                data.setValue(1, forKey: "mobile")
+//                print(data)
+//                let req = mgr.request(.POST, URL("events/create"), parameters:data as? [String : AnyObject])
+//                req.responseJSON(completionHandler: { (res) -> Void in
+//                    if let val = res.result.value {
+//                        let json = JSON(val)
+//                        print(json)
+//                        
+//                        let appd:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+//                        AppDelegate.noweventid = json["id"].stringValue
+////                        print(appd.noweventid)
+//                        
+//                    } })
+//                    .responseString{string in
+//                        
+//                        print(string)
+//                }
+//            }
+//            
+//        }
+//        
+//        
+//    }
     
     @IBAction func eventChanged(sender: AnyObject) {
         

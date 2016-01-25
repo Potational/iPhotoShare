@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3qd-nW-hXU">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -11,7 +11,82 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="bK7-ra-taL">
+            <objects>
+                <viewController id="SgN-Py-j3N" customClass="LoginViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b0K-NM-9E0"/>
+                        <viewControllerLayoutGuide type="bottom" id="hFm-ve-web"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8yj-D1-Hid">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="P3T-vh-rNZ">
+                        <barButtonItem key="rightBarButtonItem" title="新規登録" id="X9a-Zn-Gba">
+                            <connections>
+                                <segue destination="Cm3-Qd-Nz1" kind="show" id="Ycg-z9-uyc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKH-SK-UcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2253" y="-733"/>
+        </scene>
+        <!--Regist View Controller-->
+        <scene sceneID="pgY-Xe-d7y">
+            <objects>
+                <viewController id="Cm3-Qd-Nz1" customClass="RegistViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" scalesPageToFit="YES" id="WOs-0g-bmh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="webView" destination="WOs-0g-bmh" id="0ea-kQ-mqy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfe-QA-fE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2253" y="-36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3mu-6j-YpI">
+            <objects>
+                <navigationController storyboardIdentifier="LoginNav" id="90N-7K-sG8" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wge-5Z-eZf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SgN-Py-j3N" kind="relationship" relationship="rootViewController" id="utW-tU-mRu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V6H-LY-7cY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2895" y="-733"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cxY-RV-a35">
+            <objects>
+                <navigationController id="3qd-nW-hXU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UX8-Qb-GnW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hYX-F0-8ff"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xjr-BA-GB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1173" y="-1104"/>
+        </scene>
+        <!--PhotoShare-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,6 +155,18 @@
                             <constraint firstItem="17V-AG-w1j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pPD-Uq-0So"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="PhotoShare" id="FB8-KX-9iK">
+                        <barButtonItem key="leftBarButtonItem" title="Quickイベント" id="GM6-JG-wRU">
+                            <connections>
+                                <action selector="openLeftEvents:" destination="BYZ-38-t0r" id="zs7-38-tdZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Byg-1p-iga">
+                            <connections>
+                                <action selector="openSettingView:" destination="BYZ-38-t0r" id="OY1-Et-VJV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bgImageView" destination="his-Jg-TGk" id="FRh-F8-E3H"/>
                         <segue destination="gw2-hz-t9y" kind="show" identifier="JoinQR" id="elR-d0-vTk"/>
@@ -91,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="-816"/>
+            <point key="canvasLocation" x="-478" y="-1104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mMz-zs-ngL">
@@ -136,7 +223,7 @@
         <scene sceneID="S9f-bG-V3f">
             <objects>
                 <tableViewController storyboardIdentifier="EventsTableViewController" id="Khn-Te-GvX" customClass="EventsTableViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zfg-Cg-wHn">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zfg-Cg-wHn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,7 +232,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5WY-oG-7aI" id="QF5-0B-303">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -482,6 +569,40 @@
             </objects>
             <point key="canvasLocation" x="191" y="-2381"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iXX-kG-uCN">
+            <objects>
+                <navigationController id="b1A-4x-N2d" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IOz-Z4-gUs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TUN-2W-fRY" kind="show" id="v7D-NZ-iEv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gf0-is-nCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1734" y="-1951"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="UWF-io-cvI">
+            <objects>
+                <viewController storyboardIdentifier="SettingViewController" id="TUN-2W-fRY" customClass="SettingViewController" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mAz-gF-BgP"/>
+                        <viewControllerLayoutGuide type="bottom" id="DvT-GY-Z0h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FtM-As-i1z">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPi-aD-DU0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1123" y="-1948"/>
+        </scene>
         <!--Right View Controller-->
         <scene sceneID="XXG-ZH-M74">
             <objects>
@@ -502,7 +623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT2-E6-hZp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-755" y="-1941"/>
+            <point key="canvasLocation" x="-509" y="-2095"/>
         </scene>
         <!--PhotoStreamViewController-->
         <scene sceneID="TEN-OW-c4n">

@@ -7,14 +7,8 @@
 //
 
 import UIKit
-
 import Eureka
-
 import Alamofire
-
-
-import RealmSwift
-
 
 class RoomCreateViewController: FormViewController {
     
@@ -24,10 +18,10 @@ class RoomCreateViewController: FormViewController {
         
         //        let bg = UIImageView(image: UIImage(named: "Home17"))
         //        bg.frame = CGRect(x: 0, y: 0, w: view.frame.size.width, h: view.frame.size.height)
-        let bg = UIColor.whiteColor()
+//        let bg = UIColor.whiteColor()
         //UIColor(patternImage: UIImage(named: "pattern2")!)
-        tableView?.separatorStyle = .None
-        tableView?.backgroundColor = bg
+//        tableView?.separatorStyle = .None
+//        tableView?.backgroundColor = bg
         
         
         self.title = "NEW"
@@ -35,14 +29,14 @@ class RoomCreateViewController: FormViewController {
             Section()
             <<< TextRow("event_name"){
                 $0.title = "イベント名"
-                $0.cell.contentView.backgroundColor = bg
+//                $0.cell.contentView.backgroundColor = bg
                 $0.cell.textField.becomeFirstResponder()
             }
             <<< SegmentedRow<String>("all_day") {
                 $0.options = ["本日のみ", "時間で設定"]
                 $0.title = "共有時間"
                 $0.value = "本日のみ"
-                $0.cell.contentView.backgroundColor = bg
+//                $0.cell.contentView.backgroundColor = bg
                 }.onChange({ (row) -> () in
                     print(row.value)
                     
@@ -54,7 +48,7 @@ class RoomCreateViewController: FormViewController {
                 $0.value = NSDate()
                 $0.dateFormatter = NSDateFormatter.DateAndTime
                 $0.title = "開始時間"
-                $0.cell.contentView.backgroundColor = bg
+//                $0.cell.contentView.backgroundColor = bg
             }
             <<< DateTimeInlineRow("end_time"){
                 $0.minimumDate = NSDate()
@@ -62,7 +56,7 @@ class RoomCreateViewController: FormViewController {
                 $0.title = "終了時間"
                 $0.dateFormatter = NSDateFormatter.DateAndTime
                 $0.hidden = "$all_day == '本日のみ'"
-                $0.cell.contentView.backgroundColor = bg
+//                $0.cell.contentView.backgroundColor = bg
             }
             <<< ButtonRow("submit") {
                 $0.title = "新規アルバム作成"

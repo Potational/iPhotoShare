@@ -23,57 +23,11 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
         
         reloadTableData()
         
-        //        let myBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "onClickMyButton:")
-        
-        // Barの右に配置するボタンを配列に格納する.
-        //        let myRightButtons: NSArray = [myBarButton]
-        
-        // NavigationBarを取得する.
-        //        self.navigationController?.navigationBar
-        
-        // NavigationBarの表示する.
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
-        // Barの右側に複数配置する.
-        //        self.navigationItem.setRightBarButtonItems(myRightButtons as? [UIBarButtonItem], animated: true)
         
-        
-        // Do any additional setup after loading the view.
     }
     
-    //    internal func onClickMyButton(sender: UIButton){
-    //        let alertController = UIAlertController(title: "SHARE", message: "方法選択", preferredStyle: .ActionSheet)
-    //        let firstAction = UIAlertAction(title: "QR CODE", style: .Default) {
-    //            action in print("Pushed First")
-    //        }
-    //        let secondAction = UIAlertAction(title: "URL", style: .Default) {
-    //            action in print("Pushed Second")
-    //        }
-    //        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel) {
-    //            action in print("Pushed CANCEL")
-    //        }
-    //
-    //        alertController.addAction(firstAction)
-    //        alertController.addAction(secondAction)
-    //        alertController.addAction(cancelAction)
-    //
-    //        //For ipad And Univarsal Device
-    //        alertController.popoverPresentationController?.sourceView = sender as UIView;
-    //        alertController.popoverPresentationController?.sourceRect = CGRect(x: (sender.frame.width/2), y: sender.frame.height, width: 0, height: 0)
-    //        alertController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.Up
-    //
-    //        presentViewController(alertController, animated: true, completion: nil)
-    //    }
-    
-    //    override func viewWillAppear(animated: Bool) {
-    //        super.viewWillAppear(animated)
-    //
-    //    }
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-    
-//        reloadTableData()
-//    }
     func reloadTableData(){
         
         mgr.request(.GET, URL("events"))
@@ -92,7 +46,7 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self?.downloadtableView.reloadData()
                 })
-
+                
         }
     }
     
@@ -112,7 +66,6 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(downloadCell, forIndexPath: indexPath)  as! DownloadTableViewCell
-        //        print(events[indexPath.row]["event_name"].string)
         
         cell.nameLabel.text = events[indexPath.row]["event_name"].string
         return cell
@@ -131,9 +84,7 @@ class DownloadViewController: UIViewController,UITableViewDataSource,UITableView
         
         if (segue.identifier == "toPhotoStream") {
             let downloadDetailView =  (segue.destinationViewController as! PhotoStreamViewController)
-            //            print(self.selectedEventId)
             downloadDetailView.event = sel_event
-            //            downloadDetailView.eventId = selectedEventId
         }
     }
     override func prefersStatusBarHidden() -> Bool {
