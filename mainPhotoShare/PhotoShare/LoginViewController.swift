@@ -17,6 +17,7 @@ class LoginViewController: FormViewController {
         
         tryReachability()
         title = "PhotoShare"
+        
         form +++= Section("LOGIN")
             <<< EmailRow("email") {
                 $0.title = "Email"

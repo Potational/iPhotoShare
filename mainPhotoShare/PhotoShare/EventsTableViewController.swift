@@ -10,12 +10,13 @@ import UIKit
 
 let eventcell = "eventcell"
 
-class EventsTableViewController: UITableViewController , UIViewControllerTransitioningDelegate {
+class EventsTableViewController: UITableViewController , UIViewControllerTransitioningDelegate , UISearchBarDelegate {
     
     var events : JSON = nil
     var sel_event : JSON?
     var needShowPhotos : Bool = false
     
+    @IBOutlet weak var searchBar: UISearchBar!
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
@@ -105,7 +106,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         cell.by.text = event["members"].string
         //times
         if event["platform"].stringValue == "web" {
-             cell.times.text = event["or_time"].stringValue + " (web)"
+            cell.times.text = event["or_time"].stringValue + " (web)"
         }else{
             if event["all_day"].intValue == 1 {
                 cell.times.text = event["start_time"].stringValue + " all-day"
@@ -204,5 +205,70 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         return transition
     }
     
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        //        print(searchText)
+        print(__FUNCTION__)
+        if searchText.characters.count > 0 {
+            
+            SwiftNotice.wait([loaderImage!], timeInterval: 0)
+            
+            mgr.request(.GET, URL("events/search?mobile=1"),parameters: ["event_name": searchText])
+                .responseData({[weak self](res) -> Void in
+                    
+                    SwiftNotice.clear()
+                    if let errs = res.result.error{
+                        self?.alertError(errs)
+                    }
+                    guard let data = res.data else {
+                        print("no data")
+                        return
+                    }
+                    
+                    let json = JSON(data: data )
+                    print(json)
+                    
+                    if ((self?.events = json["events"]) != nil) {
+                        self?.tableView.reloadData()
+                        
+                    }
+                    
+                    })
+        }else{
+            clearSearchBar()
+        }
+    }
+    
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        print(__FUNCTION__)
+        SwiftNotice.clear()
+        clearSearchBar()
+    }
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        print(__FUNCTION__)
+        let text = searchBar.text
+        
+        if text == nil {
+            self.clearSearchBar()
+        }
+        if text!.isEmpty {
+            self.clearSearchBar()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.view.endEditing(true)
+    }
+    func clearSearchBar(){
+        SwiftNotice.clear()
+        self.view.endEditing(true)
+        self.tableView.reloadData()
+        return
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.view.endEditing(true)
+    }
     
 }
