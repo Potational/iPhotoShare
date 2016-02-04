@@ -27,8 +27,8 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerNib(UINib(nibName: "EventTableViewCell", bundle: nil), forCellReuseIdentifier: eventcell)
-        
-        reloadTableData(true)
+        //        searchBar.showsCancelButton = true
+        //        reloadTableData(true)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,7 +37,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         reloadTableData()
     }
     
-    func reloadTableData(refresh : Bool = false){
+    func reloadTableData(){
         
         func refreshEvents(){
             mgr.request(.GET, URL("events"))
@@ -65,7 +65,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
             }
         }
         
-        readLocalEvents()
+        self.events = readLocalEvents()
         tableView.reloadData()
         refreshEvents()
         
@@ -73,7 +73,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
     }
     
     @IBAction func refreshEvents(sender: UIBarButtonItem) {
-        reloadTableData(true)
+        reloadTableData()
     }
     
     
@@ -99,7 +99,7 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
         
         let event = events[indexPath.row]
         
-        print(event)
+        //        print(event)
         //event_name
         cell.event_name.text = event["event_name"].string
         //参加者
@@ -234,36 +234,48 @@ class EventsTableViewController: UITableViewController , UIViewControllerTransit
                     
                     })
         }else{
-            clearSearchBar()
+            reloadTableData()
         }
+        
     }
     
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         print(__FUNCTION__)
-        SwiftNotice.clear()
-        clearSearchBar()
-    }
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        print(__FUNCTION__)
-        let text = searchBar.text
         
-        if text == nil {
-            self.clearSearchBar()
-        }
-        if text!.isEmpty {
-            self.clearSearchBar()
-        }
+        clearSearchBar()
+        reloadTableData()
     }
+    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        return true
+    }
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        return true
+    }
+    //    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    //        print(__FUNCTION__)
+    //        let text = searchBar.text
+    //
+    //        if text == nil {
+    //            self.clearSearchBar()
+    //        }
+    //        if text!.isEmpty {
+    //            self.clearSearchBar()
+    //        }
+    //    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if let term = searchBar.text {
+            self.searchBar(searchBar, textDidChange: term)
+        }
         self.view.endEditing(true)
     }
     func clearSearchBar(){
         SwiftNotice.clear()
         self.view.endEditing(true)
         self.tableView.reloadData()
-        return
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -11,15 +11,8 @@
 		322B16DB1C17C4B300B429A7 /* DownloadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322B16DA1C17C4B300B429A7 /* DownloadTableViewCell.swift */; };
 		32A11D351C2F1ED600DE097A /* DownloadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */; };
 		64076A0E1C3F7FE9002994FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64076A0D1C3F7FE9002994FD /* Main.storyboard */; };
-		640BA0FE1C02193400FCD376 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640BA0FD1C02193400FCD376 /* CameraUtil.swift */; };
-		640BA1001C02225100FCD376 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */; };
-		640BA1031C0222EB00FCD376 /* Detector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 640BA1021C0222EB00FCD376 /* Detector.mm */; };
-		642DE3861BC4C239003D63EF /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DE3851BC4C239003D63EF /* QRViewController.swift */; };
-		642DE3881BC4FCFE003D63EF /* URLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DE3871BC4FCFE003D63EF /* URLViewController.swift */; };
-		642DE38A1BC50089003D63EF /* LoadSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DE3891BC50089003D63EF /* LoadSelectViewController.swift */; };
 		646B73C91BBE3AFC004FB197 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 646B73C81BBE3AFC004FB197 /* MobileCoreServices.framework */; };
 		646B73CF1BC3905C004FB197 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B73CE1BC3905C004FB197 /* SlideMenuController.swift */; };
-		646B73D11BC3934D004FB197 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B73D01BC3934D004FB197 /* RightViewController.swift */; };
 		64A2AF6C1C06CED50085319B /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64A2AF6A1C06CED50085319B /* CoreDataModel.xcdatamodeld */; };
 		64A2AF791C0821F10085319B /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF771C0821F10085319B /* 120x120.png */; };
 		64A2AF7A1C0821F10085319B /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF781C0821F10085319B /* 180x180.png */; };
@@ -27,11 +20,6 @@
 		64A2AF881C08313A0085319B /* iphone5 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF841C08313A0085319B /* iphone5 2x.png */; };
 		64A2AF891C08313A0085319B /* iphone6 2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF851C08313A0085319B /* iphone6 2x.png */; };
 		64A2AF8A1C08313A0085319B /* iphone6 p 3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A2AF861C08313A0085319B /* iphone6 p 3x.png */; };
-		64D6FDBC1BC77F2E0052DFB7 /* LoadQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */; };
-		64D6FDBE1BC78EA50052DFB7 /* LoadUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */; };
-		64E6FBA41BCE34BC00E64DE7 /* SaveQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBA31BCE34BC00E64DE7 /* SaveQRViewController.swift */; };
-		64E6FBA61BCE369800E64DE7 /* SaveSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBA51BCE369800E64DE7 /* SaveSelectViewController.swift */; };
-		64E6FBA81BCE381100E64DE7 /* SaveUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBA71BCE381100E64DE7 /* SaveUrlViewController.swift */; };
 		64E6FBAA1BCE387F00E64DE7 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBA91BCE387F00E64DE7 /* DownloadViewController.swift */; };
 		64E6FBAE1BD0B82C00E64DE7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBAD1BD0B82C00E64DE7 /* SwiftyJSON.swift */; };
 		64E6FBC11BD0BCE000E64DE7 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6FBB31BD0BCE000E64DE7 /* Alamofire.swift */; };
@@ -167,8 +155,6 @@
 		F064AB661BBBDCE700B04AA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F064AB651BBBDCE700B04AA2 /* Images.xcassets */; };
 		F064AB691BBBDCE700B04AA2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F064AB671BBBDCE700B04AA2 /* LaunchScreen.xib */; };
 		F064AB751BBBDCE700B04AA2 /* PhotoShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064AB741BBBDCE700B04AA2 /* PhotoShareTests.swift */; };
-		F08398D51BBC14B2008E39B1 /* roomsettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08398D41BBC14B2008E39B1 /* roomsettings.swift */; };
-		F0EF98AB1BBC1B7500850DBA /* CamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF98AA1BBC1B7500850DBA /* CamController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,17 +185,10 @@
 		32A11D341C2F1ED600DE097A /* DownloadPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPhotoViewController.swift; sourceTree = "<group>"; };
 		5D74EE21E63C15274CF2E565 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		64076A0D1C3F7FE9002994FD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		640BA0FD1C02193400FCD376 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
-		640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
 		640BA1011C0222EB00FCD376 /* PhotoShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoShare-Bridging-Header.h"; sourceTree = "<group>"; };
-		640BA1021C0222EB00FCD376 /* Detector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Detector.mm; sourceTree = "<group>"; };
-		642DE3851BC4C239003D63EF /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		642DE3871BC4FCFE003D63EF /* URLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLViewController.swift; sourceTree = "<group>"; };
-		642DE3891BC50089003D63EF /* LoadSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadSelectViewController.swift; sourceTree = "<group>"; };
 		6433C0BF1C0E93A500251393 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		646B73C81BBE3AFC004FB197 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		646B73CE1BC3905C004FB197 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = "../../SlideMenuControllerSwift-master/Source/SlideMenuController.swift"; sourceTree = "<group>"; };
-		646B73D01BC3934D004FB197 /* RightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
+		646B73CE1BC3905C004FB197 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = "../../../SlideMenuControllerSwift-master/Source/SlideMenuController.swift"; sourceTree = "<group>"; };
 		64A2AF6B1C06CED50085319B /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		64A2AF771C0821F10085319B /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = ../120x120.png; sourceTree = "<group>"; };
 		64A2AF781C0821F10085319B /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180x180.png; path = ../180x180.png; sourceTree = "<group>"; };
@@ -217,11 +196,6 @@
 		64A2AF841C08313A0085319B /* iphone5 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5 2x.png"; sourceTree = "<group>"; };
 		64A2AF851C08313A0085319B /* iphone6 2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6 2x.png"; sourceTree = "<group>"; };
 		64A2AF861C08313A0085319B /* iphone6 p 3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6 p 3x.png"; sourceTree = "<group>"; };
-		64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadQRViewController.swift; sourceTree = "<group>"; };
-		64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadUrlViewController.swift; sourceTree = "<group>"; };
-		64E6FBA31BCE34BC00E64DE7 /* SaveQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveQRViewController.swift; sourceTree = "<group>"; };
-		64E6FBA51BCE369800E64DE7 /* SaveSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveSelectViewController.swift; sourceTree = "<group>"; };
-		64E6FBA71BCE381100E64DE7 /* SaveUrlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveUrlViewController.swift; path = ../SaveUrlViewController.swift; sourceTree = "<group>"; };
 		64E6FBA91BCE387F00E64DE7 /* DownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DownloadViewController.swift; path = ../DownloadViewController.swift; sourceTree = "<group>"; };
 		64E6FBAC1BD0B82C00E64DE7 /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyJSON.h; sourceTree = "<group>"; };
 		64E6FBAD1BD0B82C00E64DE7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -368,8 +342,6 @@
 		F064AB6E1BBBDCE700B04AA2 /* PhotoShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F064AB731BBBDCE700B04AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F064AB741BBBDCE700B04AA2 /* PhotoShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoShareTests.swift; sourceTree = "<group>"; };
-		F08398D41BBC14B2008E39B1 /* roomsettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = roomsettings.swift; sourceTree = "<group>"; };
-		F0EF98AA1BBC1B7500850DBA /* CamController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,14 +493,6 @@
 			name = START;
 			sourceTree = "<group>";
 		};
-		99BCA14C1C0EE54A008B7A63 /* roomsetting */ = {
-			isa = PBXGroup;
-			children = (
-				F08398D41BBC14B2008E39B1 /* roomsettings.swift */,
-			);
-			name = roomsetting;
-			sourceTree = "<group>";
-		};
 		99BCA14E1C0EF8AB008B7A63 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +522,7 @@
 		99BCA16D1C0F8214008B7A63 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				646B73CE1BC3905C004FB197 /* SlideMenuController.swift */,
 				99B1DCFC1C4FAA4800176FA8 /* Reachability.h */,
 				99B1DCFD1C4FAA4800176FA8 /* Reachability.swift */,
 				99D5ADCE1C494489000BA57F /* UIImage+Gif.swift */,
@@ -734,35 +699,20 @@
 				99BCA13E1C0EE069008B7A63 /* libs */,
 				99BCA13D1C0EE044008B7A63 /* images */,
 				64076A0D1C3F7FE9002994FD /* Main.storyboard */,
+				99BCA14B1C0EE465008B7A63 /* START */,
 				99BCA15D1C0F50F0008B7A63 /* LOGIN */,
 				99F7CC721C4F691300626027 /* REGIST */,
-				99BCA14B1C0EE465008B7A63 /* START */,
 				99BCA15A1C0F2C39008B7A63 /* RoomCreate */,
 				9934824E1C0FCEF700387491 /* EventList */,
 				99C4DC171C463F3200C9196D /* QRReader */,
 				9908740D1C4E5FEB00578096 /* QRZoom */,
 				9908740C1C4E5FD900578096 /* Picker */,
 				9916C1C11C4CBBCC00BD6113 /* Share */,
-				64D6FDBB1BC77F2E0052DFB7 /* LoadQRViewController.swift */,
-				F0EF98AA1BBC1B7500850DBA /* CamController.swift */,
-				640BA1021C0222EB00FCD376 /* Detector.mm */,
-				640BA0FD1C02193400FCD376 /* CameraUtil.swift */,
-				642DE3891BC50089003D63EF /* LoadSelectViewController.swift */,
-				64D6FDBD1BC78EA50052DFB7 /* LoadUrlViewController.swift */,
-				640BA0FF1C02225100FCD376 /* haarcascade_frontalface_alt.xml */,
-				642DE3851BC4C239003D63EF /* QRViewController.swift */,
-				646B73D01BC3934D004FB197 /* RightViewController.swift */,
-				64E6FBA31BCE34BC00E64DE7 /* SaveQRViewController.swift */,
-				64E6FBA71BCE381100E64DE7 /* SaveUrlViewController.swift */,
-				64E6FBA51BCE369800E64DE7 /* SaveSelectViewController.swift */,
-				646B73CE1BC3905C004FB197 /* SlideMenuController.swift */,
-				642DE3871BC4FCFE003D63EF /* URLViewController.swift */,
 				F064AB651BBBDCE700B04AA2 /* Images.xcassets */,
 				F064AB671BBBDCE700B04AA2 /* LaunchScreen.xib */,
 				F064AB5C1BBBDCE700B04AA2 /* Supporting Files */,
 				640BA1011C0222EB00FCD376 /* PhotoShare-Bridging-Header.h */,
 				64A2AF6A1C06CED50085319B /* CoreDataModel.xcdatamodeld */,
-				99BCA14C1C0EE54A008B7A63 /* roomsetting */,
 				99BCA1491C0EE455008B7A63 /* NewRoom */,
 			);
 			path = PhotoShare;
@@ -881,7 +831,6 @@
 			files = (
 				99BCA1441C0EE1DA008B7A63 /* NewRoomViewController.xib in Resources */,
 				64A2AF881C08313A0085319B /* iphone5 2x.png in Resources */,
-				640BA1001C02225100FCD376 /* haarcascade_frontalface_alt.xml in Resources */,
 				64A2AF871C08313A0085319B /* iphone4s.png in Resources */,
 				64F8B4B11BF429E300DD1D7A /* OnFlash.png in Resources */,
 				64076A0E1C3F7FE9002994FD /* Main.storyboard in Resources */,
@@ -966,7 +915,6 @@
 			files = (
 				99EC851E1C455A8A005A053B /* ImageCardView.swift in Sources */,
 				99EC85431C455A8A005A053B /* TextField.swift in Sources */,
-				F08398D51BBC14B2008E39B1 /* roomsettings.swift in Sources */,
 				646B73CF1BC3905C004FB197 /* SlideMenuController.swift in Sources */,
 				99EC853A1C455A8A005A053B /* MaterialView.swift in Sources */,
 				99EC852E1C455A8A005A053B /* MaterialKit+UIImage+PhotoLibrary.swift in Sources */,
@@ -977,9 +925,6 @@
 				64A2AF6C1C06CED50085319B /* CoreDataModel.xcdatamodeld in Sources */,
 				99EC85201C455A8A005A053B /* MaterialBasicAnimation.swift in Sources */,
 				99EC851B1C455A8A005A053B /* CardView.swift in Sources */,
-				64D6FDBE1BC78EA50052DFB7 /* LoadUrlViewController.swift in Sources */,
-				64E6FBA81BCE381100E64DE7 /* SaveUrlViewController.swift in Sources */,
-				642DE38A1BC50089003D63EF /* LoadSelectViewController.swift in Sources */,
 				F064AB611BBBDCE700B04AA2 /* ViewController.swift in Sources */,
 				99BCA1991C0F8214008B7A63 /* NSDateExtensions.swift in Sources */,
 				99BCA1A51C0F8214008B7A63 /* UITextViewExtensions.swift in Sources */,
@@ -988,7 +933,6 @@
 				99BCA1A41C0F8214008B7A63 /* UILabelExtensions.swift in Sources */,
 				99BCA1951C0F8214008B7A63 /* CGRectExtensions.swift in Sources */,
 				99BCA1941C0F8214008B7A63 /* CGFloatExtensions.swift in Sources */,
-				64E6FBA61BCE369800E64DE7 /* SaveSelectViewController.swift in Sources */,
 				99BCA18C1C0F8214008B7A63 /* BlockButton.swift in Sources */,
 				99BCA1431C0EE1DA008B7A63 /* NewRoomViewController.swift in Sources */,
 				99BCA1A11C0F8214008B7A63 /* UIFontExtensions.swift in Sources */,
@@ -998,8 +942,6 @@
 				99EC85281C455A8A005A053B /* MaterialKeyframeAnimation.swift in Sources */,
 				993482541C0FCF6E00387491 /* EventsTableViewController.swift in Sources */,
 				99F7CC741C4F71D700626027 /* RegistViewController.swift in Sources */,
-				640BA0FE1C02193400FCD376 /* CameraUtil.swift in Sources */,
-				642DE3861BC4C239003D63EF /* QRViewController.swift in Sources */,
 				99BCA1401C0EE0DF008B7A63 /* URL.swift in Sources */,
 				64E6FBC71BD0BCE000E64DE7 /* Request.swift in Sources */,
 				99EC852A1C455A8A005A053B /* MaterialKit+UIFont.swift in Sources */,
@@ -1013,7 +955,6 @@
 				99EC85411C455A8A005A053B /* RobotoFont.swift in Sources */,
 				99BCA1541C0F2031008B7A63 /* Params.swift in Sources */,
 				99BCA1A31C0F8214008B7A63 /* UIImageViewExtensions.swift in Sources */,
-				64E6FBA41BCE34BC00E64DE7 /* SaveQRViewController.swift in Sources */,
 				991B22071C55345900C8D946 /* SettingViewController.swift in Sources */,
 				99BCA1601C0F5109008B7A63 /* LoginViewController.swift in Sources */,
 				99BCA1A21C0F8214008B7A63 /* UIImageExtensions.swift in Sources */,
@@ -1043,7 +984,6 @@
 				99BCA18E1C0F8214008B7A63 /* BlockPan.swift in Sources */,
 				99EC85181C455A8A005A053B /* CapturePreviewView.swift in Sources */,
 				99BCA19F1C0F8214008B7A63 /* UIColorExtensions.swift in Sources */,
-				64D6FDBC1BC77F2E0052DFB7 /* LoadQRViewController.swift in Sources */,
 				64E6FBC91BD0BCE000E64DE7 /* ResponseSerialization.swift in Sources */,
 				99EC85211C455A8A005A053B /* MaterialBorder.swift in Sources */,
 				9974AE191C478B90007E2944 /* QRZoomViewController.swift in Sources */,
@@ -1059,7 +999,6 @@
 				64E6FBCA1BD0BCE000E64DE7 /* Result.swift in Sources */,
 				99BCA1921C0F8214008B7A63 /* BlockWebView.swift in Sources */,
 				99C4DC191C463F5700C9196D /* QRReaderViewController.swift in Sources */,
-				642DE3881BC4FCFE003D63EF /* URLViewController.swift in Sources */,
 				64E6FBCD1BD0BCE000E64DE7 /* Upload.swift in Sources */,
 				99EC852D1C455A8A005A053B /* MaterialKit+UIImage+Network.swift in Sources */,
 				99EC852B1C455A8A005A053B /* MaterialKit+UIImage.swift in Sources */,
@@ -1067,7 +1006,6 @@
 				64E6FBAE1BD0B82C00E64DE7 /* SwiftyJSON.swift in Sources */,
 				99EC85361C455A8A005A053B /* MaterialShape.swift in Sources */,
 				99D5ADCF1C494489000BA57F /* UIImage+Gif.swift in Sources */,
-				646B73D11BC3934D004FB197 /* RightViewController.swift in Sources */,
 				99BCA1481C0EE280008B7A63 /* Defaults.swift in Sources */,
 				99BCA1A61C0F8214008B7A63 /* UIViewControllerExtensions.swift in Sources */,
 				99BCA15C1C0F3C2C008B7A63 /* Date+LVT.swift in Sources */,
@@ -1079,7 +1017,6 @@
 				99EC85291C455A8A005A053B /* MaterialKit+String.swift in Sources */,
 				99F5592D1C48E80E00C4A3FE /* UIImage+Decompression.swift in Sources */,
 				64E6FBAA1BCE387F00E64DE7 /* DownloadViewController.swift in Sources */,
-				F0EF98AB1BBC1B7500850DBA /* CamController.swift in Sources */,
 				99EC852F1C455A8A005A053B /* MaterialKit+UIImage+Resize.swift in Sources */,
 				99EC85311C455A8A005A053B /* MaterialLabel.swift in Sources */,
 				99F559311C48E9F200C4A3FE /* PhotoStreamViewController.swift in Sources */,
@@ -1097,7 +1034,6 @@
 				99BCA19D1C0F8214008B7A63 /* UIButtonExtensions.swift in Sources */,
 				64E6FBCC1BD0BCE000E64DE7 /* Stream.swift in Sources */,
 				99EC851C1C455A8A005A053B /* FabButton.swift in Sources */,
-				640BA1031C0222EB00FCD376 /* Detector.mm in Sources */,
 				9974AE131C475C41007E2944 /* UIImageView+Cache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

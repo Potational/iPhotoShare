@@ -17,19 +17,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isLoggedIn() {
-            self.checkLastEventAndGotoCamera()
-        }
+        self.checkLastEventAndGotoCamera()
+        
     }
     
-    
-    @IBAction func openLeftEvents(sender: UIBarButtonItem) {
-        self.slideMenuController()?.openLeft()
-    }
-    
-    @IBAction func openSettingView(sender: UIBarButtonItem) {
-        self.slideMenuController()?.openRight()
-    }
     func checkLastEventAndGotoCamera() {
         
         print(__FUNCTION__)
@@ -45,8 +36,10 @@ class ViewController: UIViewController {
                 //all_day
                 
                 if  start_time != nil && NSDate.areDatesSameDay(NSDate(), dateTwo: start_time!) {
-                    
-                    self?.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self?.slideMenuController()?.openLeft()
+                        self?.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+                    })
                 }
                 
             }else{
@@ -54,7 +47,10 @@ class ViewController: UIViewController {
                 let end_time = self?.date(last["end_time"].stringValue)
                 
                 if start_time != nil && end_time != nil && (start_time!.compare(end_time!) == .OrderedAscending && (today.compare(end_time!) == .OrderedAscending)) {
-                    self?.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self?.slideMenuController()?.openLeft()
+                        self?.performSegueWithIdentifier("directPhotoPicker", sender: nil)
+                    })
                 }
             }
             
@@ -117,8 +113,6 @@ class ViewController: UIViewController {
                             goToCamera(json["event"])
                     }
                 }
-                //                self.performSegueWithIdentifier("JoinURLDirect", sender: nil)
-                
             }))
             urlAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
             
@@ -137,6 +131,14 @@ class ViewController: UIViewController {
         let v = RoomCreateViewController()
         self.navigationController?.pushViewController(v, animated: true)
         
+    }
+    
+    @IBAction func openLeftEvents(sender: UIBarButtonItem) {
+        self.slideMenuController()?.openLeft()
+    }
+    
+    @IBAction func openSettingView(sender: UIBarButtonItem) {
+        self.slideMenuController()?.openRight()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

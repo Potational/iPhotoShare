@@ -72,7 +72,6 @@ class SettingViewController: FormViewController {
     func deleteAllDirFiles()
     {
         //        let cacheURL = NSURL(fileURLWithPath: docDir())
-        let fileManager = NSFileManager.defaultManager()
         let e = fileManager.enumeratorAtPath(docDir())
         
         //        let enumerator = fileManager.enumeratorAtURL(cacheURL, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions.SkipsHiddenFiles, errorHandler: nil)

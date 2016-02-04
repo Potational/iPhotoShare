@@ -27,7 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureManager()
         
-        configRootVC()
+        let req = mgr.request(.GET, URL("_tokendic"))
+        
+        req.responseData {
+            [weak self](res) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self?.configRootVC()
+            })
+        }
+        
         
         return true
     }
@@ -43,9 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
     
-    func logout(){
-        mgr.request(.GET, URL("/auth/logout"))
-    }
     
     let leftEventsTable = {
         mainStoryboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
@@ -54,11 +59,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainStoryboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
     }()
     
-    var cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage()
-    
     func configureManager(){
         let cfg = NSURLSessionConfiguration.defaultSessionConfiguration()
-        cfg.HTTPCookieStorage = cookies
+        cfg.HTTPShouldSetCookies = true
+        cfg.HTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
         cfg.HTTPAdditionalHeaders = Manager.defaultHTTPHeaders
         
         mgr = Manager(configuration: cfg)

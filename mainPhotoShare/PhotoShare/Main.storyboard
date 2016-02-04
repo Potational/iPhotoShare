@@ -744,8 +744,8 @@
         <image name="ShareButton" width="810" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iJv-nN-nNV"/>
         <segue reference="0tJ-cM-dT9"/>
         <segue reference="wsh-kl-qBw"/>
+        <segue reference="kWT-Gg-x74"/>
     </inferredMetricsTieBreakers>
 </document>

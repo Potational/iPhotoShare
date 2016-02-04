@@ -12,10 +12,13 @@ import Alamofire
 
 class LoginViewController: FormViewController {
     
+    var reachability: Reachability!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tryReachability()
+        
         title = "PhotoShare"
         
         form +++= Section("LOGIN")
@@ -51,7 +54,7 @@ class LoginViewController: FormViewController {
                         }
                     }
                     
-                    self?.LOGIN_WITH_EMAIL(email, password: password){
+                    LoginViewController.LOGIN_WITH_EMAIL(email, password: password){
                         user in
                         appDelegate.configRootVC()
                     }
@@ -60,13 +63,13 @@ class LoginViewController: FormViewController {
         // Do any additional setup after loading the view.
     }
     
-    func LOGIN_WITH_EMAIL(email:String? = nil , password : String? = nil, done: ((user: AnyObject?)-> Void)? = nil){
+    static func LOGIN_WITH_EMAIL(email:String! = nil , password : String! = nil, done: ((user: AnyObject?)-> Void)? = nil){
         
         guard email != nil && password != nil else {
             appDelegate.configRootVC()
             return
         }
-        var login_data = ["email": email!, "password":password!]
+        var login_data = ["email": email, "password":password]
         
         GET_TOKEN(true) { (token) -> Void in
             login_data["_token"] = token
@@ -75,52 +78,27 @@ class LoginViewController: FormViewController {
             
             mgr.request(.POST, URL("auth/login"), parameters : login_data)
                 
-                
-                .responseJSON { (res) -> Void in
-                    
+                .responseJSON {(res) -> Void in
                     
                     if let err = res.result.error {
-                        SwiftNotice.showNoticeWithText(NoticeType.error, text: err.localizedDescription, autoClear: true, autoClearTime: 0)
+                        SwiftNotice.showNoticeWithText(NoticeType.error, text: err.localizedDescription, autoClear: true, autoClearTime: 2)
                         return
                     }
                     
                     let user = res.result.value
                     
-                    //ログイン成功のデータをロカルに保存
-                    //                    Defaults.login_data = login_data
+                    let user_json = JSON(user ?? [])
                     
-                    let user_json = JSON(res.result.value ?? [])
-                    
-                    print(user_json)
                     if user_json["login"] != nil && user_json["login"].bool == false {
+                        
                         //login failed
-                        self.alert(user_json["errs"].string)
+                        topVC().alert(user_json["errs"].string)
                         return
                     }
                     
                     user_json.writeTo(docDir("auth"))
-                    
-                    
-                    //                    if let user_dic = user_json.dictionary {
-                    //                        //check login
-                    //                        /*
-                    //                        if  login failed then show error
-                    //                        */
-                    //                        if user_dic["login"]?.boolValue == false {
-                    //                            self.alert(user_dic["errs"]?.stringValue)
-                    //                            return
-                    //                        }
-                    //
-                    //                        // else write key value to Defaults
-                    //                        for (k,val) in user_json {
-                    //                            Defaults.setValue(val.stringValue, forKeyPath: "user_\(k)")
-                    //                        }
-                    ////                        print("user_id",Defaults.value("user_id"))
-                    //
-                    //                        //then write user_json to docDir("auth")
-                    //                        print("writing user to \(docDir("auth"))")
-                    //                        user_json.description.dataUsingEncoding(NSUTF8StringEncoding)?.writeToFile(docDir("auth"), atomically: true)
-                    //                    }
+                    let writeLoginFile = NSFileManager.defaultManager().createFileAtPath(docDir("login"), contents: login_data.description.dataUsingEncoding(NSUTF8StringEncoding), attributes: nil)
+                    print("writeLoginFile",writeLoginFile)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         done?(user: user)
@@ -131,7 +109,6 @@ class LoginViewController: FormViewController {
         
     }
     
-    var reachability: Reachability!
     
     func tryReachability() {
         do {
@@ -193,3 +170,25 @@ extension JSON {
         return self.description.dataUsingEncoding(NSUTF8StringEncoding)?.writeToFile(path, atomically: true)
     }
 }
+func topVC() -> UIViewController {
+    let top = UIApplication.sharedApplication().keyWindow?.rootViewController
+    guard var topVC = top else {
+        return UIViewController()
+    }
+    while let vc = topVC.presentedViewController {
+        topVC = vc
+    }
+    return topVC
+}
+//extension UIViewController {
+//    func topVC() -> UIViewController {
+//        let top = UIApplication.sharedApplication().keyWindow?.rootViewController
+//        guard var topVC = top else {
+//            return UIViewController()
+//        }
+//        while let vc = topVC.presentedViewController {
+//            topVC = vc
+//        }
+//        return topVC
+//    }
+//}

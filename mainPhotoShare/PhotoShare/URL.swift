@@ -24,8 +24,6 @@ func GETKEY(key:String) -> AnyObject? {
     return NSUserDefaults.standardUserDefaults().valueForKeyPath(key)
 }
 
-
-
 func isLoggedIn() -> Bool {
     return NSFileManager.defaultManager().fileExistsAtPath(docDir("auth"))
 }
@@ -40,16 +38,6 @@ func build_data(var data : [String: AnyObject], done: ((all_data: [String: AnyOb
     }
     
 }
-
-//func showLoginViewController(){
-//
-//    dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//        //        let v = LoginViewController()
-//
-//        sliceVC?.presentViewController(loginView, animated: true, completion: nil)
-//    }
-//
-//}
 
 let loginView = {
     mainStoryboard.instantiateViewControllerWithIdentifier("LoginNav")
@@ -86,8 +74,6 @@ func GET_TOKEN(refresh:Bool = false, complete: ((token:String) -> Void)? = nil) 
     }
 }
 
-//let BASE_URL = "https://www.photoshare.space"
-//var GLO_PARAMS : [String:String] = ["mobile":"1"]
 
 enum URL_TYPE : String {
     case LOGIN = "/auth/login"

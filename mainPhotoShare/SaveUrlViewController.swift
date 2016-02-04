@@ -59,11 +59,11 @@ class SaveUrlViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let mainViewController = storyboard.instantiateViewControllerWithIdentifier("DownloadViewController")
-        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
+//        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("RightViewController") as! RightViewController
         
         let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
         
-        rightViewController.mainViewController = nvc
+//        rightViewController.mainViewController = nvc
         
         nvc.setNavigationBarHidden(false, animated: true)
         
