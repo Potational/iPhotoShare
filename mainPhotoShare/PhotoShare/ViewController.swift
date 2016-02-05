@@ -17,8 +17,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.checkLastEventAndGotoCamera()
+        self.checkLastEventAndGotoCamera()        
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
     
     func checkLastEventAndGotoCamera() {

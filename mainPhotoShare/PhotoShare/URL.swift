@@ -226,6 +226,14 @@ func docDirSave(fileName:String = "last_event", json: JSON) -> Bool {
     
     return false
 }
+func jsonFromFile(path:String!) -> JSON {
+    if let data = NSData(contentsOfFile: path) {
+        print(data)
+        return JSON(data: data)
+    }
+    
+    return nil
+}
 func docDir(fileName: String? = nil) -> String {
     let docDir  = (NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) ).first!
     if fileName == nil {

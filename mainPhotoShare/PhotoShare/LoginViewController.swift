@@ -71,6 +71,8 @@ class LoginViewController: FormViewController {
         }
         var login_data = ["email": email, "password":password]
         
+        ez.topMostVC?.noticeTop("Logining...")
+        
         GET_TOKEN(true) { (token) -> Void in
             login_data["_token"] = token
             login_data["mobile"] = "1"
@@ -97,12 +99,14 @@ class LoginViewController: FormViewController {
                     }
                     
                     user_json.writeTo(docDir("auth"))
-                    let writeLoginFile = NSFileManager.defaultManager().createFileAtPath(docDir("login"), contents: login_data.description.dataUsingEncoding(NSUTF8StringEncoding), attributes: nil)
+                    let writeLoginFile = NSFileManager.defaultManager().createFileAtPath(docDir("login"), contents: JSON(login_data).description.dataUsingEncoding(NSUTF8StringEncoding), attributes: nil)
                     print("writeLoginFile",writeLoginFile)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         done?(user: user)
                     })
+                    
+                    SwiftNotice.clear()
                     
             }
         }

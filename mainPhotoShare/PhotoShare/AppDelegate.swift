@@ -27,36 +27,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureManager()
         
-        let req = mgr.request(.GET, URL("_tokendic"))
-        
-        req.responseData {
-            [weak self](res) -> Void in
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self?.configRootVC()
-            })
-        }
-        
+        configRootVC()
         
         return true
     }
     func configRootVC() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true;
         if isLoggedIn() {
-            let nvc = mainStoryboard.instantiateInitialViewController()!
-            sliceVC = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftEventsTable ,rightMenuViewController: settingVC)
-            self.window?.rootViewController = sliceVC
+            let login = jsonFromFile(docDir("login"))
             
-        }else{
-            self.window?.rootViewController = loginView
+            if login != nil {
+                LoginViewController.LOGIN_WITH_EMAIL(login["email"].stringValue, password: login["password"].stringValue,
+                    done: { [unowned self](user) -> Void in
+                        
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            
+                            let nvc = mainStoryboard.instantiateInitialViewController()!
+                            sliceVC = SlideMenuController(mainViewController:nvc, leftMenuViewController: self.leftEventsTable ,rightMenuViewController: self.settingVC)
+                            self.window?.rootViewController = sliceVC
+                            self.window?.makeKeyAndVisible()
+                            
+                        })
+                        
+                    })
+            }
         }
-        self.window?.makeKeyAndVisible()
+        else{
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.window?.rootViewController = loginView
+            self.window?.makeKeyAndVisible()
+        }
+        
     }
     
     
-    let leftEventsTable = {
-        mainStoryboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
+    lazy var leftEventsTable = {
+        return mainStoryboard.instantiateViewControllerWithIdentifier("EventsTableViewController") as! EventsTableViewController
     }()
-    let settingVC = {
-        mainStoryboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
+    lazy var settingVC = {
+        return mainStoryboard.instantiateViewControllerWithIdentifier("SettingViewController") as! SettingViewController
     }()
     
     func configureManager(){
