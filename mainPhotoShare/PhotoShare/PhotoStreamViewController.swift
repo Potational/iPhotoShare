@@ -92,7 +92,7 @@ class PhotoStreamViewController: UICollectionViewController {
             ImageDownloader.downloadImage(urlImage: photo["link_thumb"].stringValue, completionBlock: { (imageDownloaded) -> () in
                 
                 cell.captionLabel.text = photo["title"].string
-                
+                cell.captionLabel.textAlignment = .Center
                 UIView.transitionWithView(cell.imageView, duration: 0.3,
                     options: UIViewAnimationOptions.TransitionCrossDissolve,
                     animations: { () -> Void in
@@ -148,7 +148,7 @@ class PhotoStreamViewController: UICollectionViewController {
     }
     
     lazy var loader : UIImage? = {
-        return UIImage.gifWithName("panda_loading")
+        return UIImage.gifWithName("panda_102")
     }()
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

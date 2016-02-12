@@ -147,7 +147,7 @@ class DownloadPhotoViewController: UIViewController {
     }
     
     lazy var loader : UIImage? = {
-        return UIImage.gifWithName("panda_loading")
+        return UIImage.gifWithName("panda_102")
     }()
     
     @IBAction func other_actions(sender: UIBarButtonItem) {

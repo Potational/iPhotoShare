@@ -244,5 +244,5 @@ func docDir(fileName: String? = nil) -> String {
 }
 
 var loaderImage : UIImage? = {
-    return UIImage.gifWithName("panda_102"/*"panda_loading"*/)
+    return UIImage.gifWithName("panda_101"/*"panda_loading"*/)
 }()
